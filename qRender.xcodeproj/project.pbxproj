@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5E920A7727B38C320064302F /* qRenderDebugMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7127B0EA870064302F /* qRenderDebugMenu.mm */; };
+		5E920A7827B38DB70064302F /* DebugMenu.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7327B0EAF50064302F /* DebugMenu.metal */; };
+		5EC6CC9327B0E92E00E0822D /* qRenderCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6CC9227B0E92E00E0822D /* qRenderCamera.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5EBA2F11236CDBE9009FF419 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EBA2F0A236CDBE9009FF419 /* qMetal.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = qMetal;
+		};
+		5EBA2F1B236CDDBA009FF419 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EBA2F17236CDDBA009FF419 /* qMath.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = qMath;
+		};
+		5EBA2F21236CDDC1009FF419 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EBA2F1D236CDDC1009FF419 /* qCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = qCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5EBA2EFB236CDB9A009FF419 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5E920A6F27B0EA550064302F /* CameraGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CameraGlobals.h; path = include/Shaders/CameraGlobals.h; sourceTree = SOURCE_ROOT; };
+		5E920A7027B0EA7C0064302F /* qRenderDebugMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderDebugMenu.h; path = include/qRenderDebugMenu.h; sourceTree = SOURCE_ROOT; };
+		5E920A7127B0EA870064302F /* qRenderDebugMenu.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderDebugMenu.mm; path = src/qRenderDebugMenu.mm; sourceTree = SOURCE_ROOT; };
+		5E920A7227B0EAF50064302F /* DebugMenuParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DebugMenuParams.h; path = include/Shaders/DebugMenuParams.h; sourceTree = SOURCE_ROOT; };
+		5E920A7327B0EAF50064302F /* DebugMenu.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = DebugMenu.metal; path = include/Shaders/DebugMenu.metal; sourceTree = SOURCE_ROOT; };
+		5E920A7427B0EBAC0064302F /* qRenderGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderGlobals.h; path = include/qRenderGlobals.h; sourceTree = SOURCE_ROOT; };
+		5E920A7527B0ED750064302F /* TimeGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TimeGlobals.h; path = include/Shaders/TimeGlobals.h; sourceTree = SOURCE_ROOT; };
+		5EBA2EFD236CDB9A009FF419 /* libqRender.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libqRender.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EBA2F0A236CDBE9009FF419 /* qMetal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = qMetal.xcodeproj; path = ../qMetal/qMetal.xcodeproj; sourceTree = "<group>"; };
+		5EBA2F14236CDC48009FF419 /* qRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRender.h; path = include/qRender.h; sourceTree = SOURCE_ROOT; };
+		5EBA2F17236CDDBA009FF419 /* qMath.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = qMath.xcodeproj; path = ../qMath/qMath.xcodeproj; sourceTree = "<group>"; };
+		5EBA2F1D236CDDC1009FF419 /* qCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = qCore.xcodeproj; path = ../qCore/qCore.xcodeproj; sourceTree = "<group>"; };
+		5EC6CC9027B0E92700E0822D /* qRenderCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderCamera.h; path = include/qRenderCamera.h; sourceTree = SOURCE_ROOT; };
+		5EC6CC9127B0E92700E0822D /* qRenderRenderable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderRenderable.h; path = include/qRenderRenderable.h; sourceTree = SOURCE_ROOT; };
+		5EC6CC9227B0E92E00E0822D /* qRenderCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderCamera.mm; path = src/qRenderCamera.mm; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5EBA2EFA236CDB9A009FF419 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5E920A6C27B0E9A90064302F /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				5E920A6F27B0EA550064302F /* CameraGlobals.h */,
+				5E920A7327B0EAF50064302F /* DebugMenu.metal */,
+				5E920A7227B0EAF50064302F /* DebugMenuParams.h */,
+				5E920A7527B0ED750064302F /* TimeGlobals.h */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		5EBA2EF4236CDB9A009FF419 = {
+			isa = PBXGroup;
+			children = (
+				5EBA2F1D236CDDC1009FF419 /* qCore.xcodeproj */,
+				5EBA2F17236CDDBA009FF419 /* qMath.xcodeproj */,
+				5EBA2F0A236CDBE9009FF419 /* qMetal.xcodeproj */,
+				5EBA2EFF236CDB9A009FF419 /* qRender */,
+				5EBA2EFE236CDB9A009FF419 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5EBA2EFE236CDB9A009FF419 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EBA2EFD236CDB9A009FF419 /* libqRender.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5EBA2EFF236CDB9A009FF419 /* qRender */ = {
+			isa = PBXGroup;
+			children = (
+				5EBA2F13236CDC35009FF419 /* Classes */,
+			);
+			path = qRender;
+			sourceTree = "<group>";
+		};
+		5EBA2F0B236CDBE9009FF419 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EBA2F12236CDBE9009FF419 /* libqMetal.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5EBA2F13236CDC35009FF419 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5E920A6C27B0E9A90064302F /* Shaders */,
+				5EBA2F14236CDC48009FF419 /* qRender.h */,
+				5EC6CC9027B0E92700E0822D /* qRenderCamera.h */,
+				5EC6CC9227B0E92E00E0822D /* qRenderCamera.mm */,
+				5E920A7027B0EA7C0064302F /* qRenderDebugMenu.h */,
+				5E920A7127B0EA870064302F /* qRenderDebugMenu.mm */,
+				5E920A7427B0EBAC0064302F /* qRenderGlobals.h */,
+				5EC6CC9127B0E92700E0822D /* qRenderRenderable.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		5EBA2F18236CDDBA009FF419 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EBA2F1C236CDDBA009FF419 /* libqMath.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5EBA2F1E236CDDC1009FF419 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EBA2F22236CDDC1009FF419 /* libqCore.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5EBA2EFC236CDB9A009FF419 /* qRender */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EBA2F06236CDB9A009FF419 /* Build configuration list for PBXNativeTarget "qRender" */;
+			buildPhases = (
+				5EBA2EF9236CDB9A009FF419 /* Sources */,
+				5EBA2EFA236CDB9A009FF419 /* Frameworks */,
+				5EBA2EFB236CDB9A009FF419 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = qRender;
+			productName = qRender;
+			productReference = 5EBA2EFD236CDB9A009FF419 /* libqRender.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5EBA2EF5236CDB9A009FF419 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1320;
+				ORGANIZATIONNAME = "Russell Warneboldt";
+				TargetAttributes = {
+					5EBA2EFC236CDB9A009FF419 = {
+						CreatedOnToolsVersion = 11.2;
+					};
+				};
+			};
+			buildConfigurationList = 5EBA2EF8236CDB9A009FF419 /* Build configuration list for PBXProject "qRender" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5EBA2EF4236CDB9A009FF419;
+			productRefGroup = 5EBA2EFE236CDB9A009FF419 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5EBA2F1E236CDDC1009FF419 /* Products */;
+					ProjectRef = 5EBA2F1D236CDDC1009FF419 /* qCore.xcodeproj */;
+				},
+				{
+					ProductGroup = 5EBA2F18236CDDBA009FF419 /* Products */;
+					ProjectRef = 5EBA2F17236CDDBA009FF419 /* qMath.xcodeproj */;
+				},
+				{
+					ProductGroup = 5EBA2F0B236CDBE9009FF419 /* Products */;
+					ProjectRef = 5EBA2F0A236CDBE9009FF419 /* qMetal.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				5EBA2EFC236CDB9A009FF419 /* qRender */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5EBA2F12236CDBE9009FF419 /* libqMetal.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libqMetal.a;
+			remoteRef = 5EBA2F11236CDBE9009FF419 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5EBA2F1C236CDDBA009FF419 /* libqMath.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libqMath.a;
+			remoteRef = 5EBA2F1B236CDDBA009FF419 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5EBA2F22236CDDC1009FF419 /* libqCore.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libqCore.a;
+			remoteRef = 5EBA2F21236CDDC1009FF419 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5EBA2EF9236CDB9A009FF419 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EC6CC9327B0E92E00E0822D /* qRenderCamera.mm in Sources */,
+				5E920A7727B38C320064302F /* qRenderDebugMenu.mm in Sources */,
+				5E920A7827B38DB70064302F /* DebugMenu.metal in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5EBA2F04236CDB9A009FF419 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5EBA2F05236CDB9A009FF419 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5EBA2F07236CDB9A009FF419 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MU45E745AK;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../qMetal/include\"",
+					"\"$(SRCROOT)/../qMath/include\"",
+					"\"$(SRCROOT)/../qCore/include\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5EBA2F08236CDB9A009FF419 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MU45E745AK;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../qMetal/include\"",
+					"\"$(SRCROOT)/../qMath/include\"",
+					"\"$(SRCROOT)/../qCore/include\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5EBA2EF8236CDB9A009FF419 /* Build configuration list for PBXProject "qRender" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EBA2F04236CDB9A009FF419 /* Debug */,
+				5EBA2F05236CDB9A009FF419 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EBA2F06236CDB9A009FF419 /* Build configuration list for PBXNativeTarget "qRender" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EBA2F07236CDB9A009FF419 /* Debug */,
+				5EBA2F08236CDB9A009FF419 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5EBA2EF5236CDB9A009FF419 /* Project object */;
+}
