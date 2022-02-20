@@ -31,20 +31,6 @@ using namespace qMetal;
 
 namespace qRender
 {
-	enum eRenderablePass
-	{
-		eRenderablePass_GBuffer = 0,
-		eRenderablePass_DepthNormalPrepass,
-		eRenderablePass_IndirectReflectionProbe,
-		eRenderablePass_ReflectionProbe,
-		eRenderablePass_ShadowMap0,
-		eRenderablePass_ShadowMap1,
-		eRenderablePass_ShadowMap2,
-		eRenderablePass_ShadowMap3,
-		eRenderablePass_HeightMap,
-		eRenderablePass_Count
-	};
-
 	class Renderable
 	{
 	public:
@@ -58,14 +44,14 @@ namespace qRender
 		//optional early compute encode
 		virtual void EarlyEncodeCompute(id<MTLComputeCommandEncoder> encoder, const Camera *camera, const Globals *globals) const { };
 		
-		virtual void Encode(id<MTLRenderCommandEncoder> encoder, const Camera *camera, const Globals *globals, const eRenderablePass pass) const = 0;
+		virtual void Encode(id<MTLRenderCommandEncoder> encoder, const Camera *camera, const Globals *globals, const int32_t pass) const = 0;
 		
 		//optional compute shader
-		virtual void EncodeCompute(id<MTLComputeCommandEncoder> encoder, const Camera *camera, const Globals *globals, eRenderablePass pass) const { };
+		virtual void EncodeCompute(id<MTLComputeCommandEncoder> encoder, const Camera *camera, const Globals *globals, int32_t pass) const { };
 		
 		//optional indirect command buffer reset / optimization pass
-		virtual void Reset(eRenderablePass pass) { };
-		virtual void Optimize(eRenderablePass pass) { };
+		virtual void Reset(int32_t pass) { };
+		virtual void Optimize(int32_t pass) { };
 	};
 }
 
