@@ -47,11 +47,11 @@ namespace qRender
 		virtual void Encode(id<MTLRenderCommandEncoder> encoder, const Camera *camera, const Globals *globals, const int32_t pass) const = 0;
 		
 		//optional compute shader
-		virtual void EncodeCompute(id<MTLComputeCommandEncoder> encoder, const Camera *camera, const Globals *globals, int32_t pass) const { };
+		virtual void EncodeCompute(id<MTLComputeCommandEncoder> encoder, const Camera *camera, const Globals *globals, const int32_t pass) const { };
 		
 		//optional indirect command buffer reset / optimization pass
-		virtual void Reset(int32_t pass) { };
-		virtual void Optimize(int32_t pass) { };
+		virtual void Reset(const int32_t pass) const { };
+		virtual void Optimize(const int32_t pass) const { };
 	};
 }
 
