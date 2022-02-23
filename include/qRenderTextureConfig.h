@@ -20,16 +20,35 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef __Q_RENDER_H__
-#define __Q_RENDER_H__
+#ifndef __Q_RENDER_TEXTURE_CONFIG_H__
+#define __Q_RENDER_TEXTURE_CONFIG_H__
 
-#include "qRenderCamera.h"
-#include "qRenderDebugMenu.h"
-#include "qRenderRenderable.h"
-#include "qRenderTextureConfig.h"
+#include "qMetal.h"
 
-#include "Shaders/CameraGlobals.h"
-#include "Shaders/TimeGlobals.h"
+using namespace qMetal;
 
-#endif //__Q_RENDER_H__
+namespace qRender
+{
+	typedef struct TextureConfig
+	{
+		Texture *texture;
+		
+		TextureConfig()
+		: texture(NULL)
+		{}
+		
+		TextureConfig(NSDictionary *jsonConfig, NSString *_path, const SamplerState *samplerState = SamplerState::PredefinedState(eSamplerState_LinearLinearLinear_RepeatRepeat))
+		{
+			NSString *textureName = [jsonConfig objectForKey:@"texture"];
+			texture = Texture::LoadByName([_path stringByAppendingString:textureName], false, samplerState);
+		}
+		
+		friend std::ostream& operator<<(std::ostream& out, const TextureConfig& config)
+		{
+			out << "texture: " << config.texture->GetName() << std::endl;
+			return out;
+		}
+	} TexturConfig;
+}
 
+#endif /* __Q_RENDER_TEXTURE_CONFIG_H__ */
