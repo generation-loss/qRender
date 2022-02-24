@@ -41,9 +41,6 @@ namespace qRender
 		//TODO make this more generic to touch events
 		virtual void Drag(qVector2 location, qVector2 velocity) {}
 		
-		//optional early compute encode
-		virtual void EarlyEncodeCompute(id<MTLComputeCommandEncoder> encoder, const Camera *camera, const Globals *globals) const { };
-		
 		virtual void Encode(id<MTLRenderCommandEncoder> encoder, const Camera *camera, const Globals *globals, const int32_t pass) const = 0;
 		
 		//optional compute shader
