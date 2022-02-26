@@ -33,13 +33,15 @@ namespace qRender
 	{
 		TimeGlobals timeGlobals;
 		CameraGlobals sceneCameraGlobals;
+		Camera *sceneCamera;
 		
-		Globals()
-		: lastTime(0)
+		Globals(Camera* _sceneCamera)
+		: sceneCamera(_sceneCamera)
+		, lastTime(0)
 		{
 		}
 		
-		void Update(float time, Camera* sceneCamera)
+		void Update(float time)
 		{
 			timeGlobals.time = time;
 			timeGlobals.dTime = time - lastTime;
