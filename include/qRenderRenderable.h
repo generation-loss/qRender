@@ -35,7 +35,7 @@ namespace qRender
 	{
 	public:
 		virtual void InitRender(const Camera *camera, const Globals *globals) { }
-		virtual void PopulateGlobals(Globals *globals, Camera* sceneCamera) { }
+		virtual void PopulateGlobals(Globals *globals) { }
 		virtual void Update(Globals *globals) = 0;
 		
 		//TODO make this more generic to touch events
