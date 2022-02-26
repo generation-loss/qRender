@@ -20,17 +20,38 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef __Q_RENDER_H__
-#define __Q_RENDER_H__
+#ifndef __Q_RENDER_SUBSYSTEM_H__
+#define __Q_RENDER_SUBSYSTEM_H__
 
+#include "qMetal.h"
 #include "qRenderCamera.h"
-#include "qRenderDebugMenu.h"
+#include "qRenderGlobals.h"
 #include "qRenderRenderable.h"
-#include "qRenderSubsystem.h"
-#include "qRenderTextureConfig.h"
 
-#include "Shaders/CameraGlobals.h"
-#include "Shaders/TimeGlobals.h"
+using namespace qMetal;
 
-#endif //__Q_RENDER_H__
+namespace qRender
+{
+	class Subsystem
+	{
+	public:
+	
+		virtual void Update(Globals *globals) = 0;
+		
+		virtual void Encode(const Globals *globals) const = 0;
+		
+		void AddRenderable(qRender::Renderable* renderable)
+		{
+			renderables.push_back(renderable);
+		}
+		
+		//TODO make this more generic to touch events
+		virtual void Drag(qVector2 location, qVector2 velocity) {}
+		
+	protected:
+	
+		std::vector<qRender::Renderable*> renderables;
+	};
+}
 
+#endif /* __Q_RENDER_SUBSYSTEM_H__ */
