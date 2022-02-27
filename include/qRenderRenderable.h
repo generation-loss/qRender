@@ -34,7 +34,7 @@ namespace qRender
 	class Renderable
 	{
 	public:
-		virtual void InitRender(const Camera *camera, const Globals *globals) { }
+		virtual void InitRender(const Globals *globals) { }
 		virtual void PopulateGlobals(Globals *globals) { }
 		virtual void Update(Globals *globals) = 0;
 		
