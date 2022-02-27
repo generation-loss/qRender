@@ -20,37 +20,38 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef __Q_RENDER_SUBSYSTEM_H__
-#define __Q_RENDER_SUBSYSTEM_H__
+#ifndef __Q_RENDER_SUBSYSTEMS_H__
+#define __Q_RENDER_SUBSYSTEMS_H__
 
 #include "qMetal.h"
+#include "qRenderSubsystem.h"
 #include "qRenderGlobals.h"
-#include "qRenderRenderable.h"
 
 using namespace qMetal;
 
 namespace qRender
 {
-	class Subsystem
+	class Subsystems : public Subsystem
 	{
 	public:
 	
-		virtual void Update(Globals *globals) = 0;
+		void InitRender(qRender::Globals *globals);
+	
+		void Update(Globals *globals);
 		
-		virtual void Encode(const Globals *globals) const = 0;
+		void Encode(const Globals *globals) const;
 		
-		void AddRenderable(qRender::Renderable* renderable)
+		void Drag(qVector2 location, qVector2 velocity);
+		
+		void AddSubsystem(qRender::Subsystem* subsystem)
 		{
-			renderables.push_back(renderable);
+			subsystems.push_back(subsystem);
 		}
-		
-		//TODO make this more generic to touch events
-		virtual void Drag(qVector2 location, qVector2 velocity) {}
 		
 	protected:
 	
-		std::vector<qRender::Renderable*> renderables;
+		std::vector<qRender::Subsystem*> subsystems;
 	};
 }
 
-#endif /* __Q_RENDER_SUBSYSTEM_H__ */
+#endif /* __Q_RENDER_SUBSYSTEMS_H__ */

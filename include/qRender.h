@@ -27,6 +27,7 @@ SOFTWARE.
 #include "qRenderDebugMenu.h"
 #include "qRenderRenderable.h"
 #include "qRenderSubsystem.h"
+#include "qRenderSubsystems.h"
 #include "qRenderTextureConfig.h"
 
 #include "Shaders/CameraGlobals.h"
