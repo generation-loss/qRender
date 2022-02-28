@@ -7,6 +7,14 @@ qRender builds on [qMetal](https://github.com/generation-loss/qMetal), to provid
 
 A class that any renderable object can inherit from, to provide a consistent update and dispatch API
 
+### Subsystem
+
+A class that any rendering subsystem (e.g. shadow map, height map, etc.) can inherit from, to provide a consistent update and dispatch API
+
+### Subsystems
+
+A collection of subsystems that are useful for a rendering engine. First up is a height map, more are to follow
+
 ### Render Globals
 
 A blob of globally scoped data that can be shared between code and shaders, and inherited from by any renderee. By default, it includes time and camera data. 
