@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E1EE18927CC30C20017375F /* qRenderSubsystems.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EE18827CC2FBC0017375F /* qRenderSubsystems.mm */; };
+		5E1EE18C27CC32340017375F /* qRenderHeightMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EE18A27CC31C10017375F /* qRenderHeightMap.mm */; };
 		5E920A7727B38C320064302F /* qRenderDebugMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7127B0EA870064302F /* qRenderDebugMenu.mm */; };
 		5E920A7827B38DB70064302F /* DebugMenu.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7327B0EAF50064302F /* DebugMenu.metal */; };
 		5EC6CC9327B0E92E00E0822D /* qRenderCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6CC9227B0E92E00E0822D /* qRenderCamera.mm */; };
@@ -53,6 +54,8 @@
 		5E16A71B27CAE05A00D77CE3 /* qRenderSubsystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderSubsystem.h; path = include/qRenderSubsystem.h; sourceTree = SOURCE_ROOT; };
 		5E1EE18727CC2FA60017375F /* qRenderSubsystems.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderSubsystems.h; path = include/qRenderSubsystems.h; sourceTree = SOURCE_ROOT; };
 		5E1EE18827CC2FBC0017375F /* qRenderSubsystems.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderSubsystems.mm; path = src/qRenderSubsystems.mm; sourceTree = SOURCE_ROOT; };
+		5E1EE18A27CC31C10017375F /* qRenderHeightMap.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderHeightMap.mm; path = src/qRenderHeightMap.mm; sourceTree = SOURCE_ROOT; };
+		5E1EE18B27CC31CA0017375F /* qRenderHeightMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderHeightMap.h; path = include/qRenderHeightMap.h; sourceTree = SOURCE_ROOT; };
 		5E77632C27C5ED8000846286 /* qRenderTextureConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderTextureConfig.h; path = include/qRenderTextureConfig.h; sourceTree = SOURCE_ROOT; };
 		5E920A6F27B0EA550064302F /* CameraGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CameraGlobals.h; path = include/Shaders/CameraGlobals.h; sourceTree = SOURCE_ROOT; };
 		5E920A7027B0EA7C0064302F /* qRenderDebugMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderDebugMenu.h; path = include/qRenderDebugMenu.h; sourceTree = SOURCE_ROOT; };
@@ -138,6 +141,8 @@
 				5E920A7027B0EA7C0064302F /* qRenderDebugMenu.h */,
 				5E920A7127B0EA870064302F /* qRenderDebugMenu.mm */,
 				5E920A7427B0EBAC0064302F /* qRenderGlobals.h */,
+				5E1EE18B27CC31CA0017375F /* qRenderHeightMap.h */,
+				5E1EE18A27CC31C10017375F /* qRenderHeightMap.mm */,
 				5EC6CC9127B0E92700E0822D /* qRenderRenderable.h */,
 				5E16A71B27CAE05A00D77CE3 /* qRenderSubsystem.h */,
 				5E1EE18727CC2FA60017375F /* qRenderSubsystems.h */,
@@ -260,6 +265,7 @@
 			files = (
 				5EC6CC9327B0E92E00E0822D /* qRenderCamera.mm in Sources */,
 				5E920A7727B38C320064302F /* qRenderDebugMenu.mm in Sources */,
+				5E1EE18C27CC32340017375F /* qRenderHeightMap.mm in Sources */,
 				5E1EE18927CC30C20017375F /* qRenderSubsystems.mm in Sources */,
 				5E920A7827B38DB70064302F /* DebugMenu.metal in Sources */,
 			);

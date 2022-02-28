@@ -35,6 +35,8 @@ namespace qRender
 	{
 	public:
 	
+		virtual void Init(qRender::Globals *globals) {}
+	
 		virtual void Update(Globals *globals) = 0;
 		
 		virtual void Encode(const Globals *globals) const = 0;

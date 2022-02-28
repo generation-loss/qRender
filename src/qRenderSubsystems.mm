@@ -22,18 +22,42 @@ SOFTWARE.
 
 #include "qRenderSubsystems.h"
 	
-void qRender::Subsystems::InitRender(qRender::Globals *globals)
+qRender::Subsystems::Subsystems(Config* _config)
+: config(_config)
 {
+	HeightMap::Config* heightMapConfig = config->heightMapConfig == NULL ? new HeightMap::Config() : config->heightMapConfig;
+	heightMap = new HeightMap(heightMapConfig);
+	this->AddSubsystem(heightMap);
+}
+	
+void qRender::Subsystems::Init(Globals *globals)
+{
+	for(auto &it : subsystems)
+	{
+		it->Init(globals);
+	}
 }
 	
 void qRender::Subsystems::Update(qRender::Globals *globals)
 {
+	for(auto &it : subsystems)
+	{
+		it->Update(globals);
+	}
 }
 
 void qRender::Subsystems::Encode(const qRender::Globals *globals) const
 {
+	for(auto &it : subsystems)
+	{
+		it->Encode(globals);
+	}
 }
 		
 void qRender::Subsystems::Drag(qVector2 location, qVector2 velocity)
 {
+	for(auto &it : subsystems)
+	{
+		it->Drag(location, velocity);
+	}
 }

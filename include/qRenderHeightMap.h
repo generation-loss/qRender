@@ -20,42 +20,65 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef __Q_RENDER_RENDERABLE_H__
-#define __Q_RENDER_RENDERABLE_H__
+#ifndef __Q_RENDER_HEIGHT_MAP_H__
+#define __Q_RENDER_HEIGHT_MAP_H__
 
+#include "qMath.h"
 #include "qMetal.h"
 #include "qRenderCamera.h"
 #include "qRenderGlobals.h"
+#include "qRenderSubsystem.h"
 
 using namespace qMetal;
 
 namespace qRender
 {
-	enum RenderablePass
-	{
-		eRenderablePass_HeightMap,
-		eRenderablePass_Count
-	};
-
-	class Renderable
+	class HeightMap : public qRender::Subsystem
 	{
 	public:
-		virtual void InitRender(const Globals *globals) { }
-		virtual void PopulateGlobals(Globals *globals) { }
-		virtual void Update(Globals *globals) = 0;
+
+		typedef struct Config
+		{
+			uint32_t      				size;
+			qRender::Camera::Config		*cameraConfig;
+			
+			Config()
+			: size(512)
+			, cameraConfig(new qRender::Camera::Config(@"Height Map"))
+			{
+				cameraConfig->type = qRender::Camera::eType_Orthographic;
+				cameraConfig->nearPlane = 1.0f;
+				cameraConfig->farPlane = 1000.0f;
+				cameraConfig->width = 100.0f;
+				cameraConfig->height = 100.0f;
+			}
+			
+		} Config;
 		
-		//TODO make this more generic to touch events
-		virtual void Drag(qVector2 location, qVector2 velocity) {}
+		HeightMap(Config *_config);
 		
-		virtual void Encode(id<MTLRenderCommandEncoder> encoder, const Camera *camera, const Globals *globals, const int32_t pass) const = 0;
+		void Update(qRender::Globals *globals);
 		
-		//optional compute shader
-		virtual void EncodeCompute(id<MTLComputeCommandEncoder> encoder, const Camera *camera, const Globals *globals, const int32_t pass) const { };
+		void Encode(const qRender::Globals *globals) const;
 		
-		//optional indirect command buffer reset / optimization pass
-		virtual void Reset(const int32_t pass) const { };
-		virtual void Optimize(const int32_t pass) const { };
+		inline Texture* GetTexture() const
+		{
+			return renderTarget->DepthTexture();
+		}
+		
+		inline RenderTarget* GetRenderTarget() const
+		{
+			return renderTarget;
+		}
+		
+	private:
+		
+		Config				*config;
+		
+		RenderTarget		*renderTarget;
+		
+		qRender::Camera		*camera;
 	};
 }
 
-#endif /* __Q_RENDER_RENDERABLE_H__ */
+#endif /* __Q_RENDER_HEIGHT_MAP_H__ */

@@ -26,6 +26,7 @@ SOFTWARE.
 #include "qMetal.h"
 #include "qRenderSubsystem.h"
 #include "qRenderGlobals.h"
+#include "qRenderHeightMap.h"
 
 using namespace qMetal;
 
@@ -34,8 +35,19 @@ namespace qRender
 	class Subsystems : public Subsystem
 	{
 	public:
-	
-		void InitRender(qRender::Globals *globals);
+		typedef struct Config
+		{
+			Config()
+			: heightMapConfig(NULL)
+			{
+			}
+			
+			HeightMap::Config* heightMapConfig;
+		} Config;
+		
+		Subsystems(Config* _config);
+		
+		void Init(qRender::Globals *globals);
 	
 		void Update(Globals *globals);
 		
@@ -48,9 +60,19 @@ namespace qRender
 			subsystems.push_back(subsystem);
 		}
 		
+		HeightMap* GetHeightMap() const
+		{
+			return heightMap;
+		}
+		
 	protected:
 	
 		std::vector<qRender::Subsystem*> subsystems;
+		
+	private:
+	
+		Config* config;
+		HeightMap* heightMap;
 	};
 }
 
