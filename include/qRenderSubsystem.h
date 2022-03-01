@@ -35,13 +35,13 @@ namespace qRender
 	{
 	public:
 	
-		virtual void Init(qRender::Globals *globals) {}
+		virtual void Init(Globals *globals) {}
 	
 		virtual void Update(Globals *globals) = 0;
 		
 		virtual void Encode(const Globals *globals) const = 0;
 		
-		void AddRenderable(qRender::Renderable* renderable)
+		void AddRenderable(Renderable* renderable)
 		{
 			renderables.push_back(renderable);
 		}
@@ -51,7 +51,7 @@ namespace qRender
 		
 	protected:
 	
-		std::vector<qRender::Renderable*> renderables;
+		std::vector<Renderable*> renderables;
 	};
 }
 

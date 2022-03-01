@@ -33,20 +33,20 @@ using namespace qMetal;
 
 namespace qRender
 {
-	class HeightMap : public qRender::Subsystem
+	class HeightMap : public Subsystem
 	{
 	public:
 
 		typedef struct Config
 		{
 			uint32_t      				size;
-			qRender::Camera::Config		*cameraConfig;
+			Camera::Config				*cameraConfig;
 			
 			Config()
 			: size(512)
-			, cameraConfig(new qRender::Camera::Config(@"Height Map"))
+			, cameraConfig(new Camera::Config(@"Height Map"))
 			{
-				cameraConfig->type = qRender::Camera::eType_Orthographic;
+				cameraConfig->type = Camera::eType_Orthographic;
 				cameraConfig->nearPlane = 1.0f;
 				cameraConfig->farPlane = 1000.0f;
 				cameraConfig->width = 100.0f;
@@ -57,9 +57,9 @@ namespace qRender
 		
 		HeightMap(Config *_config);
 		
-		void Update(qRender::Globals *globals);
+		void Update(Globals *globals);
 		
-		void Encode(const qRender::Globals *globals) const;
+		void Encode(const Globals *globals) const;
 		
 		inline Texture* GetTexture() const
 		{
@@ -77,7 +77,7 @@ namespace qRender
 		
 		RenderTarget		*renderTarget;
 		
-		qRender::Camera		*camera;
+		Camera				*camera;
 	};
 }
 

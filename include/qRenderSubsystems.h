@@ -47,7 +47,7 @@ namespace qRender
 		
 		Subsystems(Config* _config);
 		
-		void Init(qRender::Globals *globals);
+		void Init(Globals *globals);
 	
 		void Update(Globals *globals);
 		
@@ -55,7 +55,7 @@ namespace qRender
 		
 		void Drag(qVector2 location, qVector2 velocity);
 		
-		void AddSubsystem(qRender::Subsystem* subsystem)
+		void AddSubsystem(Subsystem* subsystem)
 		{
 			subsystems.push_back(subsystem);
 		}
@@ -67,7 +67,7 @@ namespace qRender
 		
 	protected:
 	
-		std::vector<qRender::Subsystem*> subsystems;
+		std::vector<Subsystem*> subsystems;
 		
 	private:
 	

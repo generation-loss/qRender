@@ -36,16 +36,16 @@ qRender::HeightMap::HeightMap(Config *_config)
 	renderTargetConfig->depthTextureSamplerState = SamplerState::PredefinedState(eSamplerState_LinearLinearNone_ClampClamp);
 	renderTarget = new RenderTarget(renderTargetConfig);
 	
-	camera = new qRender::Camera(config->cameraConfig);
+	camera = new Camera(config->cameraConfig);
 }
 
-void qRender::HeightMap::Update(qRender::Globals *globals)
+void qRender::HeightMap::Update(Globals *globals)
 {
 	camera->SetPosition(globals->sceneCamera->GetPosition() + qVector3(0.0f, 100.0f, 0.0f));
 	camera->SetLookAt(globals->sceneCamera->GetPosition(), qVector3(1.0f, 0.0f, 0.0f));
 }
 
-void qRender::HeightMap::Encode(const qRender::Globals *globals) const
+void qRender::HeightMap::Encode(const Globals *globals) const
 {
 	id<MTLComputeCommandEncoder> computeCommandEncoder = Device::ComputeEncoder(@"Height Map Compute");
 	for(auto &it : renderables)
