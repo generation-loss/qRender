@@ -30,7 +30,10 @@ SOFTWARE.
 #include "qRenderSubsystems.h"
 #include "qRenderTextureConfig.h"
 
+#include "qRenderHeightMap.h"
+
 #include "Shaders/CameraGlobals.h"
+#include "Shaders/ShadingGlobals.h"
 #include "Shaders/TimeGlobals.h"
 
 #endif //__Q_RENDER_H__

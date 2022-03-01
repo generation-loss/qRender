@@ -23,14 +23,22 @@ SOFTWARE.
 #ifndef __Q_RENDER_GLOBALS_H__
 #define __Q_RENDER_GLOBALS_H__
 
+#include "Shaders/ShadingGlobals.h"
 #include "Shaders/TimeGlobals.h"
 #include "Shaders/CameraGlobals.h"
 #include "qRenderCamera.h"
 
 namespace qRender
 {
+	static const char* sDebugModeNames[eDebugMode_Count] = {
+	#define DEBUG_MODE(xxenum) #xxenum,
+			DEBUG_MODES
+	#undef DEBUG_MODE
+	};
+
 	typedef struct Globals
 	{
+		ShadingGlobals shading;
 		TimeGlobals timeGlobals;
 		CameraGlobals sceneCameraGlobals;
 		Camera *sceneCamera;
@@ -38,7 +46,9 @@ namespace qRender
 		Globals(Camera* _sceneCamera)
 		: sceneCamera(_sceneCamera)
 		, lastTime(0)
+		, debugMode(eDebugMode_None)
 		{
+			qRender::DebugMenu::Instance()->Value("Rendering", NULL, "Debug Mode", debugMode, eDebugMode_None, eDebugMode_Count - 1, sDebugModeNames);
 		}
 		
 		void Update(float time)
@@ -47,12 +57,15 @@ namespace qRender
 			timeGlobals.dTime = time - lastTime;
 			lastTime = time;
 			
+			shading.debugMode = (eDebugMode)debugMode;
+			
 			memcpy(&sceneCameraGlobals, &sceneCamera->globals, sizeof(CameraGlobals));
 		}
 		
 	private:
 		
 		float lastTime;
+		int debugMode;
 		
 	} Globals;
 }
