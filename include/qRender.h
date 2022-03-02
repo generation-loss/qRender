@@ -31,6 +31,7 @@ SOFTWARE.
 #include "qRenderTextureConfig.h"
 
 #include "qRenderHeightMap.h"
+#include "qRenderReflectionProbe.h"
 
 #include "Shaders/CameraGlobals.h"
 #include "Shaders/ShadingGlobals.h"

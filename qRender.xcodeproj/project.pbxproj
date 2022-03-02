@@ -9,12 +9,34 @@
 /* Begin PBXBuildFile section */
 		5E1EE18927CC30C20017375F /* qRenderSubsystems.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EE18827CC2FBC0017375F /* qRenderSubsystems.mm */; };
 		5E1EE18C27CC32340017375F /* qRenderHeightMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EE18A27CC31C10017375F /* qRenderHeightMap.mm */; };
+		5E5817E027CDDABD0094D397 /* qRenderReflectionProbe.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */; };
 		5E920A7727B38C320064302F /* qRenderDebugMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7127B0EA870064302F /* qRenderDebugMenu.mm */; };
 		5E920A7827B38DB70064302F /* DebugMenu.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7327B0EAF50064302F /* DebugMenu.metal */; };
 		5EC6CC9327B0E92E00E0822D /* qRenderCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6CC9227B0E92E00E0822D /* qRenderCamera.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5E5817E527CDE3B00094D397 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EBA2F1D236CDDC1009FF419 /* qCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = qCore;
+		};
+		5E5817E727CDE3B40094D397 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EBA2F17236CDDBA009FF419 /* qMath.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = qMath;
+		};
+		5E5817E927CDE3B60094D397 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EBA2F0A236CDBE9009FF419 /* qMetal.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = qMetal;
+		};
 		5EBA2F11236CDBE9009FF419 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5EBA2F0A236CDBE9009FF419 /* qMetal.xcodeproj */;
@@ -56,6 +78,8 @@
 		5E1EE18827CC2FBC0017375F /* qRenderSubsystems.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderSubsystems.mm; path = src/qRenderSubsystems.mm; sourceTree = SOURCE_ROOT; };
 		5E1EE18A27CC31C10017375F /* qRenderHeightMap.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderHeightMap.mm; path = src/qRenderHeightMap.mm; sourceTree = SOURCE_ROOT; };
 		5E1EE18B27CC31CA0017375F /* qRenderHeightMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderHeightMap.h; path = include/qRenderHeightMap.h; sourceTree = SOURCE_ROOT; };
+		5E5817DB27CDD9290094D397 /* qRenderReflectionProbe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderReflectionProbe.h; path = include/qRenderReflectionProbe.h; sourceTree = SOURCE_ROOT; };
+		5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderReflectionProbe.mm; path = src/qRenderReflectionProbe.mm; sourceTree = SOURCE_ROOT; };
 		5E5817E127CDDC120094D397 /* ShadingGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShadingGlobals.h; path = include/Shaders/ShadingGlobals.h; sourceTree = SOURCE_ROOT; };
 		5E77632C27C5ED8000846286 /* qRenderTextureConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderTextureConfig.h; path = include/qRenderTextureConfig.h; sourceTree = SOURCE_ROOT; };
 		5E920A6F27B0EA550064302F /* CameraGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CameraGlobals.h; path = include/Shaders/CameraGlobals.h; sourceTree = SOURCE_ROOT; };
@@ -145,6 +169,8 @@
 				5E920A7427B0EBAC0064302F /* qRenderGlobals.h */,
 				5E1EE18B27CC31CA0017375F /* qRenderHeightMap.h */,
 				5E1EE18A27CC31C10017375F /* qRenderHeightMap.mm */,
+				5E5817DB27CDD9290094D397 /* qRenderReflectionProbe.h */,
+				5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */,
 				5EC6CC9127B0E92700E0822D /* qRenderRenderable.h */,
 				5E16A71B27CAE05A00D77CE3 /* qRenderSubsystem.h */,
 				5E1EE18727CC2FA60017375F /* qRenderSubsystems.h */,
@@ -184,6 +210,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				5E5817E627CDE3B00094D397 /* PBXTargetDependency */,
+				5E5817E827CDE3B40094D397 /* PBXTargetDependency */,
+				5E5817EA27CDE3B60094D397 /* PBXTargetDependency */,
 			);
 			name = qRender;
 			productName = qRender;
@@ -268,12 +297,31 @@
 				5EC6CC9327B0E92E00E0822D /* qRenderCamera.mm in Sources */,
 				5E920A7727B38C320064302F /* qRenderDebugMenu.mm in Sources */,
 				5E1EE18C27CC32340017375F /* qRenderHeightMap.mm in Sources */,
+				5E5817E027CDDABD0094D397 /* qRenderReflectionProbe.mm in Sources */,
 				5E1EE18927CC30C20017375F /* qRenderSubsystems.mm in Sources */,
 				5E920A7827B38DB70064302F /* DebugMenu.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E5817E627CDE3B00094D397 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = qCore;
+			targetProxy = 5E5817E527CDE3B00094D397 /* PBXContainerItemProxy */;
+		};
+		5E5817E827CDE3B40094D397 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = qMath;
+			targetProxy = 5E5817E727CDE3B40094D397 /* PBXContainerItemProxy */;
+		};
+		5E5817EA27CDE3B60094D397 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = qMetal;
+			targetProxy = 5E5817E927CDE3B60094D397 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5EBA2F04236CDB9A009FF419 /* Debug */ = {

@@ -27,6 +27,7 @@ SOFTWARE.
 #include "qRenderSubsystem.h"
 #include "qRenderGlobals.h"
 #include "qRenderHeightMap.h"
+#include "qRenderReflectionProbe.h"
 
 using namespace qMetal;
 
@@ -43,6 +44,7 @@ namespace qRender
 			}
 			
 			HeightMap::Config* heightMapConfig;
+			ReflectionProbe::Config* reflectionProbeConfig;
 		} Config;
 		
 		Subsystems(Config* _config);
@@ -65,6 +67,11 @@ namespace qRender
 			return heightMap;
 		}
 		
+		ReflectionProbe* GetReflectionProbe() const
+		{
+			return reflectionProbe;
+		}
+		
 	protected:
 	
 		std::vector<Subsystem*> subsystems;
@@ -73,6 +80,7 @@ namespace qRender
 	
 		Config* config;
 		HeightMap* heightMap;
+		ReflectionProbe* reflectionProbe;
 	};
 }
 

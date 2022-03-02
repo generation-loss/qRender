@@ -28,6 +28,10 @@ qRender::Subsystems::Subsystems(Config* _config)
 	HeightMap::Config* heightMapConfig = config->heightMapConfig == NULL ? new HeightMap::Config() : config->heightMapConfig;
 	heightMap = new HeightMap(heightMapConfig);
 	this->AddSubsystem(heightMap);
+	
+	ReflectionProbe::Config* reflectionProbeConfig = config->reflectionProbeConfig == NULL ? new ReflectionProbe::Config() : config->reflectionProbeConfig;
+	reflectionProbe = new ReflectionProbe(reflectionProbeConfig);
+	this->AddSubsystem(reflectionProbe);
 }
 	
 void qRender::Subsystems::Init(Globals *globals)

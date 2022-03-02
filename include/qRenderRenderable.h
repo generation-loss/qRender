@@ -34,6 +34,13 @@ namespace qRender
 	enum RenderablePass
 	{
 		eRenderablePass_HeightMap,
+		eRenderablePass_IndirectReflectionProbe0,
+		eRenderablePass_IndirectReflectionProbe1,
+		eRenderablePass_IndirectReflectionProbe2,
+		eRenderablePass_IndirectReflectionProbe3,
+		eRenderablePass_IndirectReflectionProbe4,
+		eRenderablePass_IndirectReflectionProbe5,
+		eRenderablePass_ReflectionProbe,
 		eRenderablePass_Count
 	};
 
