@@ -10,6 +10,8 @@
 		5E1EE18927CC30C20017375F /* qRenderSubsystems.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EE18827CC2FBC0017375F /* qRenderSubsystems.mm */; };
 		5E1EE18C27CC32340017375F /* qRenderHeightMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EE18A27CC31C10017375F /* qRenderHeightMap.mm */; };
 		5E5817E027CDDABD0094D397 /* qRenderReflectionProbe.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */; };
+		5E6D3F4927CF34F500244B48 /* Globals.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D3F4727CF346600244B48 /* Globals.metal */; };
+		5E7055EF27CF3638000BF523 /* Util.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E7055EE27CF35F1000BF523 /* Util.metal */; };
 		5E920A7727B38C320064302F /* qRenderDebugMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7127B0EA870064302F /* qRenderDebugMenu.mm */; };
 		5E920A7827B38DB70064302F /* DebugMenu.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7327B0EAF50064302F /* DebugMenu.metal */; };
 		5EC6CC9327B0E92E00E0822D /* qRenderCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6CC9227B0E92E00E0822D /* qRenderCamera.mm */; };
@@ -81,6 +83,10 @@
 		5E5817DB27CDD9290094D397 /* qRenderReflectionProbe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderReflectionProbe.h; path = include/qRenderReflectionProbe.h; sourceTree = SOURCE_ROOT; };
 		5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderReflectionProbe.mm; path = src/qRenderReflectionProbe.mm; sourceTree = SOURCE_ROOT; };
 		5E5817E127CDDC120094D397 /* ShadingGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShadingGlobals.h; path = include/Shaders/ShadingGlobals.h; sourceTree = SOURCE_ROOT; };
+		5E6D3F4727CF346600244B48 /* Globals.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = Globals.metal; path = include/Shaders/Globals.metal; sourceTree = SOURCE_ROOT; };
+		5E6D3F4827CF346600244B48 /* Globals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Globals.h; path = include/Shaders/Globals.h; sourceTree = SOURCE_ROOT; };
+		5E7055ED27CF35F1000BF523 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Util.h; path = include/Shaders/Util.h; sourceTree = SOURCE_ROOT; };
+		5E7055EE27CF35F1000BF523 /* Util.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = Util.metal; path = include/Shaders/Util.metal; sourceTree = SOURCE_ROOT; };
 		5E77632C27C5ED8000846286 /* qRenderTextureConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderTextureConfig.h; path = include/qRenderTextureConfig.h; sourceTree = SOURCE_ROOT; };
 		5E920A6F27B0EA550064302F /* CameraGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CameraGlobals.h; path = include/Shaders/CameraGlobals.h; sourceTree = SOURCE_ROOT; };
 		5E920A7027B0EA7C0064302F /* qRenderDebugMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderDebugMenu.h; path = include/qRenderDebugMenu.h; sourceTree = SOURCE_ROOT; };
@@ -116,8 +122,12 @@
 				5E920A6F27B0EA550064302F /* CameraGlobals.h */,
 				5E920A7327B0EAF50064302F /* DebugMenu.metal */,
 				5E920A7227B0EAF50064302F /* DebugMenuParams.h */,
+				5E6D3F4827CF346600244B48 /* Globals.h */,
+				5E6D3F4727CF346600244B48 /* Globals.metal */,
 				5E5817E127CDDC120094D397 /* ShadingGlobals.h */,
 				5E920A7527B0ED750064302F /* TimeGlobals.h */,
+				5E7055ED27CF35F1000BF523 /* Util.h */,
+				5E7055EE27CF35F1000BF523 /* Util.metal */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -300,6 +310,8 @@
 				5E5817E027CDDABD0094D397 /* qRenderReflectionProbe.mm in Sources */,
 				5E1EE18927CC30C20017375F /* qRenderSubsystems.mm in Sources */,
 				5E920A7827B38DB70064302F /* DebugMenu.metal in Sources */,
+				5E6D3F4927CF34F500244B48 /* Globals.metal in Sources */,
+				5E7055EF27CF3638000BF523 /* Util.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
