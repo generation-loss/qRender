@@ -52,6 +52,8 @@ void qRender::Subsystems::Update(qRender::Globals *globals)
 
 void qRender::Subsystems::Encode(const qRender::Globals *globals) const
 {
+	//TODO this needs to be in a better order
+	reflectionProbe->EncodeIndirect(globals);
 	for(auto &it : subsystems)
 	{
 		it->Encode(globals);
