@@ -20,24 +20,32 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef __Q_RENDER_H__
-#define __Q_RENDER_H__
+#ifndef __Q_RENDER_SHADER_PREPASS_PARAMS_H__
+#define __Q_RENDER_SHADER_PREPASS_PARAMS_H__
 
-#include "qRenderCamera.h"
-#include "qRenderDebugMenu.h"
-#include "qRenderRenderable.h"
-#include "qRenderSubsystem.h"
-#include "qRenderSubsystems.h"
-#include "qRenderTextureConfig.h"
+typedef enum eDepthNormalRenderTarget
+{
+	eDepthNormalRenderTarget_WorldPos,
+	eDepthNormalRenderTarget_WorldNormal
+} eDepthNormalRenderTarget;
 
-//Subsystems
-#include "qRenderHeightMap.h"
-#include "qRenderReflectionProbe.h"
-#include "qRenderPrepass.h"
+struct DepthVertex
+{
+	float4 position [[position]];
+};
 
-#include "Shaders/CameraGlobals.h"
-#include "Shaders/ShadingGlobals.h"
-#include "Shaders/TimeGlobals.h"
+struct DepthNormalVertex
+{
+	float4 position [[position]];
+	float3 worldPosition;
+	float3 worldNormal;
+};
 
-#endif //__Q_RENDER_H__
+struct DepthNormalBuffer
+{
+	float4 worldPosition [[color(eDepthNormalRenderTarget_WorldPos)]];
+	half4 worldNormalMask [[color(eDepthNormalRenderTarget_WorldNormal)]];
+};
 
+
+#endif /* __Q_RENDER_SHADER_PREPASS_PARAMS_H__ */

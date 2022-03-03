@@ -32,6 +32,10 @@ qRender::Subsystems::Subsystems(Config* _config)
 	ReflectionProbe::Config* reflectionProbeConfig = config->reflectionProbeConfig == NULL ? new ReflectionProbe::Config() : config->reflectionProbeConfig;
 	reflectionProbe = new ReflectionProbe(reflectionProbeConfig);
 	this->AddSubsystem(reflectionProbe);
+	
+	Prepass::Config* prepassConfig = config->prepassConfig == NULL ? new Prepass::Config() : config->prepassConfig;
+	prepass = new Prepass(prepassConfig);
+	this->AddSubsystem(prepass);
 }
 	
 void qRender::Subsystems::Init(Globals *globals)

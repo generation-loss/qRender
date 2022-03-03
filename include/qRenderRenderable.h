@@ -41,6 +41,7 @@ namespace qRender
 		eRenderablePass_IndirectReflectionProbe4,
 		eRenderablePass_IndirectReflectionProbe5,
 		eRenderablePass_ReflectionProbe,
+		eRenderablePass_Prepass,
 		eRenderablePass_Count
 	};
 

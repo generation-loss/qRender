@@ -20,78 +20,72 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef __Q_RENDER_SUBSYSTEMS_H__
-#define __Q_RENDER_SUBSYSTEMS_H__
+#ifndef __Q_RENDER_PREPASS_H__
+#define __Q_RENDER_PREPASS_H__
 
 #include "qMetal.h"
+#include "qMath.h"
 #include "qRenderSubsystem.h"
+#include "qRenderCamera.h"
 #include "qRenderGlobals.h"
-#include "qRenderHeightMap.h"
-#include "qRenderReflectionProbe.h"
-#include "qRenderPrepass.h"
+#include "Shaders/Prepass.h"
 
 using namespace qMetal;
 
 namespace qRender
 {
-	class Subsystems : public Subsystem
+	class Prepass : public Subsystem
 	{
 	public:
 		typedef struct Config
 		{
+			uint32_t      			width;
+			uint32_t      			height;
+			uint32_t				scale;
+			
 			Config()
-			: heightMapConfig(new HeightMap::Config())
-			, reflectionProbeConfig(new ReflectionProbe::Config())
-			, prepassConfig(new Prepass::Config())
+			: width(512)
+			, height(512)
 			{
 			}
 			
-			HeightMap::Config* heightMapConfig;
-			ReflectionProbe::Config* reflectionProbeConfig;
-			Prepass::Config* prepassConfig;
 		} Config;
 		
-		Subsystems(Config* _config);
-		
+		Prepass(Config *_config);
+	
 		void Init(Globals *globals);
 	
 		void Update(Globals *globals);
 		
 		void Encode(const Globals *globals) const;
 		
-		void Drag(qVector2 location, qVector2 velocity);
-		
-		void AddSubsystem(Subsystem* subsystem)
+		inline Texture* GetWorldPosTexture() const
 		{
-			subsystems.push_back(subsystem);
+			return renderTarget->ColourTexture((RenderTarget::eColorAttachment)eDepthNormalRenderTarget_WorldPos);
 		}
 		
-		HeightMap* GetHeightMap() const
+		inline Texture* GetWorldNormalTexture() const
 		{
-			return heightMap;
+			return renderTarget->ColourTexture((RenderTarget::eColorAttachment)eDepthNormalRenderTarget_WorldNormal);
 		}
 		
-		ReflectionProbe* GetReflectionProbe() const
+		inline Texture* GetDepthTexture() const
 		{
-			return reflectionProbe;
+			qBREAK("DepthNormal prepass hardware depth texture is memoryless; we use render eye-space z");
+			return nullptr;
 		}
 		
-		Prepass* GetPrepass() const
+		inline RenderTarget* GetRenderTarget() const
 		{
-			return prepass;
+			return renderTarget;
 		}
-		
-	protected:
-	
-		std::vector<Subsystem*> subsystems;
 		
 	private:
-	
-		Config* config;
-		HeightMap* heightMap;
-		ReflectionProbe* reflectionProbe;
-		Prepass* prepass;
+		
+		Config				*config;
+		
+		RenderTarget		*renderTarget;
 	};
 }
 
-#endif /* __Q_RENDER_SUBSYSTEMS_H__ */
+#endif /* __Q_RENDER_PREPASS_H__ */
