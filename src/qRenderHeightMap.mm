@@ -39,6 +39,10 @@ qRender::HeightMap::HeightMap(Config *_config)
 	camera = new Camera(config->cameraConfig);
 }
 
+void qRender::HeightMap::Init(Globals *globals)
+{
+}
+
 void qRender::HeightMap::Update(Globals *globals)
 {
 	camera->SetPosition(globals->sceneCamera->GetPosition() + qVector3(0.0f, 100.0f, 0.0f));

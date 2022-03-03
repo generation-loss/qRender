@@ -57,6 +57,8 @@ namespace qRender
 		
 		HeightMap(Config *_config);
 		
+		void Init(Globals *globals);
+		
 		void Update(Globals *globals);
 		
 		void Encode(const Globals *globals) const;
