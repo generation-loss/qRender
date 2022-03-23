@@ -156,6 +156,8 @@ void qRender::SSAO::Update(Globals *globals)
 
 void qRender::SSAO::Encode(const Globals *globals) const
 {
+	qMetal::Device::PushDebugGroup(@"SSAO");
+	
 	AOAccumulateComputeParams *params = renderAsCompute ? accumulateComputeMaterial->CurrentFrameComputeParams() : accumulateRenderMaterial->CurrentFrameFragmentParams();
 	
 	params->prepassWidth 		= (float)config->width;
@@ -195,4 +197,6 @@ void qRender::SSAO::Encode(const Globals *globals) const
 		upscaleBlurMaterialRender->EncodeCompute(computeEncoder, config->width / config->blurScale, config->height / config->blurScale);
 		[computeEncoder endEncoding];
 	}
+	
+	qMetal::Device::PopDebugGroup();
 }

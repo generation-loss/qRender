@@ -29,6 +29,10 @@ qRender::Subsystems::Subsystems(Config* _config)
 	heightMap = new HeightMap(heightMapConfig);
 	this->AddSubsystem(heightMap);
 	
+	ShadowMap::Config* shadowMapConfig = config->shadowMapConfig == NULL ? new ShadowMap::Config() : config->shadowMapConfig;
+	shadowMap = new ShadowMap(shadowMapConfig);
+	this->AddSubsystem(shadowMap);
+	
 	ReflectionProbe::Config* reflectionProbeConfig = config->reflectionProbeConfig == NULL ? new ReflectionProbe::Config() : config->reflectionProbeConfig;
 	reflectionProbe = new ReflectionProbe(reflectionProbeConfig);
 	this->AddSubsystem(reflectionProbe);
@@ -41,6 +45,13 @@ qRender::Subsystems::Subsystems(Config* _config)
 	ssaoConfig->prepass = prepass;
 	ssao = new SSAO(ssaoConfig);
 	this->AddSubsystem(ssao);
+	
+	Atmosphere::Config* atmosphereConfig = config->atmosphereConfig == NULL ? new Atmosphere::Config() : config->atmosphereConfig;
+	atmosphereConfig->prepass = prepass;
+	atmosphereConfig->reflectionProbe = reflectionProbe;
+	atmosphereConfig->shadowMap = shadowMap;
+	atmosphere = new Atmosphere(atmosphereConfig);
+	this->AddSubsystem(atmosphere);
 }
 	
 void qRender::Subsystems::Init(Globals *globals)

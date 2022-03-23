@@ -20,26 +20,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef __Q_RENDER_H__
-#define __Q_RENDER_H__
+#ifndef __Q_RENDER_SHADER_SHADOW_MAP_H__
+#define __Q_RENDER_SHADER_SHADOW_MAP_H__
 
-#include "qRenderCamera.h"
-#include "qRenderDebugMenu.h"
-#include "qRenderRenderable.h"
-#include "qRenderSubsystem.h"
-#include "qRenderSubsystems.h"
-#include "qRenderTextureConfig.h"
+#include "ShadowMapGlobals.h"
 
-//Subsystems
-#include "qRenderAtmosphere.h"
-#include "qRenderHeightMap.h"
-#include "qRenderPrepass.h"
-#include "qRenderReflectionProbe.h"
-#include "qRenderShadowMap.h"
-#include "qRenderSSAO.h"
+using namespace metal;
 
-#include "Shaders/ShadingGlobals.h"
-#include "Shaders/TimeGlobals.h"
+half ShadowWorldPosition(float3 worldPos, constant ShadowMapGlobals &globals, depth2d_array<float, access::sample> shadowMap, sampler shadowMapSampler);
+half ShadowWorldPositionSingleTap(float3 viewPos, constant ShadowMapGlobals &globals, depth2d_array<float, access::sample> shadowMap, sampler shadowMapSampler);
 
-#endif //__Q_RENDER_H__
+half ShadowViewPosition(float3 viewPos, constant ShadowMapGlobals &globals, depth2d_array<float, access::sample> shadowMap, sampler shadowMapSampler);
 
+#endif /* __Q_RENDER_SHADER_SHADOW_MAP_H__ */

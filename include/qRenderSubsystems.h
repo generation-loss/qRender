@@ -26,10 +26,12 @@ SOFTWARE.
 #include "qMetal.h"
 #include "qRenderSubsystem.h"
 #include "qRenderGlobals.h"
+#include "qRenderAtmosphere.h"
 #include "qRenderHeightMap.h"
 #include "qRenderReflectionProbe.h"
 #include "qRenderPrepass.h"
 #include "qRenderSSAO.h"
+#include "qRenderShadowMap.h"
 
 using namespace qMetal;
 
@@ -41,17 +43,21 @@ namespace qRender
 		typedef struct Config
 		{
 			Config()
-			: heightMapConfig(new HeightMap::Config())
+			: atmosphereConfig(new Atmosphere::Config())
+			, heightMapConfig(new HeightMap::Config())
 			, reflectionProbeConfig(new ReflectionProbe::Config())
 			, prepassConfig(new Prepass::Config())
 			, ssaoConfig(new SSAO::Config())
+			, shadowMapConfig(new ShadowMap::Config())
 			{
 			}
 			
+			Atmosphere::Config* atmosphereConfig;
 			HeightMap::Config* heightMapConfig;
 			ReflectionProbe::Config* reflectionProbeConfig;
 			Prepass::Config* prepassConfig;
 			SSAO::Config* ssaoConfig;
+			ShadowMap::Config* shadowMapConfig;
 		} Config;
 		
 		Subsystems(Config* _config);
@@ -67,6 +73,11 @@ namespace qRender
 		void AddSubsystem(Subsystem* subsystem)
 		{
 			subsystems.push_back(subsystem);
+		}
+		
+		Atmosphere* GetAtmosphere() const
+		{
+			return atmosphere;
 		}
 		
 		HeightMap* GetHeightMap() const
@@ -89,6 +100,11 @@ namespace qRender
 			return ssao;
 		}
 		
+		ShadowMap* GetShadowMap() const
+		{
+			return shadowMap;
+		}
+		
 	protected:
 	
 		std::vector<Subsystem*> subsystems;
@@ -96,10 +112,12 @@ namespace qRender
 	private:
 	
 		Config* config;
+		Atmosphere* atmosphere;
 		HeightMap* heightMap;
 		ReflectionProbe* reflectionProbe;
 		Prepass* prepass;
 		SSAO* ssao;
+		ShadowMap* shadowMap;
 	};
 }
 

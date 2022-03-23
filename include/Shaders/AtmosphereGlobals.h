@@ -20,26 +20,41 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef __Q_RENDER_H__
-#define __Q_RENDER_H__
+#ifndef __Q_RENDER_SHADER_ATMOSPHERE_GLOBALS_H__
+#define __Q_RENDER_SHADER_ATMOSPHERE_GLOBALS_H__
 
-#include "qRenderCamera.h"
-#include "qRenderDebugMenu.h"
-#include "qRenderRenderable.h"
-#include "qRenderSubsystem.h"
-#include "qRenderSubsystems.h"
-#include "qRenderTextureConfig.h"
+#include <simd/SIMD.h>
 
-//Subsystems
-#include "qRenderAtmosphere.h"
-#include "qRenderHeightMap.h"
-#include "qRenderPrepass.h"
-#include "qRenderReflectionProbe.h"
-#include "qRenderShadowMap.h"
-#include "qRenderSSAO.h"
+typedef struct AtmosphereGlobals
+{
+	//pow(distanceBase, -distanceDensity * distance)
+	float distanceBase;
+	float distanceDensity;
+	float maxDistance;
+	
+	//pow(heightBase, -heightDensity * height)
+	float heightBase;
+	float heightDensity;
+	float minHeight;
+	float maxHeight;
+	
+	half colourR;
+	half colourG;
+	half colourB;
+	
+	AtmosphereGlobals()
+	: distanceBase(2.718281828459045f)
+	, distanceDensity(2.5)
+	, maxDistance(2000.0f)
+	, heightBase(8.0f)
+	, heightDensity(2.5)
+	, minHeight(-60.0f)
+	, maxHeight(410.0f)
+	, colourR(0.84)
+	, colourG(0.78)
+	, colourB(0.678)
+	{
+	}
+} AtmosphereGlobals;
 
-#include "Shaders/ShadingGlobals.h"
-#include "Shaders/TimeGlobals.h"
-
-#endif //__Q_RENDER_H__
-
+#endif /* __Q_RENDER_SHADER_ATMOSPHERE_GLOBALS_H__ */

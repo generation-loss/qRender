@@ -20,26 +20,30 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef __Q_RENDER_H__
-#define __Q_RENDER_H__
+#ifndef __Q_RENDER_SHADOW_MAP_GLOBALS_H__
+#define __Q_RENDER_SHADOW_MAP_GLOBALS_H__
 
-#include "qRenderCamera.h"
-#include "qRenderDebugMenu.h"
-#include "qRenderRenderable.h"
-#include "qRenderSubsystem.h"
-#include "qRenderSubsystems.h"
-#include "qRenderTextureConfig.h"
+#include <simd/SIMD.h>
 
-//Subsystems
-#include "qRenderAtmosphere.h"
-#include "qRenderHeightMap.h"
-#include "qRenderPrepass.h"
-#include "qRenderReflectionProbe.h"
-#include "qRenderShadowMap.h"
-#include "qRenderSSAO.h"
+#define SHADOW_CASCADE_COUNT (4)
 
-#include "Shaders/ShadingGlobals.h"
-#include "Shaders/TimeGlobals.h"
+struct ShadowMapGlobals
+{
+	ShadowMapGlobals()
+	: lightSize(64.0)
+	, blockerSearchSize(8.0f)
+	{
+		bias[0] = 0.001;
+		bias[1] = 0.001;
+		bias[2] = 0.003;
+		bias[3] = 0.008;
+	}
+	
+	matrix_float4x4 cascadeViewProject[SHADOW_CASCADE_COUNT];
+	matrix_float4x4 cascadeProject[SHADOW_CASCADE_COUNT];
+	half bias[SHADOW_CASCADE_COUNT];
+	half lightSize;
+	float blockerSearchSize;
+};
 
-#endif //__Q_RENDER_H__
-
+#endif /* __Q_RENDER_SHADOW_MAP_GLOBALS_H__ */

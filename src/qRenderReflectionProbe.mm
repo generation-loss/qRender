@@ -284,6 +284,8 @@ void qRender::ReflectionProbe::Update(Globals *globals)
 
 void qRender::ReflectionProbe::EncodeIndirect(const Globals *globals) const
 {
+	qMetal::Device::PushDebugGroup(@"Reflection Probe Indirect");
+	
 	if (config->updateSingleFacePerFrameIndirect)
 	{
 		id<MTLRenderCommandEncoder> indirectEncoder = indirectRenderTarget[currentSlice]->Begin();
@@ -316,16 +318,22 @@ void qRender::ReflectionProbe::EncodeIndirect(const Globals *globals) const
 		}
 		[indirectBlitEncoder endEncoding];
 	}
+	
+	qMetal::Device::PopDebugGroup();
 }
 
 void qRender::ReflectionProbe::Encode(const Globals *globals) const
 {
+	qMetal::Device::PushDebugGroup(@"Reflection Probe Direct");
+	
 	if (config->updateSingleFacePerFrame)
 	{
+		id<MTLBlitCommandEncoder> resetBlitEncoder = qMetal::Device::BlitEncoder(@"Reflection Probe ICB Reset");
 		for(auto &it : renderables)
 		{
-			it->Reset(eRenderablePass_ReflectionProbe);
+			it->Reset(resetBlitEncoder, eRenderablePass_ReflectionProbe);
 		}
+		[resetBlitEncoder endEncoding];
 		
 		id<MTLComputeCommandEncoder> reflectionComputeEncoder = Device::ComputeEncoder(@"Reflection Probe Render");;
 		for(auto &it : renderables)
@@ -334,10 +342,12 @@ void qRender::ReflectionProbe::Encode(const Globals *globals) const
 		}
 		[reflectionComputeEncoder endEncoding];
 		
+		id<MTLBlitCommandEncoder> optimizeBlitEncoder = qMetal::Device::BlitEncoder(@"Reflection Probe ICB Optimize");
 		for(auto &it : renderables)
 		{
-			it->Optimize(eRenderablePass_ReflectionProbe);
+			it->Optimize(optimizeBlitEncoder, eRenderablePass_ReflectionProbe);
 		}
+		[optimizeBlitEncoder endEncoding];
 		
 		id<MTLRenderCommandEncoder> encoder = renderTarget[currentSlice]->Begin();
 		for(auto &it : renderables)
@@ -369,6 +379,8 @@ void qRender::ReflectionProbe::Encode(const Globals *globals) const
 		}
 		[blitEncoder endEncoding];
 	}
+	
+	qMetal::Device::PopDebugGroup();
 }
 
 void qRender::ReflectionProbe::AddIndirectRenderable(Renderable* renderable)

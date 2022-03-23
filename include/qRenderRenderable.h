@@ -34,6 +34,10 @@ namespace qRender
 	enum RenderablePass
 	{
 		eRenderablePass_HeightMap,
+		eRenderablePass_ShadowMap0,
+		eRenderablePass_ShadowMap1,
+		eRenderablePass_ShadowMap2,
+		eRenderablePass_ShadowMap3,
 		eRenderablePass_IndirectReflectionProbe0,
 		eRenderablePass_IndirectReflectionProbe1,
 		eRenderablePass_IndirectReflectionProbe2,
@@ -61,8 +65,8 @@ namespace qRender
 		virtual void EncodeCompute(id<MTLComputeCommandEncoder> encoder, const Camera *camera, const Globals *globals, const int32_t pass) const { };
 		
 		//optional indirect command buffer reset / optimization pass
-		virtual void Reset(const int32_t pass) const { };
-		virtual void Optimize(const int32_t pass) const { };
+		virtual void Reset(id<MTLBlitCommandEncoder> encoder, const int32_t pass) const { };
+		virtual void Optimize(id<MTLBlitCommandEncoder> encoder, const int32_t pass) const { };
 	};
 }
 

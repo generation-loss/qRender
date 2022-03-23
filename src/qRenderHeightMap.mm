@@ -51,6 +51,8 @@ void qRender::HeightMap::Update(Globals *globals)
 
 void qRender::HeightMap::Encode(const Globals *globals) const
 {
+	qMetal::Device::PushDebugGroup(@"Height Map");
+	
 	id<MTLComputeCommandEncoder> computeCommandEncoder = Device::ComputeEncoder(@"Height Map Compute");
 	for(auto &it : renderables)
 	{
@@ -64,4 +66,6 @@ void qRender::HeightMap::Encode(const Globals *globals) const
 		it->Encode(encoder, camera, globals, eRenderablePass_HeightMap);
 	}
 	renderTarget->End();
+	
+	qMetal::Device::PopDebugGroup();
 }
