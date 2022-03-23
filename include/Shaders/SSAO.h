@@ -20,25 +20,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef __Q_RENDER_H__
-#define __Q_RENDER_H__
+#ifndef __Q_RENDER_SHADER_SSAO_H__
+#define __Q_RENDER_SHADER_SSAO_H__
 
-#include "qRenderCamera.h"
-#include "qRenderDebugMenu.h"
-#include "qRenderRenderable.h"
-#include "qRenderSubsystem.h"
-#include "qRenderSubsystems.h"
-#include "qRenderTextureConfig.h"
+#include <metal_stdlib>
 
-//Subsystems
-#include "qRenderHeightMap.h"
-#include "qRenderPrepass.h"
-#include "qRenderReflectionProbe.h"
-#include "qRenderSSAO.h"
+half SSAO(float2 screenUV, texture2d<half, access::sample> ssaoTexture, sampler ssaoSampler);
 
-#include "Shaders/CameraGlobals.h"
-#include "Shaders/ShadingGlobals.h"
-#include "Shaders/TimeGlobals.h"
-
-#endif //__Q_RENDER_H__
-
+#endif /* __Q_RENDER_SHADER_SSAO_H__ */

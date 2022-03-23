@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5E1EE18927CC30C20017375F /* qRenderSubsystems.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EE18827CC2FBC0017375F /* qRenderSubsystems.mm */; };
 		5E1EE18C27CC32340017375F /* qRenderHeightMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EE18A27CC31C10017375F /* qRenderHeightMap.mm */; };
+		5E22867827D07F120064B8F6 /* SSAO.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867627D07F120064B8F6 /* SSAO.metal */; };
+		5E22867B27D07F6F0064B8F6 /* qRenderSSAO.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867A27D07F6F0064B8F6 /* qRenderSSAO.mm */; };
+		5E22867E27D080290064B8F6 /* SSAOGenerate.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867D27D080290064B8F6 /* SSAOGenerate.metal */; };
+		5E22868027D081340064B8F6 /* qRenderNoise.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867F27D081340064B8F6 /* qRenderNoise.mm */; };
 		5E5817E027CDDABD0094D397 /* qRenderReflectionProbe.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */; };
 		5E6D3F4927CF34F500244B48 /* Globals.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D3F4727CF346600244B48 /* Globals.metal */; };
 		5E7055EF27CF3638000BF523 /* Util.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E7055EE27CF35F1000BF523 /* Util.metal */; };
@@ -81,6 +85,15 @@
 		5E1EE18827CC2FBC0017375F /* qRenderSubsystems.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderSubsystems.mm; path = src/qRenderSubsystems.mm; sourceTree = SOURCE_ROOT; };
 		5E1EE18A27CC31C10017375F /* qRenderHeightMap.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderHeightMap.mm; path = src/qRenderHeightMap.mm; sourceTree = SOURCE_ROOT; };
 		5E1EE18B27CC31CA0017375F /* qRenderHeightMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderHeightMap.h; path = include/qRenderHeightMap.h; sourceTree = SOURCE_ROOT; };
+		5E22867527D07F120064B8F6 /* SSAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSAO.h; path = include/Shaders/SSAO.h; sourceTree = SOURCE_ROOT; };
+		5E22867627D07F120064B8F6 /* SSAO.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = SSAO.metal; path = include/Shaders/SSAO.metal; sourceTree = SOURCE_ROOT; };
+		5E22867727D07F120064B8F6 /* Prepass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prepass.h; path = include/Shaders/Prepass.h; sourceTree = SOURCE_ROOT; };
+		5E22867927D07F660064B8F6 /* qRenderSSAO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderSSAO.h; path = include/qRenderSSAO.h; sourceTree = SOURCE_ROOT; };
+		5E22867A27D07F6F0064B8F6 /* qRenderSSAO.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderSSAO.mm; path = src/qRenderSSAO.mm; sourceTree = SOURCE_ROOT; };
+		5E22867C27D080290064B8F6 /* SSAOParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSAOParams.h; path = include/Shaders/SSAOParams.h; sourceTree = SOURCE_ROOT; };
+		5E22867D27D080290064B8F6 /* SSAOGenerate.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = SSAOGenerate.metal; path = include/Shaders/SSAOGenerate.metal; sourceTree = SOURCE_ROOT; };
+		5E22867F27D081340064B8F6 /* qRenderNoise.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderNoise.mm; path = src/qRenderNoise.mm; sourceTree = SOURCE_ROOT; };
+		5E22868127D0813C0064B8F6 /* qRenderNoise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderNoise.h; path = include/qRenderNoise.h; sourceTree = SOURCE_ROOT; };
 		5E5817DB27CDD9290094D397 /* qRenderReflectionProbe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderReflectionProbe.h; path = include/qRenderReflectionProbe.h; sourceTree = SOURCE_ROOT; };
 		5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderReflectionProbe.mm; path = src/qRenderReflectionProbe.mm; sourceTree = SOURCE_ROOT; };
 		5E5817E127CDDC120094D397 /* ShadingGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShadingGlobals.h; path = include/Shaders/ShadingGlobals.h; sourceTree = SOURCE_ROOT; };
@@ -90,7 +103,6 @@
 		5E7055EE27CF35F1000BF523 /* Util.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = Util.metal; path = include/Shaders/Util.metal; sourceTree = SOURCE_ROOT; };
 		5E7055F427D0755D000BF523 /* qRenderPrepass.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderPrepass.mm; path = src/qRenderPrepass.mm; sourceTree = SOURCE_ROOT; };
 		5E7055F527D07564000BF523 /* qRenderPrepass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderPrepass.h; path = include/qRenderPrepass.h; sourceTree = SOURCE_ROOT; };
-		5E7055F627D07648000BF523 /* Prepass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Prepass.h; path = include/Shaders/Prepass.h; sourceTree = SOURCE_ROOT; };
 		5E77632C27C5ED8000846286 /* qRenderTextureConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderTextureConfig.h; path = include/qRenderTextureConfig.h; sourceTree = SOURCE_ROOT; };
 		5E920A6F27B0EA550064302F /* CameraGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CameraGlobals.h; path = include/Shaders/CameraGlobals.h; sourceTree = SOURCE_ROOT; };
 		5E920A7027B0EA7C0064302F /* qRenderDebugMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderDebugMenu.h; path = include/qRenderDebugMenu.h; sourceTree = SOURCE_ROOT; };
@@ -128,8 +140,12 @@
 				5E920A7227B0EAF50064302F /* DebugMenuParams.h */,
 				5E6D3F4827CF346600244B48 /* Globals.h */,
 				5E6D3F4727CF346600244B48 /* Globals.metal */,
-				5E7055F627D07648000BF523 /* Prepass.h */,
+				5E22867727D07F120064B8F6 /* Prepass.h */,
 				5E5817E127CDDC120094D397 /* ShadingGlobals.h */,
+				5E22867527D07F120064B8F6 /* SSAO.h */,
+				5E22867627D07F120064B8F6 /* SSAO.metal */,
+				5E22867D27D080290064B8F6 /* SSAOGenerate.metal */,
+				5E22867C27D080290064B8F6 /* SSAOParams.h */,
 				5E920A7527B0ED750064302F /* TimeGlobals.h */,
 				5E7055ED27CF35F1000BF523 /* Util.h */,
 				5E7055EE27CF35F1000BF523 /* Util.metal */,
@@ -184,6 +200,8 @@
 				5E920A7427B0EBAC0064302F /* qRenderGlobals.h */,
 				5E1EE18B27CC31CA0017375F /* qRenderHeightMap.h */,
 				5E1EE18A27CC31C10017375F /* qRenderHeightMap.mm */,
+				5E22868127D0813C0064B8F6 /* qRenderNoise.h */,
+				5E22867F27D081340064B8F6 /* qRenderNoise.mm */,
 				5E7055F527D07564000BF523 /* qRenderPrepass.h */,
 				5E7055F427D0755D000BF523 /* qRenderPrepass.mm */,
 				5E5817DB27CDD9290094D397 /* qRenderReflectionProbe.h */,
@@ -192,6 +210,8 @@
 				5E16A71B27CAE05A00D77CE3 /* qRenderSubsystem.h */,
 				5E1EE18727CC2FA60017375F /* qRenderSubsystems.h */,
 				5E1EE18827CC2FBC0017375F /* qRenderSubsystems.mm */,
+				5E22867927D07F660064B8F6 /* qRenderSSAO.h */,
+				5E22867A27D07F6F0064B8F6 /* qRenderSSAO.mm */,
 				5E77632C27C5ED8000846286 /* qRenderTextureConfig.h */,
 			);
 			path = Classes;
@@ -311,14 +331,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E22867E27D080290064B8F6 /* SSAOGenerate.metal in Sources */,
 				5EC6CC9327B0E92E00E0822D /* qRenderCamera.mm in Sources */,
 				5E920A7727B38C320064302F /* qRenderDebugMenu.mm in Sources */,
 				5E1EE18C27CC32340017375F /* qRenderHeightMap.mm in Sources */,
 				5E7055F827D07733000BF523 /* qRenderPrepass.mm in Sources */,
+				5E22868027D081340064B8F6 /* qRenderNoise.mm in Sources */,
 				5E5817E027CDDABD0094D397 /* qRenderReflectionProbe.mm in Sources */,
+				5E22867827D07F120064B8F6 /* SSAO.metal in Sources */,
 				5E1EE18927CC30C20017375F /* qRenderSubsystems.mm in Sources */,
 				5E920A7827B38DB70064302F /* DebugMenu.metal in Sources */,
 				5E6D3F4927CF34F500244B48 /* Globals.metal in Sources */,
+				5E22867B27D07F6F0064B8F6 /* qRenderSSAO.mm in Sources */,
 				5E7055EF27CF3638000BF523 /* Util.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

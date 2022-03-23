@@ -35,7 +35,7 @@ qRender::Prepass::Prepass(Config *_config)
 	renderTargetConfig->colourTextureConfig[eDepthNormalRenderTarget_WorldPos]->pixelFormat = Texture::ePixelFormat_RGBA32f;
 	renderTargetConfig->colourTextureConfig[eDepthNormalRenderTarget_WorldPos]->mipMaps = false;
 	renderTargetConfig->colourTextureConfig[eDepthNormalRenderTarget_WorldPos]->msaa = Texture::eMSAA_1;
-	renderTargetConfig->colourTextureSamplerState[eDepthNormalRenderTarget_WorldPos] = SamplerState::PredefinedState(eSamplerState_LinearLinearNone_ClampClamp);
+	renderTargetConfig->colourTextureSamplerState[eDepthNormalRenderTarget_WorldPos] = SamplerState::PredefinedState(eSamplerState_PointPointNone_ClampClamp);
 	
 	renderTargetConfig->colourTextureConfig[eDepthNormalRenderTarget_WorldNormal] = new Texture::Config(@"Depth Normal Prepass World Normal");
 	renderTargetConfig->colourTextureConfig[eDepthNormalRenderTarget_WorldNormal]->width = config->width / config->scale;
@@ -43,7 +43,7 @@ qRender::Prepass::Prepass(Config *_config)
 	renderTargetConfig->colourTextureConfig[eDepthNormalRenderTarget_WorldNormal]->pixelFormat = Texture::ePixelFormat_RGBA16f;
 	renderTargetConfig->colourTextureConfig[eDepthNormalRenderTarget_WorldNormal]->mipMaps = false;
 	renderTargetConfig->colourTextureConfig[eDepthNormalRenderTarget_WorldNormal]->msaa = Texture::eMSAA_1;
-	renderTargetConfig->colourTextureSamplerState[eDepthNormalRenderTarget_WorldNormal] = SamplerState::PredefinedState(eSamplerState_LinearLinearNone_ClampClamp);
+	renderTargetConfig->colourTextureSamplerState[eDepthNormalRenderTarget_WorldNormal] = SamplerState::PredefinedState(eSamplerState_PointPointNone_ClampClamp);
 
 	renderTargetConfig->depthTextureConfig = new Texture::Config(@"Depth Normal Prepass Depth");
 	renderTargetConfig->depthTextureConfig->width = config->width / config->scale;
@@ -67,6 +67,23 @@ void qRender::Prepass::Update(Globals *globals)
 
 void qRender::Prepass::Encode(const Globals *globals) const
 {
+	for(auto &it : renderables)
+	{
+		it->Reset(eRenderablePass_Prepass);
+	}
+	
+	id<MTLComputeCommandEncoder> computeEncoder = Device::ComputeEncoder(@"Prepass Compute");;
+	for(auto &it : renderables)
+	{
+		it->EncodeCompute(computeEncoder, globals->sceneCamera, globals, eRenderablePass_Prepass);
+	}
+	[computeEncoder endEncoding];
+	
+	for(auto &it : renderables)
+	{
+		it->Optimize(eRenderablePass_Prepass);
+	}
+
 	id<MTLRenderCommandEncoder> encoder = renderTarget->Begin();
 	for(auto &it : renderables)
 	{

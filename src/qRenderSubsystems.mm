@@ -36,6 +36,11 @@ qRender::Subsystems::Subsystems(Config* _config)
 	Prepass::Config* prepassConfig = config->prepassConfig == NULL ? new Prepass::Config() : config->prepassConfig;
 	prepass = new Prepass(prepassConfig);
 	this->AddSubsystem(prepass);
+	
+	SSAO::Config* ssaoConfig = config->ssaoConfig == NULL ? new SSAO::Config() : config->ssaoConfig;
+	ssaoConfig->prepass = prepass;
+	ssao = new SSAO(ssaoConfig);
+	this->AddSubsystem(ssao);
 }
 	
 void qRender::Subsystems::Init(Globals *globals)

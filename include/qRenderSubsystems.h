@@ -29,6 +29,7 @@ SOFTWARE.
 #include "qRenderHeightMap.h"
 #include "qRenderReflectionProbe.h"
 #include "qRenderPrepass.h"
+#include "qRenderSSAO.h"
 
 using namespace qMetal;
 
@@ -43,12 +44,14 @@ namespace qRender
 			: heightMapConfig(new HeightMap::Config())
 			, reflectionProbeConfig(new ReflectionProbe::Config())
 			, prepassConfig(new Prepass::Config())
+			, ssaoConfig(new SSAO::Config())
 			{
 			}
 			
 			HeightMap::Config* heightMapConfig;
 			ReflectionProbe::Config* reflectionProbeConfig;
 			Prepass::Config* prepassConfig;
+			SSAO::Config* ssaoConfig;
 		} Config;
 		
 		Subsystems(Config* _config);
@@ -81,6 +84,11 @@ namespace qRender
 			return prepass;
 		}
 		
+		SSAO* GetSSAO() const
+		{
+			return ssao;
+		}
+		
 	protected:
 	
 		std::vector<Subsystem*> subsystems;
@@ -91,6 +99,7 @@ namespace qRender
 		HeightMap* heightMap;
 		ReflectionProbe* reflectionProbe;
 		Prepass* prepass;
+		SSAO* ssao;
 	};
 }
 

@@ -20,25 +20,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef __Q_RENDER_H__
-#define __Q_RENDER_H__
+#include <metal_stdlib>
+using namespace metal;
 
-#include "qRenderCamera.h"
-#include "qRenderDebugMenu.h"
-#include "qRenderRenderable.h"
-#include "qRenderSubsystem.h"
-#include "qRenderSubsystems.h"
-#include "qRenderTextureConfig.h"
+#include "SSAO.h"
 
-//Subsystems
-#include "qRenderHeightMap.h"
-#include "qRenderPrepass.h"
-#include "qRenderReflectionProbe.h"
-#include "qRenderSSAO.h"
+constexpr sampler bilinearSampler(address::clamp_to_zero, filter::linear);
 
-#include "Shaders/CameraGlobals.h"
-#include "Shaders/ShadingGlobals.h"
-#include "Shaders/TimeGlobals.h"
-
-#endif //__Q_RENDER_H__
-
+half SSAO(float2 screenUV, texture2d<half, access::sample> ssaoTexture, sampler ssaoSampler)
+{
+	return ssaoTexture.sample(bilinearSampler, screenUV).r;
+}
