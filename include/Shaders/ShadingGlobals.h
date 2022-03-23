@@ -57,6 +57,9 @@ namespace qRender
 	DEBUG_MODE(	LocalTangent 		) \
 	DEBUG_MODE(	LocalBitangent  	) \
 	DEBUG_MODE(	WorldNormal 		) \
+	DEBUG_MODE(	WorldNormalX		) \
+	DEBUG_MODE(	WorldNormalY		) \
+	DEBUG_MODE(	WorldNormalZ		) \
 	DEBUG_MODE(	WorldTangent 		) \
 	DEBUG_MODE(	WorldBitangent  	) \
 	DEBUG_MODE(	NormalMap 			) \

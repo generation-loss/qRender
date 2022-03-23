@@ -50,6 +50,15 @@ half3 DebugColour(constant qRender::ShadingGlobals &shadingGlobals, half3 result
 	else if (shadingGlobals.debugMode == qRender::eDebugMode_WorldNormal)
 		return worldNormal * 0.5h + 0.5h;
 	
+	else if (shadingGlobals.debugMode == qRender::eDebugMode_WorldNormalX)
+		return worldNormal.xxx * 0.5h + 0.5h;
+	
+	else if (shadingGlobals.debugMode == qRender::eDebugMode_WorldNormalY)
+		return worldNormal.yyy * 0.5h + 0.5h;
+	
+	else if (shadingGlobals.debugMode == qRender::eDebugMode_WorldNormalZ)
+		return worldNormal.zzz * 0.5h + 0.5h;
+	
 	else if (shadingGlobals.debugMode == qRender::eDebugMode_WorldTangent)
 		return worldTangent * 0.5h + 0.5h;
 	
