@@ -26,7 +26,11 @@ SOFTWARE.
 #include "qMetal.h"
 #include "qMath.h"
 #include "Shaders/DebugMenuParams.h"
+#if TARGET_OS_IPHONE
 #include <UIKit/UIKit.h>
+#else
+#include <AppKit/AppKit.h>
+#endif
 #include <CoreText/CoreText.h>
 #include <map>
 

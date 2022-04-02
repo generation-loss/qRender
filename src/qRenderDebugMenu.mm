@@ -572,9 +572,17 @@ void qRender::DebugMenu::FillWithString(Texture* texture, NSString* string)
 	NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
 	NSRange stringRange = NSMakeRange(0, [string length]);
 	
-	[attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:stringRange];
-	[attributedString addAttribute:NSBackgroundColorAttributeName value:[UIColor clearColor] range:stringRange];
-	[attributedString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Light" size:(ITEM_HEIGHT-10.0f)] range:stringRange];
+#if TARGET_OS_OSX
+#define COLOR_CLASS NSColor
+#define FONT_CLASS NSFont
+#else
+#define COLOR_CLASS UIColor
+#define FONT_CLASS UIFont
+#endif
+	
+	[attributedString addAttribute:NSForegroundColorAttributeName value:[COLOR_CLASS whiteColor] range:stringRange];
+	[attributedString addAttribute:NSBackgroundColorAttributeName value:[COLOR_CLASS clearColor] range:stringRange];
+	[attributedString addAttribute:NSFontAttributeName value:[FONT_CLASS fontWithName:@"HelveticaNeue-Light" size:(ITEM_HEIGHT-10.0f)] range:stringRange];
 	
 	CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attributedString);
 	CGMutablePathRef path = CGPathCreateMutable();
