@@ -51,7 +51,7 @@ namespace qRender {
 			Texture::ePixelFormat 	pixelFormat;
 			
 			Config(NSString *_name)
-			: name(_name)
+			: name([_name retain])
 			, width(128)
 			, height(128)
 			, pixelFormat(Texture::ePixelFormat_RGBA32f)

@@ -145,7 +145,7 @@ qRender::ReflectionProbe::ReflectionProbe(Config *_config)
 	
 	const uint32_t INDIRECT_SIZE = 32;
 	
-	RenderTarget::Config *indirectRenderTargetConfig = new RenderTarget::Config([NSString stringWithFormat:@"Indirect Reflection Probe Face 0"]);
+	RenderTarget::Config *indirectRenderTargetConfig = new RenderTarget::Config(@"Indirect Reflection Probe Face 0");
 	
 	indirectRenderTargetConfig->colorAttachmentCount = (RenderTarget::eColorAttachment)eGBufferRenderTarget_Count;
 	

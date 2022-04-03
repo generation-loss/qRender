@@ -78,7 +78,7 @@ namespace qRender
 		#endif
 			
 			Config(NSString *_name)
-			: name(_name)
+			: name([_name retain])
 			, type(eType_Perspective)
 			, position(qVector3_One)
 			, lookAt(qVector3_Zero)
