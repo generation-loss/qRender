@@ -13,59 +13,62 @@
 		5E22867B27D07F6F0064B8F6 /* qRenderSSAO.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867A27D07F6F0064B8F6 /* qRenderSSAO.mm */; };
 		5E22867E27D080290064B8F6 /* SSAOGenerate.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867D27D080290064B8F6 /* SSAOGenerate.metal */; };
 		5E22868027D081340064B8F6 /* qRenderNoise.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867F27D081340064B8F6 /* qRenderNoise.mm */; };
-		5E4A261127F80AC400F6B6CB /* Atmosphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529E827EADAA700007DA1 /* Atmosphere.h */; };
-		5E4A261227F80AC400F6B6CB /* AtmosphereGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529F827EADD3C00007DA1 /* AtmosphereGlobals.h */; };
-		5E4A261327F80AC400F6B6CB /* AtmosphereParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529E927EADAA700007DA1 /* AtmosphereParams.h */; };
-		5E4A261427F80AC400F6B6CB /* CameraGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E920A6F27B0EA550064302F /* CameraGlobals.h */; };
-		5E4A261527F80AC400F6B6CB /* DebugMenuParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E920A7227B0EAF50064302F /* DebugMenuParams.h */; };
-		5E4A261627F80AC400F6B6CB /* Globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E6D3F4827CF346600244B48 /* Globals.h */; };
-		5E4A261727F80AC400F6B6CB /* Prepass.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E22867727D07F120064B8F6 /* Prepass.h */; };
-		5E4A261827F80AC400F6B6CB /* Poisson.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529FF27EAE81200007DA1 /* Poisson.h */; };
-		5E4A261927F80AC400F6B6CB /* ShadingGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E5817E127CDDC120094D397 /* ShadingGlobals.h */; };
-		5E4A261A27F80AC400F6B6CB /* ShadowMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529F327EADB6900007DA1 /* ShadowMap.h */; };
-		5E4A261B27F80AC400F6B6CB /* ShadowMapGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529F227EADB6800007DA1 /* ShadowMapGlobals.h */; };
-		5E4A261C27F80AC400F6B6CB /* SSAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E22867527D07F120064B8F6 /* SSAO.h */; };
-		5E4A261D27F80AC400F6B6CB /* SSAOParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E22867C27D080290064B8F6 /* SSAOParams.h */; };
-		5E4A261E27F80AC400F6B6CB /* TimeGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E920A7527B0ED750064302F /* TimeGlobals.h */; };
-		5E4A261F27F80AC400F6B6CB /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E7055ED27CF35F1000BF523 /* Util.h */; };
-		5E4A262027F80AC400F6B6CB /* qRender.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EBA2F14236CDC48009FF419 /* qRender.h */; };
-		5E4A262127F80AC400F6B6CB /* qRenderAtmosphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529EE27EADAAD00007DA1 /* qRenderAtmosphere.h */; };
-		5E4A262227F80AC400F6B6CB /* qRenderCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EC6CC9027B0E92700E0822D /* qRenderCamera.h */; };
-		5E4A262327F80AC400F6B6CB /* qRenderDebugMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E920A7027B0EA7C0064302F /* qRenderDebugMenu.h */; };
-		5E4A262427F80AC400F6B6CB /* qRenderGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E920A7427B0EBAC0064302F /* qRenderGlobals.h */; };
-		5E4A262527F80AC400F6B6CB /* qRenderHeightMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E1EE18B27CC31CA0017375F /* qRenderHeightMap.h */; };
-		5E4A262627F80AC400F6B6CB /* qRenderNoise.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E22868127D0813C0064B8F6 /* qRenderNoise.h */; };
-		5E4A262727F80AC400F6B6CB /* qRenderPrepass.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E7055F527D07564000BF523 /* qRenderPrepass.h */; };
-		5E4A262827F80AC400F6B6CB /* qRenderReflectionProbe.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E5817DB27CDD9290094D397 /* qRenderReflectionProbe.h */; };
-		5E4A262927F80AC400F6B6CB /* qRenderRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EC6CC9127B0E92700E0822D /* qRenderRenderable.h */; };
-		5E4A262A27F80AC400F6B6CB /* qRenderShadowMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529F527EADB7100007DA1 /* qRenderShadowMap.h */; };
-		5E4A262B27F80AC400F6B6CB /* qRenderSubsystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E16A71B27CAE05A00D77CE3 /* qRenderSubsystem.h */; };
-		5E4A262C27F80AC400F6B6CB /* qRenderSubsystems.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E1EE18727CC2FA60017375F /* qRenderSubsystems.h */; };
-		5E4A262D27F80AC400F6B6CB /* qRenderSSAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E22867927D07F660064B8F6 /* qRenderSSAO.h */; };
-		5E4A262E27F80AC400F6B6CB /* qRenderTextureConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E77632C27C5ED8000846286 /* qRenderTextureConfig.h */; };
-		5E4A262F27F80ADB00F6B6CB /* qRenderAtmosphere.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529EF27EADAB600007DA1 /* qRenderAtmosphere.mm */; };
-		5E4A263027F80ADB00F6B6CB /* qRenderCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6CC9227B0E92E00E0822D /* qRenderCamera.mm */; };
-		5E4A263127F80ADB00F6B6CB /* qRenderDebugMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7127B0EA870064302F /* qRenderDebugMenu.mm */; };
-		5E4A263227F80ADB00F6B6CB /* qRenderHeightMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EE18A27CC31C10017375F /* qRenderHeightMap.mm */; };
-		5E4A263327F80ADB00F6B6CB /* qRenderNoise.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867F27D081340064B8F6 /* qRenderNoise.mm */; };
-		5E4A263427F80ADB00F6B6CB /* qRenderPrepass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E7055F427D0755D000BF523 /* qRenderPrepass.mm */; };
-		5E4A263527F80ADB00F6B6CB /* qRenderReflectionProbe.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */; };
-		5E4A263627F80ADB00F6B6CB /* qRenderShadowMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529F627EADB8B00007DA1 /* qRenderShadowMap.mm */; };
-		5E4A263727F80ADB00F6B6CB /* qRenderSubsystems.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EE18827CC2FBC0017375F /* qRenderSubsystems.mm */; };
-		5E4A263827F80ADB00F6B6CB /* qRenderSSAO.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867A27D07F6F0064B8F6 /* qRenderSSAO.mm */; };
-		5E4A263927F80AE800F6B6CB /* Atmosphere.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529EA27EADAA700007DA1 /* Atmosphere.metal */; };
-		5E4A263A27F80AE800F6B6CB /* AtmosphereGenerate.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529EB27EADAA700007DA1 /* AtmosphereGenerate.metal */; };
-		5E4A263B27F80AE800F6B6CB /* DebugMenu.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7327B0EAF50064302F /* DebugMenu.metal */; };
-		5E4A263C27F80AE800F6B6CB /* Globals.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D3F4727CF346600244B48 /* Globals.metal */; };
-		5E4A263D27F80AE800F6B6CB /* ShadowMap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529F127EADB6800007DA1 /* ShadowMap.metal */; };
-		5E4A263E27F80AE800F6B6CB /* SSAO.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867627D07F120064B8F6 /* SSAO.metal */; };
-		5E4A263F27F80AE800F6B6CB /* SSAOGenerate.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867D27D080290064B8F6 /* SSAOGenerate.metal */; };
-		5E4A264027F80AE800F6B6CB /* Util.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E7055EE27CF35F1000BF523 /* Util.metal */; };
-		5E4A265F27F80E9700F6B6CB /* libqcore-macos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A260327F80A8400F6B6CB /* libqcore-macos.dylib */; };
-		5E4A266027F80E9700F6B6CB /* libqMath-macos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A260627F80A8400F6B6CB /* libqMath-macos.dylib */; };
-		5E4A266127F80E9700F6B6CB /* libqMetal-macos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A260927F80A8400F6B6CB /* libqMetal-macos.dylib */; };
-		5E4A266327F80EA500F6B6CB /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A266227F80EA500F6B6CB /* AppKit.framework */; };
-		5E4A266527F80EAF00F6B6CB /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A266427F80EAF00F6B6CB /* Metal.framework */; };
+		5E4A270F27FBF54900F6B6CB /* Atmosphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529E827EADAA700007DA1 /* Atmosphere.h */; };
+		5E4A271027FBF54900F6B6CB /* AtmosphereGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529F827EADD3C00007DA1 /* AtmosphereGlobals.h */; };
+		5E4A271127FBF54900F6B6CB /* AtmosphereParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529E927EADAA700007DA1 /* AtmosphereParams.h */; };
+		5E4A271227FBF54900F6B6CB /* CameraGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E920A6F27B0EA550064302F /* CameraGlobals.h */; };
+		5E4A271327FBF54900F6B6CB /* DebugMenuParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E920A7227B0EAF50064302F /* DebugMenuParams.h */; };
+		5E4A271427FBF54900F6B6CB /* Globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E6D3F4827CF346600244B48 /* Globals.h */; };
+		5E4A271527FBF54900F6B6CB /* Prepass.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E22867727D07F120064B8F6 /* Prepass.h */; };
+		5E4A271627FBF54900F6B6CB /* Poisson.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529FF27EAE81200007DA1 /* Poisson.h */; };
+		5E4A271727FBF54900F6B6CB /* ShadingGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E5817E127CDDC120094D397 /* ShadingGlobals.h */; };
+		5E4A271827FBF54900F6B6CB /* ShadowMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529F327EADB6900007DA1 /* ShadowMap.h */; };
+		5E4A271927FBF54900F6B6CB /* ShadowMapGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529F227EADB6800007DA1 /* ShadowMapGlobals.h */; };
+		5E4A271A27FBF54900F6B6CB /* SSAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E22867527D07F120064B8F6 /* SSAO.h */; };
+		5E4A271B27FBF54900F6B6CB /* SSAOParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E22867C27D080290064B8F6 /* SSAOParams.h */; };
+		5E4A271C27FBF54900F6B6CB /* TimeGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E920A7527B0ED750064302F /* TimeGlobals.h */; };
+		5E4A271D27FBF54900F6B6CB /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E7055ED27CF35F1000BF523 /* Util.h */; };
+		5E4A271E27FBF54900F6B6CB /* qRender.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EBA2F14236CDC48009FF419 /* qRender.h */; };
+		5E4A271F27FBF54900F6B6CB /* qRenderAtmosphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529EE27EADAAD00007DA1 /* qRenderAtmosphere.h */; };
+		5E4A272027FBF54900F6B6CB /* qRenderCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EC6CC9027B0E92700E0822D /* qRenderCamera.h */; };
+		5E4A272127FBF54900F6B6CB /* qRenderDebugMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E920A7027B0EA7C0064302F /* qRenderDebugMenu.h */; };
+		5E4A272227FBF54900F6B6CB /* qRenderGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E920A7427B0EBAC0064302F /* qRenderGlobals.h */; };
+		5E4A272327FBF54900F6B6CB /* qRenderHeightMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E1EE18B27CC31CA0017375F /* qRenderHeightMap.h */; };
+		5E4A272427FBF54900F6B6CB /* qRenderNoise.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E22868127D0813C0064B8F6 /* qRenderNoise.h */; };
+		5E4A272527FBF54900F6B6CB /* qRenderPrepass.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E7055F527D07564000BF523 /* qRenderPrepass.h */; };
+		5E4A272627FBF54900F6B6CB /* qRenderReflectionProbe.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E5817DB27CDD9290094D397 /* qRenderReflectionProbe.h */; };
+		5E4A272727FBF54900F6B6CB /* qRenderRenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EC6CC9127B0E92700E0822D /* qRenderRenderable.h */; };
+		5E4A272827FBF54900F6B6CB /* qRenderShadowMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9529F527EADB7100007DA1 /* qRenderShadowMap.h */; };
+		5E4A272927FBF54900F6B6CB /* qRenderSubsystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E16A71B27CAE05A00D77CE3 /* qRenderSubsystem.h */; };
+		5E4A272A27FBF54900F6B6CB /* qRenderSubsystems.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E1EE18727CC2FA60017375F /* qRenderSubsystems.h */; };
+		5E4A272B27FBF54900F6B6CB /* qRenderSSAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E22867927D07F660064B8F6 /* qRenderSSAO.h */; };
+		5E4A272C27FBF54900F6B6CB /* qRenderTextureConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E77632C27C5ED8000846286 /* qRenderTextureConfig.h */; };
+		5E4A272D27FBF55800F6B6CB /* Atmosphere.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529EA27EADAA700007DA1 /* Atmosphere.metal */; };
+		5E4A272E27FBF55800F6B6CB /* AtmosphereGenerate.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529EB27EADAA700007DA1 /* AtmosphereGenerate.metal */; };
+		5E4A272F27FBF55800F6B6CB /* DebugMenu.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7327B0EAF50064302F /* DebugMenu.metal */; };
+		5E4A273027FBF55800F6B6CB /* Globals.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D3F4727CF346600244B48 /* Globals.metal */; };
+		5E4A273127FBF55800F6B6CB /* ShadowMap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529F127EADB6800007DA1 /* ShadowMap.metal */; };
+		5E4A273227FBF55800F6B6CB /* SSAO.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867627D07F120064B8F6 /* SSAO.metal */; };
+		5E4A273327FBF55800F6B6CB /* SSAOGenerate.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867D27D080290064B8F6 /* SSAOGenerate.metal */; };
+		5E4A273427FBF55800F6B6CB /* Util.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E7055EE27CF35F1000BF523 /* Util.metal */; };
+		5E4A273527FBF55E00F6B6CB /* qRenderAtmosphere.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529EF27EADAB600007DA1 /* qRenderAtmosphere.mm */; };
+		5E4A273627FBF55E00F6B6CB /* qRenderCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6CC9227B0E92E00E0822D /* qRenderCamera.mm */; };
+		5E4A273727FBF55E00F6B6CB /* qRenderDebugMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7127B0EA870064302F /* qRenderDebugMenu.mm */; };
+		5E4A273827FBF55E00F6B6CB /* qRenderHeightMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EE18A27CC31C10017375F /* qRenderHeightMap.mm */; };
+		5E4A273927FBF55E00F6B6CB /* qRenderNoise.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867F27D081340064B8F6 /* qRenderNoise.mm */; };
+		5E4A273A27FBF55E00F6B6CB /* qRenderPrepass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E7055F427D0755D000BF523 /* qRenderPrepass.mm */; };
+		5E4A273B27FBF55E00F6B6CB /* qRenderReflectionProbe.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */; };
+		5E4A273C27FBF55E00F6B6CB /* qRenderShadowMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529F627EADB8B00007DA1 /* qRenderShadowMap.mm */; };
+		5E4A273D27FBF55E00F6B6CB /* qRenderSubsystems.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E1EE18827CC2FBC0017375F /* qRenderSubsystems.mm */; };
+		5E4A273E27FBF55E00F6B6CB /* qRenderSSAO.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867A27D07F6F0064B8F6 /* qRenderSSAO.mm */; };
+		5E4A274527FBF57A00F6B6CB /* libqCore-macos-static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A269827FBF3D800F6B6CB /* libqCore-macos-static.a */; };
+		5E4A274627FBF57A00F6B6CB /* libqMath-macos-static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A270827FBF52300F6B6CB /* libqMath-macos-static.a */; };
+		5E4A274727FBF57A00F6B6CB /* libqMetal-macos-static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A270B27FBF52300F6B6CB /* libqMetal-macos-static.a */; };
+		5E4A274827FBF58600F6B6CB /* libqCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBA2F22236CDDC1009FF419 /* libqCore.a */; };
+		5E4A274927FBF58600F6B6CB /* libqMath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBA2F1C236CDDBA009FF419 /* libqMath.a */; };
+		5E4A274A27FBF58700F6B6CB /* libqMetal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBA2F12236CDBE9009FF419 /* libqMetal.a */; };
+		5E4A274B27FBF59200F6B6CB /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A266427F80EAF00F6B6CB /* Metal.framework */; };
+		5E4A274C27FBF59C00F6B6CB /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A266227F80EA500F6B6CB /* AppKit.framework */; };
 		5E5817E027CDDABD0094D397 /* qRenderReflectionProbe.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */; };
 		5E6D3F4927CF34F500244B48 /* Globals.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D3F4727CF346600244B48 /* Globals.metal */; };
 		5E7055EF27CF3638000BF523 /* Util.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E7055EE27CF35F1000BF523 /* Util.metal */; };
@@ -81,54 +84,40 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5E4A260227F80A8400F6B6CB /* PBXContainerItemProxy */ = {
+		5E4A269727FBF3D800F6B6CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5EBA2F1D236CDDC1009FF419 /* qCore.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 5E4A256E27F8082B00F6B6CB;
-			remoteInfo = "qcore-macos";
+			remoteGlobalIDString = 5E4A266E27FB430900F6B6CB;
+			remoteInfo = "qCore-macos-static";
 		};
-		5E4A260527F80A8400F6B6CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5EBA2F17236CDDBA009FF419 /* qMath.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5E4A258A27F808EF00F6B6CB;
-			remoteInfo = "qMath-macos";
-		};
-		5E4A260827F80A8400F6B6CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5EBA2F0A236CDBE9009FF419 /* qMetal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5E4A25B827F809D200F6B6CB;
-			remoteInfo = "qMetal-macos";
-		};
-		5E4A260B27F80A8F00F6B6CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5EBA2F1D236CDDC1009FF419 /* qCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 5E4A256D27F8082B00F6B6CB;
-			remoteInfo = "qcore-macos";
-		};
-		5E4A260D27F80A8F00F6B6CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5EBA2F17236CDDBA009FF419 /* qMath.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 5E4A258927F808EF00F6B6CB;
-			remoteInfo = "qMath-macos";
-		};
-		5E4A260F27F80A8F00F6B6CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5EBA2F0A236CDBE9009FF419 /* qMetal.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 5E4A25B727F809D200F6B6CB;
-			remoteInfo = "qMetal-macos";
-		};
-		5E5817E527CDE3B00094D397 /* PBXContainerItemProxy */ = {
+		5E4A269927FBF3DB00F6B6CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5EBA2F1D236CDDC1009FF419 /* qCore.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = qCore;
+		};
+		5E4A270727FBF52300F6B6CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EBA2F17236CDDBA009FF419 /* qMath.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5E4A26A227FBF41E00F6B6CB;
+			remoteInfo = "qMath-macos-static";
+		};
+		5E4A270A27FBF52300F6B6CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EBA2F0A236CDBE9009FF419 /* qMetal.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5E4A26C827FBF4A500F6B6CB;
+			remoteInfo = "qMetal-macos-static";
+		};
+		5E4A274327FBF56700F6B6CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EBA2F0A236CDBE9009FF419 /* qMetal.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E4A26C727FBF4A500F6B6CB;
+			remoteInfo = "qMetal-macos-static";
 		};
 		5E5817E727CDE3B40094D397 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -194,9 +183,9 @@
 		5E22867D27D080290064B8F6 /* SSAOGenerate.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = SSAOGenerate.metal; path = include/Shaders/SSAOGenerate.metal; sourceTree = SOURCE_ROOT; };
 		5E22867F27D081340064B8F6 /* qRenderNoise.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderNoise.mm; path = src/qRenderNoise.mm; sourceTree = SOURCE_ROOT; };
 		5E22868127D0813C0064B8F6 /* qRenderNoise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderNoise.h; path = include/qRenderNoise.h; sourceTree = SOURCE_ROOT; };
-		5E4A25F927F80A8400F6B6CB /* libqRender-macos.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libqRender-macos.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E4A266227F80EA500F6B6CB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		5E4A266427F80EAF00F6B6CB /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
+		5E4A270027FBF52300F6B6CB /* libqRender-macos-static.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libqRender-macos-static.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5817DB27CDD9290094D397 /* qRenderReflectionProbe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderReflectionProbe.h; path = include/qRenderReflectionProbe.h; sourceTree = SOURCE_ROOT; };
 		5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderReflectionProbe.mm; path = src/qRenderReflectionProbe.mm; sourceTree = SOURCE_ROOT; };
 		5E5817E127CDDC120094D397 /* ShadingGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShadingGlobals.h; path = include/Shaders/ShadingGlobals.h; sourceTree = SOURCE_ROOT; };
@@ -238,15 +227,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5E4A25F727F80A8400F6B6CB /* Frameworks */ = {
+		5E4A26FE27FBF52300F6B6CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E4A266527F80EAF00F6B6CB /* Metal.framework in Frameworks */,
-				5E4A266327F80EA500F6B6CB /* AppKit.framework in Frameworks */,
-				5E4A265F27F80E9700F6B6CB /* libqcore-macos.dylib in Frameworks */,
-				5E4A266027F80E9700F6B6CB /* libqMath-macos.dylib in Frameworks */,
-				5E4A266127F80E9700F6B6CB /* libqMetal-macos.dylib in Frameworks */,
+				5E4A274527FBF57A00F6B6CB /* libqCore-macos-static.a in Frameworks */,
+				5E4A274627FBF57A00F6B6CB /* libqMath-macos-static.a in Frameworks */,
+				5E4A274727FBF57A00F6B6CB /* libqMetal-macos-static.a in Frameworks */,
+				5E4A274B27FBF59200F6B6CB /* Metal.framework in Frameworks */,
+				5E4A274C27FBF59C00F6B6CB /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +243,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E4A274827FBF58600F6B6CB /* libqCore.a in Frameworks */,
+				5E4A274927FBF58600F6B6CB /* libqMath.a in Frameworks */,
+				5E4A274A27FBF58700F6B6CB /* libqMetal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				5EBA2EFD236CDB9A009FF419 /* libqRender.a */,
-				5E4A25F927F80A8400F6B6CB /* libqRender-macos.dylib */,
+				5E4A270027FBF52300F6B6CB /* libqRender-macos-static.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,7 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				5EBA2F12236CDBE9009FF419 /* libqMetal.a */,
-				5E4A260927F80A8400F6B6CB /* libqMetal-macos.dylib */,
+				5E4A270B27FBF52300F6B6CB /* libqMetal-macos-static.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -374,7 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				5EBA2F1C236CDDBA009FF419 /* libqMath.a */,
-				5E4A260627F80A8400F6B6CB /* libqMath-macos.dylib */,
+				5E4A270827FBF52300F6B6CB /* libqMath-macos-static.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -383,7 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				5EBA2F22236CDDC1009FF419 /* libqCore.a */,
-				5E4A260327F80A8400F6B6CB /* libqcore-macos.dylib */,
+				5E4A269827FBF3D800F6B6CB /* libqCore-macos-static.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -391,65 +383,63 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5E4A25F527F80A8400F6B6CB /* Headers */ = {
+		5E4A26FC27FBF52300F6B6CB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E4A262027F80AC400F6B6CB /* qRender.h in Headers */,
-				5E4A261127F80AC400F6B6CB /* Atmosphere.h in Headers */,
-				5E4A261227F80AC400F6B6CB /* AtmosphereGlobals.h in Headers */,
-				5E4A261327F80AC400F6B6CB /* AtmosphereParams.h in Headers */,
-				5E4A261427F80AC400F6B6CB /* CameraGlobals.h in Headers */,
-				5E4A261527F80AC400F6B6CB /* DebugMenuParams.h in Headers */,
-				5E4A261627F80AC400F6B6CB /* Globals.h in Headers */,
-				5E4A261727F80AC400F6B6CB /* Prepass.h in Headers */,
-				5E4A261827F80AC400F6B6CB /* Poisson.h in Headers */,
-				5E4A261927F80AC400F6B6CB /* ShadingGlobals.h in Headers */,
-				5E4A261A27F80AC400F6B6CB /* ShadowMap.h in Headers */,
-				5E4A261B27F80AC400F6B6CB /* ShadowMapGlobals.h in Headers */,
-				5E4A261C27F80AC400F6B6CB /* SSAO.h in Headers */,
-				5E4A261D27F80AC400F6B6CB /* SSAOParams.h in Headers */,
-				5E4A261E27F80AC400F6B6CB /* TimeGlobals.h in Headers */,
-				5E4A261F27F80AC400F6B6CB /* Util.h in Headers */,
-				5E4A262127F80AC400F6B6CB /* qRenderAtmosphere.h in Headers */,
-				5E4A262227F80AC400F6B6CB /* qRenderCamera.h in Headers */,
-				5E4A262327F80AC400F6B6CB /* qRenderDebugMenu.h in Headers */,
-				5E4A262427F80AC400F6B6CB /* qRenderGlobals.h in Headers */,
-				5E4A262527F80AC400F6B6CB /* qRenderHeightMap.h in Headers */,
-				5E4A262627F80AC400F6B6CB /* qRenderNoise.h in Headers */,
-				5E4A262727F80AC400F6B6CB /* qRenderPrepass.h in Headers */,
-				5E4A262827F80AC400F6B6CB /* qRenderReflectionProbe.h in Headers */,
-				5E4A262927F80AC400F6B6CB /* qRenderRenderable.h in Headers */,
-				5E4A262A27F80AC400F6B6CB /* qRenderShadowMap.h in Headers */,
-				5E4A262B27F80AC400F6B6CB /* qRenderSubsystem.h in Headers */,
-				5E4A262C27F80AC400F6B6CB /* qRenderSubsystems.h in Headers */,
-				5E4A262D27F80AC400F6B6CB /* qRenderSSAO.h in Headers */,
-				5E4A262E27F80AC400F6B6CB /* qRenderTextureConfig.h in Headers */,
+				5E4A270F27FBF54900F6B6CB /* Atmosphere.h in Headers */,
+				5E4A271027FBF54900F6B6CB /* AtmosphereGlobals.h in Headers */,
+				5E4A271127FBF54900F6B6CB /* AtmosphereParams.h in Headers */,
+				5E4A271227FBF54900F6B6CB /* CameraGlobals.h in Headers */,
+				5E4A271327FBF54900F6B6CB /* DebugMenuParams.h in Headers */,
+				5E4A271427FBF54900F6B6CB /* Globals.h in Headers */,
+				5E4A271527FBF54900F6B6CB /* Prepass.h in Headers */,
+				5E4A271627FBF54900F6B6CB /* Poisson.h in Headers */,
+				5E4A271727FBF54900F6B6CB /* ShadingGlobals.h in Headers */,
+				5E4A271827FBF54900F6B6CB /* ShadowMap.h in Headers */,
+				5E4A271927FBF54900F6B6CB /* ShadowMapGlobals.h in Headers */,
+				5E4A271A27FBF54900F6B6CB /* SSAO.h in Headers */,
+				5E4A271B27FBF54900F6B6CB /* SSAOParams.h in Headers */,
+				5E4A271C27FBF54900F6B6CB /* TimeGlobals.h in Headers */,
+				5E4A271D27FBF54900F6B6CB /* Util.h in Headers */,
+				5E4A271E27FBF54900F6B6CB /* qRender.h in Headers */,
+				5E4A271F27FBF54900F6B6CB /* qRenderAtmosphere.h in Headers */,
+				5E4A272027FBF54900F6B6CB /* qRenderCamera.h in Headers */,
+				5E4A272127FBF54900F6B6CB /* qRenderDebugMenu.h in Headers */,
+				5E4A272227FBF54900F6B6CB /* qRenderGlobals.h in Headers */,
+				5E4A272327FBF54900F6B6CB /* qRenderHeightMap.h in Headers */,
+				5E4A272427FBF54900F6B6CB /* qRenderNoise.h in Headers */,
+				5E4A272527FBF54900F6B6CB /* qRenderPrepass.h in Headers */,
+				5E4A272627FBF54900F6B6CB /* qRenderReflectionProbe.h in Headers */,
+				5E4A272727FBF54900F6B6CB /* qRenderRenderable.h in Headers */,
+				5E4A272827FBF54900F6B6CB /* qRenderShadowMap.h in Headers */,
+				5E4A272927FBF54900F6B6CB /* qRenderSubsystem.h in Headers */,
+				5E4A272A27FBF54900F6B6CB /* qRenderSubsystems.h in Headers */,
+				5E4A272B27FBF54900F6B6CB /* qRenderSSAO.h in Headers */,
+				5E4A272C27FBF54900F6B6CB /* qRenderTextureConfig.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5E4A25F827F80A8400F6B6CB /* qRender-macos */ = {
+		5E4A26FF27FBF52300F6B6CB /* qRender-macos-static */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E4A260A27F80A8400F6B6CB /* Build configuration list for PBXNativeTarget "qRender-macos" */;
+			buildConfigurationList = 5E4A270C27FBF52300F6B6CB /* Build configuration list for PBXNativeTarget "qRender-macos-static" */;
 			buildPhases = (
-				5E4A25F527F80A8400F6B6CB /* Headers */,
-				5E4A25F627F80A8400F6B6CB /* Sources */,
-				5E4A25F727F80A8400F6B6CB /* Frameworks */,
+				5E4A26FC27FBF52300F6B6CB /* Headers */,
+				5E4A26FD27FBF52300F6B6CB /* Sources */,
+				5E4A26FE27FBF52300F6B6CB /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5E4A260C27F80A8F00F6B6CB /* PBXTargetDependency */,
-				5E4A260E27F80A8F00F6B6CB /* PBXTargetDependency */,
-				5E4A261027F80A8F00F6B6CB /* PBXTargetDependency */,
+				5E4A274427FBF56700F6B6CB /* PBXTargetDependency */,
 			);
-			name = "qRender-macos";
-			productName = "qRender-macos";
-			productReference = 5E4A25F927F80A8400F6B6CB /* libqRender-macos.dylib */;
-			productType = "com.apple.product-type.library.dynamic";
+			name = "qRender-macos-static";
+			productName = "qRender-macos-static";
+			productReference = 5E4A270027FBF52300F6B6CB /* libqRender-macos-static.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 		5EBA2EFC236CDB9A009FF419 /* qRender */ = {
 			isa = PBXNativeTarget;
@@ -462,7 +452,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				5E5817E627CDE3B00094D397 /* PBXTargetDependency */,
+				5E4A269A27FBF3DB00F6B6CB /* PBXTargetDependency */,
 				5E5817E827CDE3B40094D397 /* PBXTargetDependency */,
 				5E5817EA27CDE3B60094D397 /* PBXTargetDependency */,
 			);
@@ -480,7 +470,7 @@
 				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Russell Warneboldt";
 				TargetAttributes = {
-					5E4A25F827F80A8400F6B6CB = {
+					5E4A26FF27FBF52300F6B6CB = {
 						CreatedOnToolsVersion = 13.3;
 					};
 					5EBA2EFC236CDB9A009FF419 = {
@@ -516,31 +506,31 @@
 			projectRoot = "";
 			targets = (
 				5EBA2EFC236CDB9A009FF419 /* qRender */,
-				5E4A25F827F80A8400F6B6CB /* qRender-macos */,
+				5E4A26FF27FBF52300F6B6CB /* qRender-macos-static */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		5E4A260327F80A8400F6B6CB /* libqcore-macos.dylib */ = {
+		5E4A269827FBF3D800F6B6CB /* libqCore-macos-static.a */ = {
 			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = "libqcore-macos.dylib";
-			remoteRef = 5E4A260227F80A8400F6B6CB /* PBXContainerItemProxy */;
+			fileType = archive.ar;
+			path = "libqCore-macos-static.a";
+			remoteRef = 5E4A269727FBF3D800F6B6CB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5E4A260627F80A8400F6B6CB /* libqMath-macos.dylib */ = {
+		5E4A270827FBF52300F6B6CB /* libqMath-macos-static.a */ = {
 			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = "libqMath-macos.dylib";
-			remoteRef = 5E4A260527F80A8400F6B6CB /* PBXContainerItemProxy */;
+			fileType = archive.ar;
+			path = "libqMath-macos-static.a";
+			remoteRef = 5E4A270727FBF52300F6B6CB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5E4A260927F80A8400F6B6CB /* libqMetal-macos.dylib */ = {
+		5E4A270B27FBF52300F6B6CB /* libqMetal-macos-static.a */ = {
 			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = "libqMetal-macos.dylib";
-			remoteRef = 5E4A260827F80A8400F6B6CB /* PBXContainerItemProxy */;
+			fileType = archive.ar;
+			path = "libqMetal-macos-static.a";
+			remoteRef = 5E4A270A27FBF52300F6B6CB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5EBA2F12236CDBE9009FF419 /* libqMetal.a */ = {
@@ -567,28 +557,28 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5E4A25F627F80A8400F6B6CB /* Sources */ = {
+		5E4A26FD27FBF52300F6B6CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E4A263927F80AE800F6B6CB /* Atmosphere.metal in Sources */,
-				5E4A263A27F80AE800F6B6CB /* AtmosphereGenerate.metal in Sources */,
-				5E4A263B27F80AE800F6B6CB /* DebugMenu.metal in Sources */,
-				5E4A263C27F80AE800F6B6CB /* Globals.metal in Sources */,
-				5E4A263D27F80AE800F6B6CB /* ShadowMap.metal in Sources */,
-				5E4A263E27F80AE800F6B6CB /* SSAO.metal in Sources */,
-				5E4A263F27F80AE800F6B6CB /* SSAOGenerate.metal in Sources */,
-				5E4A264027F80AE800F6B6CB /* Util.metal in Sources */,
-				5E4A262F27F80ADB00F6B6CB /* qRenderAtmosphere.mm in Sources */,
-				5E4A263027F80ADB00F6B6CB /* qRenderCamera.mm in Sources */,
-				5E4A263127F80ADB00F6B6CB /* qRenderDebugMenu.mm in Sources */,
-				5E4A263227F80ADB00F6B6CB /* qRenderHeightMap.mm in Sources */,
-				5E4A263327F80ADB00F6B6CB /* qRenderNoise.mm in Sources */,
-				5E4A263427F80ADB00F6B6CB /* qRenderPrepass.mm in Sources */,
-				5E4A263527F80ADB00F6B6CB /* qRenderReflectionProbe.mm in Sources */,
-				5E4A263627F80ADB00F6B6CB /* qRenderShadowMap.mm in Sources */,
-				5E4A263727F80ADB00F6B6CB /* qRenderSubsystems.mm in Sources */,
-				5E4A263827F80ADB00F6B6CB /* qRenderSSAO.mm in Sources */,
+				5E4A272D27FBF55800F6B6CB /* Atmosphere.metal in Sources */,
+				5E4A272E27FBF55800F6B6CB /* AtmosphereGenerate.metal in Sources */,
+				5E4A272F27FBF55800F6B6CB /* DebugMenu.metal in Sources */,
+				5E4A273027FBF55800F6B6CB /* Globals.metal in Sources */,
+				5E4A273127FBF55800F6B6CB /* ShadowMap.metal in Sources */,
+				5E4A273227FBF55800F6B6CB /* SSAO.metal in Sources */,
+				5E4A273327FBF55800F6B6CB /* SSAOGenerate.metal in Sources */,
+				5E4A273427FBF55800F6B6CB /* Util.metal in Sources */,
+				5E4A273527FBF55E00F6B6CB /* qRenderAtmosphere.mm in Sources */,
+				5E4A273627FBF55E00F6B6CB /* qRenderCamera.mm in Sources */,
+				5E4A273727FBF55E00F6B6CB /* qRenderDebugMenu.mm in Sources */,
+				5E4A273827FBF55E00F6B6CB /* qRenderHeightMap.mm in Sources */,
+				5E4A273927FBF55E00F6B6CB /* qRenderNoise.mm in Sources */,
+				5E4A273A27FBF55E00F6B6CB /* qRenderPrepass.mm in Sources */,
+				5E4A273B27FBF55E00F6B6CB /* qRenderReflectionProbe.mm in Sources */,
+				5E4A273C27FBF55E00F6B6CB /* qRenderShadowMap.mm in Sources */,
+				5E4A273D27FBF55E00F6B6CB /* qRenderSubsystems.mm in Sources */,
+				5E4A273E27FBF55E00F6B6CB /* qRenderSSAO.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,25 +610,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5E4A260C27F80A8F00F6B6CB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "qcore-macos";
-			targetProxy = 5E4A260B27F80A8F00F6B6CB /* PBXContainerItemProxy */;
-		};
-		5E4A260E27F80A8F00F6B6CB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "qMath-macos";
-			targetProxy = 5E4A260D27F80A8F00F6B6CB /* PBXContainerItemProxy */;
-		};
-		5E4A261027F80A8F00F6B6CB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "qMetal-macos";
-			targetProxy = 5E4A260F27F80A8F00F6B6CB /* PBXContainerItemProxy */;
-		};
-		5E5817E627CDE3B00094D397 /* PBXTargetDependency */ = {
+		5E4A269A27FBF3DB00F6B6CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = qCore;
-			targetProxy = 5E5817E527CDE3B00094D397 /* PBXContainerItemProxy */;
+			targetProxy = 5E4A269927FBF3DB00F6B6CB /* PBXContainerItemProxy */;
+		};
+		5E4A274427FBF56700F6B6CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "qMetal-macos-static";
+			targetProxy = 5E4A274327FBF56700F6B6CB /* PBXContainerItemProxy */;
 		};
 		5E5817E827CDE3B40094D397 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -653,14 +633,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		5E4A25FF27F80A8400F6B6CB /* Debug */ = {
+		5E4A270D27FBF52300F6B6CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MU45E745AK;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -669,14 +648,13 @@
 			};
 			name = Debug;
 		};
-		5E4A260027F80A8400F6B6CB /* Release */ = {
+		5E4A270E27FBF52300F6B6CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MU45E745AK;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -836,11 +814,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5E4A260A27F80A8400F6B6CB /* Build configuration list for PBXNativeTarget "qRender-macos" */ = {
+		5E4A270C27FBF52300F6B6CB /* Build configuration list for PBXNativeTarget "qRender-macos-static" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E4A25FF27F80A8400F6B6CB /* Debug */,
-				5E4A260027F80A8400F6B6CB /* Release */,
+				5E4A270D27FBF52300F6B6CB /* Debug */,
+				5E4A270E27FBF52300F6B6CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
