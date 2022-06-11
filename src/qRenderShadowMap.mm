@@ -137,21 +137,6 @@ void qRender::ShadowMap::Encode(const Globals *globals, bool forceAll) const
 {
 	qMetal::Device::PushDebugGroup(@"Shadow Map");
 	
-	id<MTLBlitCommandEncoder> resetBlitEncoder = qMetal::Device::BlitEncoder(@"Shadow Map ICB Reset");
-	for(int i = 0; i < SHADOW_CASCADE_COUNT; ++i)
-	{
-		if (ShouldRender(i, forceAll))
-		{
-			[resetBlitEncoder pushDebugGroup:[NSString stringWithFormat:@"Shadow Map Reset %u", i]];
-			for(auto &it : renderables)
-			{
-				it->Reset(resetBlitEncoder, eRenderablePass_ShadowMap0 + i);
-			}
-			[resetBlitEncoder popDebugGroup];
-		}
-	}
-	[resetBlitEncoder endEncoding];
-	
 	id<MTLComputeCommandEncoder> shadowComputeCommandEncoder = Device::ComputeEncoder(@"Shadow Map Compute");
 	for(int i = 0; i < SHADOW_CASCADE_COUNT; ++i)
 	{
@@ -166,21 +151,6 @@ void qRender::ShadowMap::Encode(const Globals *globals, bool forceAll) const
 		}
 	}
 	[shadowComputeCommandEncoder endEncoding];
-	
-	id<MTLBlitCommandEncoder> optimizeBlitEncoder = qMetal::Device::BlitEncoder(@"Shadow Map ICB Optimize");
-	for(int i = 0; i < SHADOW_CASCADE_COUNT; ++i)
-	{
-		if (ShouldRender(i, forceAll))
-		{
-			[optimizeBlitEncoder pushDebugGroup:[NSString stringWithFormat:@"Shadow Map Optimize %u", i]];
-			for(auto &it : renderables)
-			{
-				it->Optimize(optimizeBlitEncoder, eRenderablePass_ShadowMap0 + i);
-			}
-			[optimizeBlitEncoder popDebugGroup];
-		}
-	}
-	[optimizeBlitEncoder endEncoding];
 	
 	for(int i = 0; i < SHADOW_CASCADE_COUNT; ++i)
 	{

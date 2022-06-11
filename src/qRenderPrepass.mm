@@ -69,26 +69,12 @@ void qRender::Prepass::Encode(const Globals *globals) const
 {
 	qMetal::Device::PushDebugGroup(@"Prepass");
 	
-	id<MTLBlitCommandEncoder> resetBlitEncoder = qMetal::Device::BlitEncoder(@"Prepass ICB Reset");
-	for(auto &it : renderables)
-	{
-		it->Reset(resetBlitEncoder, eRenderablePass_Prepass);
-	}
-	[resetBlitEncoder endEncoding];
-	
 	id<MTLComputeCommandEncoder> computeEncoder = Device::ComputeEncoder(@"Prepass Compute");;
 	for(auto &it : renderables)
 	{
 		it->EncodeCompute(computeEncoder, globals->sceneCamera, globals, eRenderablePass_Prepass);
 	}
 	[computeEncoder endEncoding];
-	
-	id<MTLBlitCommandEncoder> optimizeBlitEncoder = qMetal::Device::BlitEncoder(@"Prepass ICB Optimize");
-	for(auto &it : renderables)
-	{
-		it->Optimize(optimizeBlitEncoder, eRenderablePass_Prepass);
-	}
-	[optimizeBlitEncoder endEncoding];
 
 	id<MTLRenderCommandEncoder> encoder = renderTarget->Begin();
 	for(auto &it : renderables)

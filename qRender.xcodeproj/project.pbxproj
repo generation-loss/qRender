@@ -43,14 +43,6 @@
 		5E4A272A27FBF54900F6B6CB /* qRenderSubsystems.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E1EE18727CC2FA60017375F /* qRenderSubsystems.h */; };
 		5E4A272B27FBF54900F6B6CB /* qRenderSSAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E22867927D07F660064B8F6 /* qRenderSSAO.h */; };
 		5E4A272C27FBF54900F6B6CB /* qRenderTextureConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E77632C27C5ED8000846286 /* qRenderTextureConfig.h */; };
-		5E4A272D27FBF55800F6B6CB /* Atmosphere.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529EA27EADAA700007DA1 /* Atmosphere.metal */; };
-		5E4A272E27FBF55800F6B6CB /* AtmosphereGenerate.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529EB27EADAA700007DA1 /* AtmosphereGenerate.metal */; };
-		5E4A272F27FBF55800F6B6CB /* DebugMenu.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7327B0EAF50064302F /* DebugMenu.metal */; };
-		5E4A273027FBF55800F6B6CB /* Globals.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D3F4727CF346600244B48 /* Globals.metal */; };
-		5E4A273127FBF55800F6B6CB /* ShadowMap.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529F127EADB6800007DA1 /* ShadowMap.metal */; };
-		5E4A273227FBF55800F6B6CB /* SSAO.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867627D07F120064B8F6 /* SSAO.metal */; };
-		5E4A273327FBF55800F6B6CB /* SSAOGenerate.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E22867D27D080290064B8F6 /* SSAOGenerate.metal */; };
-		5E4A273427FBF55800F6B6CB /* Util.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E7055EE27CF35F1000BF523 /* Util.metal */; };
 		5E4A273527FBF55E00F6B6CB /* qRenderAtmosphere.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E9529EF27EADAB600007DA1 /* qRenderAtmosphere.mm */; };
 		5E4A273627FBF55E00F6B6CB /* qRenderCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6CC9227B0E92E00E0822D /* qRenderCamera.mm */; };
 		5E4A273727FBF55E00F6B6CB /* qRenderDebugMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E920A7127B0EA870064302F /* qRenderDebugMenu.mm */; };
@@ -561,14 +553,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E4A272D27FBF55800F6B6CB /* Atmosphere.metal in Sources */,
-				5E4A272E27FBF55800F6B6CB /* AtmosphereGenerate.metal in Sources */,
-				5E4A272F27FBF55800F6B6CB /* DebugMenu.metal in Sources */,
-				5E4A273027FBF55800F6B6CB /* Globals.metal in Sources */,
-				5E4A273127FBF55800F6B6CB /* ShadowMap.metal in Sources */,
-				5E4A273227FBF55800F6B6CB /* SSAO.metal in Sources */,
-				5E4A273327FBF55800F6B6CB /* SSAOGenerate.metal in Sources */,
-				5E4A273427FBF55800F6B6CB /* Util.metal in Sources */,
 				5E4A273527FBF55E00F6B6CB /* qRenderAtmosphere.mm in Sources */,
 				5E4A273627FBF55E00F6B6CB /* qRenderCamera.mm in Sources */,
 				5E4A273727FBF55E00F6B6CB /* qRenderDebugMenu.mm in Sources */,

@@ -328,26 +328,12 @@ void qRender::ReflectionProbe::Encode(const Globals *globals) const
 	
 	if (config->updateSingleFacePerFrame)
 	{
-		id<MTLBlitCommandEncoder> resetBlitEncoder = qMetal::Device::BlitEncoder(@"Reflection Probe ICB Reset");
-		for(auto &it : renderables)
-		{
-			it->Reset(resetBlitEncoder, eRenderablePass_ReflectionProbe);
-		}
-		[resetBlitEncoder endEncoding];
-		
 		id<MTLComputeCommandEncoder> reflectionComputeEncoder = Device::ComputeEncoder(@"Reflection Probe Render");;
 		for(auto &it : renderables)
 		{
 			it->EncodeCompute(reflectionComputeEncoder, camera[currentSlice], globals, eRenderablePass_ReflectionProbe);
 		}
 		[reflectionComputeEncoder endEncoding];
-		
-		id<MTLBlitCommandEncoder> optimizeBlitEncoder = qMetal::Device::BlitEncoder(@"Reflection Probe ICB Optimize");
-		for(auto &it : renderables)
-		{
-			it->Optimize(optimizeBlitEncoder, eRenderablePass_ReflectionProbe);
-		}
-		[optimizeBlitEncoder endEncoding];
 		
 		id<MTLRenderCommandEncoder> encoder = renderTarget[currentSlice]->Begin();
 		for(auto &it : renderables)
