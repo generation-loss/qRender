@@ -41,6 +41,7 @@ qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config *_config)
 	
 	AccumulateComputeMaterial::Config *accumulateComputeMaterialConfig 											= new AccumulateComputeMaterial::Config(@"Atmosphere Accumulate Compute Material");
 	accumulateComputeMaterialConfig->computeFunction  															= new Function(@"AtmosphereAccumulateKernel");
+	accumulateComputeMaterialConfig->computeParamsIndex 														= AtmosphereAccumulateComputeStream_Params;
 	accumulateComputeMaterialConfig->computeTextures[AtmosphereAccumulateComputeStream_WorldPosTexture]			= config->prepass->GetWorldPosTexture();
 	accumulateComputeMaterialConfig->computeTextures[AtmosphereAccumulateComputeStream_ShadowTexture]			= config->shadowMap->GetTexture();
 	accumulateComputeMaterialConfig->computeTextures[AtmosphereAccumulateComputeStream_ReflectionProbeTexture]	= config->reflectionProbe->GetIndirectTexture();
@@ -80,7 +81,10 @@ qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config *_config)
 	accumulateRenderMaterialConfig->cullState = CullState::PredefinedState(eCullState_Disable);
 	accumulateRenderMaterialConfig->depthStencilState = DepthStencilState::PredefinedState(eDepthStencilState_TestDisable_WriteDisable_StencilDisable);
 	accumulateRenderMaterialConfig->vertexFunction = new Function(@"AtmosphereVertexShader");
+	accumulateRenderMaterialConfig->vertexParamsIndex = AtmosphereVertexStream_Params;
 	accumulateRenderMaterialConfig->fragmentFunction = new Function(@"AtmosphereAccumulateFragmentShader");
+	accumulateRenderMaterialConfig->fragmentTextureIndex = AtmosphereAccumulateFragmentStream_TextureArgumentBuffer;
+	accumulateRenderMaterialConfig->fragmentParamsIndex = AtmosphereAccumulateFragmentStream_Params;
 	accumulateRenderMaterialConfig->fragmentTextures[AtmosphereAccumulateFragmentTextureArgumentBuffer_WorldPosTexture] = config->prepass->GetWorldPosTexture();
 	accumulateRenderMaterialConfig->fragmentSamplers[AtmosphereAccumulateFragmentTextureArgumentBuffer_WorldPosTexture] = AtmosphereAccumulateFragmentTextureArgumentBuffer_WorldPosSampler;
 	accumulateRenderMaterialConfig->fragmentTextures[AtmosphereAccumulateFragmentTextureArgumentBuffer_ShadowTexture] = config->shadowMap->GetTexture();

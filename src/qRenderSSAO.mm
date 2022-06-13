@@ -73,6 +73,7 @@ qRender::SSAO::SSAO(Config *_config)
 	
 	SSAOAccumulateMaterial::Config *accumulateComputeMaterialConfig 								= new SSAOAccumulateMaterial::Config(@"AO Accumulate Material");
 	accumulateComputeMaterialConfig->computeFunction  												= new Function(@"AOAccumulateShader");
+	accumulateComputeMaterialConfig->computeParamsIndex												= AOAccumulateComputeStream_Params;
 	accumulateComputeMaterialConfig->computeTextures[AOAccumulateComputeStream_WorldPosTexture] 	= config->prepass->GetWorldPosTexture();
 	accumulateComputeMaterialConfig->computeTextures[AOAccumulateComputeStream_WorldNormal]			= config->prepass->GetWorldNormalTexture();
 	accumulateComputeMaterialConfig->computeTextures[AOAccumulateComputeStream_Noise]				= noise->GetTexture();
@@ -81,6 +82,7 @@ qRender::SSAO::SSAO(Config *_config)
 	
 	SSAOAccumulateMaterial::Config *upscaleBlurMaterialComputeConfig 								= new SSAOAccumulateMaterial::Config(@"AO Upscale Material");
 	upscaleBlurMaterialComputeConfig->computeFunction  												= new Function(@"AOUpscaleBlurShader");
+	upscaleBlurMaterialComputeConfig->computeParamsIndex											= AOAccumulateComputeStream_Params;
 	upscaleBlurMaterialComputeConfig->computeTextures[AOAccumulateComputeStream_WorldPosTexture] 	= config->prepass->GetWorldPosTexture();
 	upscaleBlurMaterialComputeConfig->computeTextures[AOAccumulateComputeStream_AOTexture]			= accumulateTexture;
 	upscaleBlurMaterialComputeConfig->computeTextures[AOAccumulateComputeStream_AOUpscaleTexture]	= upscaleBlurTexture;
@@ -88,6 +90,7 @@ qRender::SSAO::SSAO(Config *_config)
 	
 	SSAOAccumulateMaterial::Config *upscaleBlurMaterialRenderConfig 								= new SSAOAccumulateMaterial::Config(@"AO Upscale Material");
 	upscaleBlurMaterialRenderConfig->computeFunction  												= new Function(@"AOUpscaleBlurShader");
+	upscaleBlurMaterialRenderConfig->computeParamsIndex												= AOAccumulateComputeStream_Params;
 	upscaleBlurMaterialRenderConfig->computeTextures[AOAccumulateComputeStream_WorldPosTexture] 	= config->prepass->GetWorldPosTexture();
 	upscaleBlurMaterialRenderConfig->computeTextures[AOAccumulateComputeStream_AOTexture]			= renderTarget->ColourTexture(RenderTarget::eColorAttachment_0);
 	upscaleBlurMaterialRenderConfig->computeTextures[AOAccumulateComputeStream_AOUpscaleTexture]	= upscaleBlurTexture;
@@ -98,7 +101,10 @@ qRender::SSAO::SSAO(Config *_config)
 	accumulateRenderMaterialConfig->cullState = CullState::PredefinedState(eCullState_Disable);
 	accumulateRenderMaterialConfig->depthStencilState = DepthStencilState::PredefinedState(eDepthStencilState_TestDisable_WriteDisable_StencilDisable);
 	accumulateRenderMaterialConfig->vertexFunction = new Function(@"AOVertexShader");
+	accumulateRenderMaterialConfig->vertexParamsIndex = AOVertexStream_Params;
 	accumulateRenderMaterialConfig->fragmentFunction = new Function(@"AOAccumulateFragmentShader");
+	accumulateRenderMaterialConfig->fragmentTextureIndex = AOAccumulateFragmentStream_TextureArgumentBuffer;
+	accumulateRenderMaterialConfig->fragmentParamsIndex = AOAccumulateFragmentStream_Params;
 	accumulateRenderMaterialConfig->fragmentTextures[AOAccumulateFragmentTextureArgumentBuffer_WorldPosTexture] = config->prepass->GetWorldPosTexture();
 	accumulateRenderMaterialConfig->fragmentSamplers[AOAccumulateFragmentTextureArgumentBuffer_WorldPosTexture] = AOAccumulateFragmentTextureArgumentBuffer_WorldPosSampler;
 	accumulateRenderMaterialConfig->fragmentTextures[AOAccumulateFragmentTextureArgumentBuffer_WorldNormalTexture] = config->prepass->GetWorldNormalTexture();

@@ -58,10 +58,10 @@ namespace qRender
 		} Config;
 		
 		//COMPUTE
-		typedef Material<EmptyParams, -1, -1, EmptyParams, -1, -1, AOAccumulateComputeParams, AOAccumulateComputeStream_Params> SSAOAccumulateMaterial;
+		typedef Material<EmptyParams, EmptyParams, AOAccumulateComputeParams> SSAOAccumulateMaterial;
 	
 		//RENDER
-		typedef Material<AOVertexParams, -1, AOVertexStream_Params, AOAccumulateComputeParams, AOAccumulateFragmentStream_TextureArgumentBuffer, AOAccumulateFragmentStream_Params> AccumulateRenderMaterial;
+		typedef Material<AOVertexParams, AOAccumulateComputeParams> AccumulateRenderMaterial;
 		typedef Mesh<AOVertexStreamArgumentBuffer_Count, AOVertexStream_StreamArgumentBuffer> FullScreenMesh;
 		
 		SSAO(Config *_config);

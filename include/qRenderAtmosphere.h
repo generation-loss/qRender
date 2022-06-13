@@ -65,11 +65,11 @@ namespace qRender
 		} Config;
 		
 		//COMPUTE
-		typedef Material<EmptyParams, -1, -1, EmptyParams, -1, -1, AtmosphereAccumulateComputeParams, AtmosphereAccumulateComputeStream_Params> AccumulateComputeMaterial;
-		typedef Material<EmptyParams, -1, -1, EmptyParams, -1, -1, EmptyParams, -1> BlurComputeMaterial;
+		typedef Material<EmptyParams, EmptyParams, AtmosphereAccumulateComputeParams> AccumulateComputeMaterial;
+		typedef Material<EmptyParams, EmptyParams> BlurComputeMaterial;
 		
 		//RENDER
-		typedef Material<AtmosphereVertexParams, -1, AtmosphereVertexStream_Params, AtmosphereAccumulateComputeParams, AtmosphereAccumulateFragmentStream_TextureArgumentBuffer, AtmosphereAccumulateFragmentStream_Params> AccumulateRenderMaterial;
+		typedef Material<AtmosphereVertexParams, AtmosphereAccumulateComputeParams> AccumulateRenderMaterial;
 		typedef Mesh<AtmosphereVertexStreamArgumentBuffer_Count, AtmosphereVertexStream_StreamArgumentBuffer> FullScreenMesh;
 		
 		Atmosphere(Config *_config);

@@ -86,7 +86,7 @@ namespace qRender
 		
 	public:
 		
-		typedef Material<DebugMenuVertexParams, -1, DebugMenuVertexStream_Params, DebugMenuFragmentParams, DebugMenuFragmentStream_TextureArgumentBuffer, DebugMenuFragmentStream_Params> DebugMaterial;
+		typedef Material<DebugMenuVertexParams, DebugMenuFragmentParams> DebugMaterial;
 		
 		typedef Mesh<DebugMenuVertexStreamArgumentBuffer_Count, DebugMenuVertexStream_StreamArgumentBuffer> DebugMesh;
 		

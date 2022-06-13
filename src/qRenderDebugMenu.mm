@@ -356,6 +356,9 @@ qRender::DebugMenu::Item::Item(const char* _label, unsigned long itemNumber, Con
 	materialConfig->cullState = CullState::PredefinedState(eCullState_Disable);
 	materialConfig->depthStencilState = DepthStencilState::PredefinedState(eDepthStencilState_TestDisable_WriteDisable_StencilDisable);
 	materialConfig->vertexFunction = new Function(@"DebugMenuVertexShader");
+	materialConfig->vertexParamsIndex = DebugMenuVertexStream_Params;
+	materialConfig->fragmentParamsIndex = DebugMenuFragmentStream_Params;
+	materialConfig->fragmentTextureIndex = DebugMenuFragmentStream_TextureArgumentBuffer;
 	materialConfig->fragmentFunction = new Function(@"DebugMenuFragmentShader");
 	materialConfig->fragmentTextures[DebugMenuFragmentTextureArgumentBuffer_BaseColourTexture] = texture;
 	materialConfig->fragmentSamplers[DebugMenuFragmentTextureArgumentBuffer_BaseColourTexture] = DebugMenuFragmentTextureArgumentBuffer_BaseColourSampler;
