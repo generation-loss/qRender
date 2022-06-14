@@ -88,8 +88,6 @@ namespace qRender
 		
 		typedef Material<DebugMenuVertexParams, DebugMenuFragmentParams> DebugMaterial;
 		
-		typedef Mesh<DebugMenuVertexStreamArgumentBuffer_Count, DebugMenuVertexStream_StreamArgumentBuffer> DebugMesh;
-		
 	private:
 		
 		struct Item
@@ -189,7 +187,7 @@ namespace qRender
 		
 		Items* CategoryItems(const char* category, const char* subcategory);
 		bool					rendering;
-		DebugMesh				*mesh;
+		Mesh					*mesh;
 		Items					*topLevelItems;
 		Items					*activeItems;
 		Item					*draggedItem;

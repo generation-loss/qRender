@@ -70,7 +70,6 @@ namespace qRender
 		
 		//RENDER
 		typedef Material<AtmosphereVertexParams, AtmosphereAccumulateComputeParams> AccumulateRenderMaterial;
-		typedef Mesh<AtmosphereVertexStreamArgumentBuffer_Count, AtmosphereVertexStream_StreamArgumentBuffer> FullScreenMesh;
 		
 		Atmosphere(Config *_config);
 		
@@ -88,7 +87,7 @@ namespace qRender
 	private:
 		
 		RenderTarget					*renderTarget;
-		FullScreenMesh 					*fullScreenMesh;
+		Mesh		 					*fullScreenMesh;
 		AccumulateRenderMaterial		*accumulateRenderMaterial;
 		
 		ComputeTexture					*accumulateTexture[2];

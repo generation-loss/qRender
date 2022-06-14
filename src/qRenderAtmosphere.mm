@@ -116,20 +116,23 @@ qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config *_config)
 		0, 1, 2, 0, 2, 3
 	};
 	
-	FullScreenMesh::Config *compositeMeshConfig = new FullScreenMesh::Config(@"Atmosphere full screen mesh");
+	Mesh::Config *compositeMeshConfig = new Mesh::Config(@"Atmosphere full screen mesh");
+	
+	compositeMeshConfig->vertexStreamCount = AtmosphereVertexStreamArgumentBuffer_Count;
+	compositeMeshConfig->vertexStreamIndex = AtmosphereVertexStream_StreamArgumentBuffer;
 	
 	compositeMeshConfig->vertexCount = 4;
 	compositeMeshConfig->indexCount = 6;
 	
-	compositeMeshConfig->vertexStreams[AtmosphereVertexStreamArgumentBuffer_Position].type = FullScreenMesh::eVertexStreamType_Float4;
+	compositeMeshConfig->vertexStreams[AtmosphereVertexStreamArgumentBuffer_Position].type = Mesh::eVertexStreamType_Float4;
 	compositeMeshConfig->vertexStreams[AtmosphereVertexStreamArgumentBuffer_Position].data = vertices;
 	
-	compositeMeshConfig->vertexStreams[AtmosphereVertexStreamArgumentBuffer_UV].type = FullScreenMesh::eVertexStreamType_Float2;
+	compositeMeshConfig->vertexStreams[AtmosphereVertexStreamArgumentBuffer_UV].type = Mesh::eVertexStreamType_Float2;
 	compositeMeshConfig->vertexStreams[AtmosphereVertexStreamArgumentBuffer_UV].data = uvs;
 	
 	compositeMeshConfig->indices16 = indices;
 	
-	fullScreenMesh = new FullScreenMesh(compositeMeshConfig);
+	fullScreenMesh = new Mesh(compositeMeshConfig);
 }
 
 void qRender::Atmosphere::Init(Globals *globals)

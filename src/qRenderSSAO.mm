@@ -136,20 +136,23 @@ qRender::SSAO::SSAO(Config *_config)
 		0, 1, 2, 0, 2, 3
 	};
 	
-	FullScreenMesh::Config *compositeMeshConfig = new FullScreenMesh::Config(@"SSAO full screen mesh");
+	Mesh::Config *compositeMeshConfig = new Mesh::Config(@"SSAO full screen mesh");
+	
+	compositeMeshConfig->vertexStreamCount = AOVertexStreamArgumentBuffer_Count;
+	compositeMeshConfig->vertexStreamIndex = AOVertexStream_StreamArgumentBuffer;
 	
 	compositeMeshConfig->vertexCount = 4;
 	compositeMeshConfig->indexCount = 6;
 	
-	compositeMeshConfig->vertexStreams[AOVertexStreamArgumentBuffer_Position].type = FullScreenMesh::eVertexStreamType_Float4;
+	compositeMeshConfig->vertexStreams[AOVertexStreamArgumentBuffer_Position].type = Mesh::eVertexStreamType_Float4;
 	compositeMeshConfig->vertexStreams[AOVertexStreamArgumentBuffer_Position].data = vertices;
 	
-	compositeMeshConfig->vertexStreams[AOVertexStreamArgumentBuffer_UV].type = FullScreenMesh::eVertexStreamType_Float2;
+	compositeMeshConfig->vertexStreams[AOVertexStreamArgumentBuffer_UV].type = Mesh::eVertexStreamType_Float2;
 	compositeMeshConfig->vertexStreams[AOVertexStreamArgumentBuffer_UV].data = uvs;
 	
 	compositeMeshConfig->indices16 = indices;
 	
-	fullScreenMesh = new FullScreenMesh(compositeMeshConfig);
+	fullScreenMesh = new Mesh(compositeMeshConfig);
 }
 
 void qRender::SSAO::Init(Globals *globals)

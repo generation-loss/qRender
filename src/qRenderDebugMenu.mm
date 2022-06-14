@@ -59,20 +59,23 @@ qRender::DebugMenu::DebugMenu(Config *_config)
 		0, 1, 2, 0, 2, 3
 	};
 	
-	DebugMesh::Config *meshConfig = new DebugMesh::Config(@"Debug Menu Mesh");
+	Mesh::Config *meshConfig = new Mesh::Config(@"Debug Menu Mesh");
+	
+	meshConfig->vertexStreamCount = DebugMenuVertexStreamArgumentBuffer_Count;
+	meshConfig->vertexStreamIndex = DebugMenuVertexStream_StreamArgumentBuffer;
 	
 	meshConfig->vertexCount = 4;
 	meshConfig->indexCount = 6;
 	
-	meshConfig->vertexStreams[DebugMenuVertexStreamArgumentBuffer_Position].type = DebugMesh::eVertexStreamType_Float4;
+	meshConfig->vertexStreams[DebugMenuVertexStreamArgumentBuffer_Position].type = Mesh::eVertexStreamType_Float4;
 	meshConfig->vertexStreams[DebugMenuVertexStreamArgumentBuffer_Position].data = vertices;
 	
-	meshConfig->vertexStreams[DebugMenuVertexStreamArgumentBuffer_UV].type = DebugMesh::eVertexStreamType_Float2;
+	meshConfig->vertexStreams[DebugMenuVertexStreamArgumentBuffer_UV].type = Mesh::eVertexStreamType_Float2;
 	meshConfig->vertexStreams[DebugMenuVertexStreamArgumentBuffer_UV].data = uvs;
 	
 	meshConfig->indices16 = indices;
 	
-	mesh = new DebugMesh(meshConfig);
+	mesh = new Mesh(meshConfig);
 	
 	topLevelItems = new Items();
 #endif

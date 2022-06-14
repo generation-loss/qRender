@@ -62,7 +62,6 @@ namespace qRender
 	
 		//RENDER
 		typedef Material<AOVertexParams, AOAccumulateComputeParams> AccumulateRenderMaterial;
-		typedef Mesh<AOVertexStreamArgumentBuffer_Count, AOVertexStream_StreamArgumentBuffer> FullScreenMesh;
 		
 		SSAO(Config *_config);
 		
@@ -79,7 +78,7 @@ namespace qRender
 		
 	private:
 		RenderTarget				*renderTarget;
-		FullScreenMesh 				*fullScreenMesh;
+		Mesh		 				*fullScreenMesh;
 		AccumulateRenderMaterial	*accumulateRenderMaterial;
 		
 		ComputeTexture				*accumulateTexture;
