@@ -13,7 +13,13 @@ A class that any rendering subsystem (e.g. shadow map, height map, etc.) can inh
 
 ### Subsystems
 
-A collection of subsystems that are useful for a rendering engine. First up is a height map, more are to follow
+A collection of subsystems that are useful for a rendering engine:
+- depth / normal prepass
+- reflection probes (with both direct and indirect lighting support)
+- height map
+- screen-space ambient occlusion (SSAO)
+- orthographic cascaded shadow map
+- atmosphere, a ray-marched, shadowed exponential fog system
 
 ### Render Globals
 
