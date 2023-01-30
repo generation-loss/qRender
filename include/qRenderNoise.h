@@ -44,8 +44,8 @@ namespace qRender {
 		{
 			NSString				*name;
 							
-			int32_t					width;
-			int32_t					height;
+			NSUInteger				width;
+			NSUInteger				height;
 			
 			eMode					mode;
 			Texture::ePixelFormat 	pixelFormat;
