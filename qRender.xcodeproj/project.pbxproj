@@ -61,6 +61,8 @@
 		5E4A274A27FBF58700F6B6CB /* libqMetal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBA2F12236CDBE9009FF419 /* libqMetal.a */; };
 		5E4A274B27FBF59200F6B6CB /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A266427F80EAF00F6B6CB /* Metal.framework */; };
 		5E4A274C27FBF59C00F6B6CB /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A266227F80EA500F6B6CB /* AppKit.framework */; };
+		5E4E3BD6298962DD004BDFC7 /* qRenderCluster.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E4E3BD3298962DD004BDFC7 /* qRenderCluster.h */; };
+		5E4E3BD8298962EB004BDFC7 /* qRenderCluster.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E3BD7298962EB004BDFC7 /* qRenderCluster.mm */; };
 		5E5817E027CDDABD0094D397 /* qRenderReflectionProbe.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */; };
 		5E6D3F4927CF34F500244B48 /* Globals.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D3F4727CF346600244B48 /* Globals.metal */; };
 		5E7055EF27CF3638000BF523 /* Util.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E7055EE27CF35F1000BF523 /* Util.metal */; };
@@ -178,6 +180,8 @@
 		5E4A266227F80EA500F6B6CB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		5E4A266427F80EAF00F6B6CB /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
 		5E4A270027FBF52300F6B6CB /* libqRender-macos-static.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libqRender-macos-static.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E4E3BD3298962DD004BDFC7 /* qRenderCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = qRenderCluster.h; path = include/qRenderCluster.h; sourceTree = SOURCE_ROOT; };
+		5E4E3BD7298962EB004BDFC7 /* qRenderCluster.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderCluster.mm; path = src/qRenderCluster.mm; sourceTree = SOURCE_ROOT; };
 		5E5817DB27CDD9290094D397 /* qRenderReflectionProbe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderReflectionProbe.h; path = include/qRenderReflectionProbe.h; sourceTree = SOURCE_ROOT; };
 		5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderReflectionProbe.mm; path = src/qRenderReflectionProbe.mm; sourceTree = SOURCE_ROOT; };
 		5E5817E127CDDC120094D397 /* ShadingGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShadingGlobals.h; path = include/Shaders/ShadingGlobals.h; sourceTree = SOURCE_ROOT; };
@@ -330,6 +334,8 @@
 				5E9529EF27EADAB600007DA1 /* qRenderAtmosphere.mm */,
 				5EC6CC9027B0E92700E0822D /* qRenderCamera.h */,
 				5EC6CC9227B0E92E00E0822D /* qRenderCamera.mm */,
+				5E4E3BD3298962DD004BDFC7 /* qRenderCluster.h */,
+				5E4E3BD7298962EB004BDFC7 /* qRenderCluster.mm */,
 				5E920A7027B0EA7C0064302F /* qRenderDebugMenu.h */,
 				5E920A7127B0EA870064302F /* qRenderDebugMenu.mm */,
 				5E920A7427B0EBAC0064302F /* qRenderGlobals.h */,
@@ -399,6 +405,7 @@
 				5E4A272027FBF54900F6B6CB /* qRenderCamera.h in Headers */,
 				5E4A272127FBF54900F6B6CB /* qRenderDebugMenu.h in Headers */,
 				5E4A272227FBF54900F6B6CB /* qRenderGlobals.h in Headers */,
+				5E4E3BD6298962DD004BDFC7 /* qRenderCluster.h in Headers */,
 				5E4A272327FBF54900F6B6CB /* qRenderHeightMap.h in Headers */,
 				5E4A272427FBF54900F6B6CB /* qRenderNoise.h in Headers */,
 				5E4A272527FBF54900F6B6CB /* qRenderPrepass.h in Headers */,
@@ -555,6 +562,7 @@
 			files = (
 				5E4A273527FBF55E00F6B6CB /* qRenderAtmosphere.mm in Sources */,
 				5E4A273627FBF55E00F6B6CB /* qRenderCamera.mm in Sources */,
+				5E4E3BD8298962EB004BDFC7 /* qRenderCluster.mm in Sources */,
 				5E4A273727FBF55E00F6B6CB /* qRenderDebugMenu.mm in Sources */,
 				5E4A273827FBF55E00F6B6CB /* qRenderHeightMap.mm in Sources */,
 				5E4A273927FBF55E00F6B6CB /* qRenderNoise.mm in Sources */,
