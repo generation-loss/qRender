@@ -23,37 +23,47 @@ SOFTWARE.
 #ifndef __Q_RENDER_CLUSTER_H__
 #define __Q_RENDER_CLUSTER_H__
 
-#include "qMath.h"
 #include "qMetal.h"
+#include "qRenderSubsystem.h"
 
 using namespace qMetal;
 
 namespace qRender {
-	class Cluster
+	class Cluster : public Subsystem
 	{
 	public:
 		
 		typedef struct Config
 		{
-			NSString				*name;
-			
-			Config(NSString *_name)
-			: name([_name retain])
+			Config()
+			: vertexStreamCount(1)
+			, maxVertices(1000)
+			, maxIndices(2000)
 			{
 			}
 			
-			friend std::ostream& operator<<(std::ostream& out, const Config& config)
-			{
-				out << "name " << [config.name cStringUsingEncoding:NSUTF8StringEncoding] << std::endl;
-				return out;
-			}
+			NSUInteger vertexStreamCount;
+			qMetal::Mesh::eVertexStreamType vertexStreamTypes[qMetal::Mesh::VertexStreamLimit];
+			NSUInteger maxVertices;
+			NSUInteger maxIndices;
 			
 		} Config;
 		
-		Cluster(Config *_config);
+		Cluster(Config* _config);
+		
+		void Init(Globals* globals);
+		
+		void Update(Globals* globals);
+		
+		void Encode(const Globals* globals) const;
+		
+		void AddClusterableMesh(Mesh::Config* meshConfig, NSUInteger clusterCount);
 		
 	private:
-		Config *config;
+		Config* config;
+		
+		id<MTLBuffer> vertexBuffers[qMetal::Mesh::VertexStreamLimit];
+		id<MTLBuffer> indexBuffer;
 	};
 }
 

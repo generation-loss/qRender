@@ -22,7 +22,30 @@ SOFTWARE.
 
 #include "qRenderCluster.h"
 	
-qRender::Cluster::Cluster(Config *_config)
+qRender::Cluster::Cluster(Config* _config)
 : config(_config)
+{
+	qASSERT(config->vertexStreamCount < qMetal::Mesh::VertexStreamLimit);
+	
+	for(NSUInteger i = 0; i < config->vertexStreamCount; ++i)
+	{
+		vertexBuffers[i] = [qMetal::Device::Get() newBufferWithLength:((NSUInteger)config->vertexStreamTypes[i] * config->maxVertices) options:MTLResourceStorageModePrivate];
+		vertexBuffers[i].label = [NSString stringWithFormat:@"Cluster vertex buffer %ul", (unsigned long)i];
+	}
+}
+
+void qRender::Cluster::AddClusterableMesh(Mesh::Config* config, NSUInteger clusterCount)
+{
+}
+
+void qRender::Cluster::Init(Globals* globals)
+{
+}
+
+void qRender::Cluster::Update(Globals* globals)
+{
+}
+
+void qRender::Cluster::Encode(const Globals* globals) const
 {
 }

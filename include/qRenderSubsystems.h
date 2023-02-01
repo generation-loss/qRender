@@ -27,6 +27,7 @@ SOFTWARE.
 #include "qRenderSubsystem.h"
 #include "qRenderGlobals.h"
 #include "qRenderAtmosphere.h"
+#include "qRenderCluster.h"
 #include "qRenderHeightMap.h"
 #include "qRenderReflectionProbe.h"
 #include "qRenderPrepass.h"
@@ -44,6 +45,7 @@ namespace qRender
 		{
 			Config()
 			: atmosphereConfig(new Atmosphere::Config())
+			, clusterConfig(new Cluster::Config())
 			, heightMapConfig(new HeightMap::Config())
 			, reflectionProbeConfig(new ReflectionProbe::Config())
 			, prepassConfig(new Prepass::Config())
@@ -53,6 +55,7 @@ namespace qRender
 			}
 			
 			Atmosphere::Config* atmosphereConfig;
+			Cluster::Config* clusterConfig;
 			HeightMap::Config* heightMapConfig;
 			ReflectionProbe::Config* reflectionProbeConfig;
 			Prepass::Config* prepassConfig;
@@ -78,6 +81,11 @@ namespace qRender
 		Atmosphere* GetAtmosphere() const
 		{
 			return atmosphere;
+		}
+		
+		Cluster* GetCluster() const
+		{
+			return cluster;
 		}
 		
 		HeightMap* GetHeightMap() const
@@ -112,6 +120,7 @@ namespace qRender
 	private:
 	
 		Config* config;
+		Cluster* cluster;
 		Atmosphere* atmosphere;
 		HeightMap* heightMap;
 		ReflectionProbe* reflectionProbe;

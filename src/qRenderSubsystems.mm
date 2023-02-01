@@ -29,6 +29,10 @@ qRender::Subsystems::Subsystems(Config* _config)
 	heightMap = new HeightMap(heightMapConfig);
 	this->AddSubsystem(heightMap);
 	
+	Cluster::Config* clusterConfig = config->heightMapConfig == NULL ? new Cluster::Config() : config->clusterConfig;
+	cluster = new Cluster(clusterConfig);
+	this->AddSubsystem(cluster);
+	
 	ShadowMap::Config* shadowMapConfig = config->shadowMapConfig == NULL ? new ShadowMap::Config() : config->shadowMapConfig;
 	shadowMap = new ShadowMap(shadowMapConfig);
 	this->AddSubsystem(shadowMap);
