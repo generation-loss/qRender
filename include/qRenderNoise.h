@@ -50,7 +50,7 @@ namespace qRender {
 			eMode					mode;
 			Texture::ePixelFormat 	pixelFormat;
 			
-			Config(NSString *_name)
+			Config(NSString* _name)
 			: name([_name retain])
 			, width(128)
 			, height(128)
@@ -69,7 +69,7 @@ namespace qRender {
 			
 		} Config;
 		
-		Noise(Config *_config);
+		Noise(Config* _config);
 		
 		inline Texture* GetTexture()
 		{
@@ -77,8 +77,8 @@ namespace qRender {
 		}
 		
 	private:
-		Config *config;
-		Texture *texture;
+		Config* config;
+		Texture* texture;
 	};
 }
 

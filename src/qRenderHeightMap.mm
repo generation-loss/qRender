@@ -22,10 +22,10 @@ SOFTWARE.
 
 #include "qRenderHeightMap.h"
 
-qRender::HeightMap::HeightMap(Config *_config)
+qRender::HeightMap::HeightMap(Config* _config)
 : config(_config)
 {
-	RenderTarget::Config *renderTargetConfig = new RenderTarget::Config([NSString stringWithFormat:@"Height Map"]);
+	RenderTarget::Config* renderTargetConfig = new RenderTarget::Config([NSString stringWithFormat:@"Height Map"]);
 	renderTargetConfig->colorAttachmentCount = RenderTarget::eColorAttachment_0;
 	renderTargetConfig->depthTextureConfig = new Texture::Config(@"Height Map Depth");
 	renderTargetConfig->depthTextureConfig->type = Texture::eType_2D;
@@ -39,17 +39,17 @@ qRender::HeightMap::HeightMap(Config *_config)
 	camera = new Camera(config->cameraConfig);
 }
 
-void qRender::HeightMap::Init(Globals *globals)
+void qRender::HeightMap::Init(Globals* globals)
 {
 }
 
-void qRender::HeightMap::Update(Globals *globals)
+void qRender::HeightMap::Update(Globals* globals)
 {
 	camera->SetPosition(globals->sceneCamera->GetPosition() + qVector3(0.0f, 100.0f, 0.0f));
 	camera->SetLookAt(globals->sceneCamera->GetPosition(), qVector3(1.0f, 0.0f, 0.0f));
 }
 
-void qRender::HeightMap::Encode(const Globals *globals) const
+void qRender::HeightMap::Encode(const Globals* globals) const
 {
 	qMetal::Device::PushDebugGroup(@"Height Map");
 	

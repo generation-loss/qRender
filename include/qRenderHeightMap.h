@@ -55,13 +55,13 @@ namespace qRender
 			
 		} Config;
 		
-		HeightMap(Config *_config);
+		HeightMap(Config* _config);
 		
-		void Init(Globals *globals);
+		void Init(Globals* globals);
 		
-		void Update(Globals *globals);
+		void Update(Globals* globals);
 		
-		void Encode(const Globals *globals) const;
+		void Encode(const Globals* globals) const;
 		
 		inline Texture* GetTexture() const
 		{

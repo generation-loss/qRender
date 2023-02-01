@@ -79,15 +79,15 @@ namespace qRender
 			
 		} Config;
 		
-		ReflectionProbe(Config *_config);
+		ReflectionProbe(Config* _config);
 		
-		void Init(Globals *globals);
+		void Init(Globals* globals);
 		
-		void Update(Globals *globals);
+		void Update(Globals* globals);
 		
-		void Encode(const Globals *globals) const;
+		void Encode(const Globals* globals) const;
 		
-		void EncodeIndirect(const Globals *globals) const;
+		void EncodeIndirect(const Globals* globals) const;
 		
 		void AddIndirectRenderable(Renderable* renderable);
 		

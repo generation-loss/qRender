@@ -54,7 +54,7 @@ namespace qRender
 			id<MTLDevice> 		device;
 		} Config;
 		
-		static void Init(Config *config);
+		static void Init(Config* config);
 		
 		static DebugMenu* Instance() { qASSERT(instance != NULL); return instance; }
 		
@@ -66,19 +66,19 @@ namespace qRender
 		void DragMoved(CGPoint location);
 		void DragEnded(CGPoint location);
 		
-		void Value(const char* category, const char* subcategory, const char *label, bool &value);
-		void Value(const char* category, const char* subcategory, const char *label, NSUInteger &value, NSUInteger increment = 1, NSUInteger minimum = std::numeric_limits<NSUInteger>::min(), NSUInteger maximum = std::numeric_limits<NSUInteger>::max());
-		void Value(const char* category, const char* subcategory, const char *label, uint32_t &value, uint32_t increment = 1, uint32_t minimum = std::numeric_limits<uint32_t>::min(), uint32_t maximum = std::numeric_limits<uint32_t>::max());
-		void Value(const char* category, const char* subcategory, const char *label, int &value, int increment = 1, int minimum = std::numeric_limits<int>::min(), int maximum = std::numeric_limits<int>::max());
-		void Value(const char* category, const char* subcategory, const char *label, half &value, half increment = 0.1, half minimum = std::numeric_limits<half>::min(), half maximum = std::numeric_limits<half>::max());
-		void Value(const char* category, const char* subcategory, const char *label, float &value, float increment = 0.1f, float minimum = std::numeric_limits<float>::min(), float maximum = std::numeric_limits<float>::max());
-		void Value(const char* category, const char* subcategory, const char *label, int &value, int minimum, int maximum, const char** names);
+		void Value(const char* category, const char* subcategory, const char* label, bool &value);
+		void Value(const char* category, const char* subcategory, const char* label, NSUInteger &value, NSUInteger increment = 1, NSUInteger minimum = std::numeric_limits<NSUInteger>::min(), NSUInteger maximum = std::numeric_limits<NSUInteger>::max());
+		void Value(const char* category, const char* subcategory, const char* label, uint32_t &value, uint32_t increment = 1, uint32_t minimum = std::numeric_limits<uint32_t>::min(), uint32_t maximum = std::numeric_limits<uint32_t>::max());
+		void Value(const char* category, const char* subcategory, const char* label, int &value, int increment = 1, int minimum = std::numeric_limits<int>::min(), int maximum = std::numeric_limits<int>::max());
+		void Value(const char* category, const char* subcategory, const char* label, half &value, half increment = 0.1, half minimum = std::numeric_limits<half>::min(), half maximum = std::numeric_limits<half>::max());
+		void Value(const char* category, const char* subcategory, const char* label, float &value, float increment = 0.1f, float minimum = std::numeric_limits<float>::min(), float maximum = std::numeric_limits<float>::max());
+		void Value(const char* category, const char* subcategory, const char* label, int &value, int minimum, int maximum, const char** names);
 		
 	private:
 		
 		Config					*config;
 		
-		DebugMenu(Config *config);
+		DebugMenu(Config* config);
 		
 		static DebugMenu		*instance;
 		
@@ -92,7 +92,7 @@ namespace qRender
 		
 		struct Item
 		{
-			Item(const char* label, unsigned long itemNumber, Config *config);
+			Item(const char* label, unsigned long itemNumber, Config* config);
 			bool Hit(CGPoint location);
 			void Tap(CGPoint location, bool fromDrag);
 			
@@ -100,25 +100,25 @@ namespace qRender
 			virtual bool isBack() const { return false; }
 			
 			char label[LABEL_LENGTH];
-			DebugMaterial *material;
+			DebugMaterial* material;
 			DebugMenuVertexParams vertexParams;
 			DebugMenuFragmentParams fragmentParams;
-			Texture *texture;
+			Texture* texture;
 			
 		protected:
 			virtual void HandleTap(CGPoint location, bool fromDrag) = 0;
 			virtual void UpdateTexture() = 0;
 			
-			void UpdatePositionSize(unsigned long itemNumber, Config *config);
+			void UpdatePositionSize(unsigned long itemNumber, Config* config);
 		};
 		
 		typedef std::vector<Item*> Items;
 		
 		struct CategoryItem : Item
 		{
-			CategoryItem(const char* label, unsigned long itemNumber, Config *config);
+			CategoryItem(const char* label, unsigned long itemNumber, Config* config);
 			bool isCategory() const { return true; }
-			Items *items;
+			Items* items;
 			
 			protected:
 			void HandleTap(CGPoint location, bool fromDrag);
@@ -127,9 +127,9 @@ namespace qRender
 		
 		struct BackItem : Item
 		{
-			BackItem(const char* label, unsigned long itemNumber, Config *config);
+			BackItem(const char* label, unsigned long itemNumber, Config* config);
 			bool isBack() const { return true; }
-			Items *parent;
+			Items* parent;
 			
 			protected:
 			void HandleTap(CGPoint location, bool fromDrag);
@@ -140,7 +140,7 @@ namespace qRender
 		{
 			bool &value;
 			
-			BoolItem(const char* label, unsigned long itemNumber, Config *config, bool &value);
+			BoolItem(const char* label, unsigned long itemNumber, Config* config, bool &value);
 			
 			protected:
 			void HandleTap(CGPoint location, bool fromDrag);
@@ -155,7 +155,7 @@ namespace qRender
 			T minimum;
 			T maximum;
 			
-			ValueItem(const char* label, unsigned long itemNumber, Config *config, T &value, T increment, T minimum, T maximum);
+			ValueItem(const char* label, unsigned long itemNumber, Config* config, T &value, T increment, T minimum, T maximum);
 			
 			protected:
 			void HandleTap(CGPoint location, bool fromDrag);
@@ -169,7 +169,7 @@ namespace qRender
 			int maximum;
 			const char** names;
 			
-			EnumItem(const char* label, unsigned long itemNumber, Config *config, int &value, int minimum, int maximum, const char** names);
+			EnumItem(const char* label, unsigned long itemNumber, Config* config, int &value, int minimum, int maximum, const char** names);
 			
 			protected:
 			void HandleTap(CGPoint location, bool fromDrag);

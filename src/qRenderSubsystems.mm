@@ -54,7 +54,7 @@ qRender::Subsystems::Subsystems(Config* _config)
 	this->AddSubsystem(atmosphere);
 }
 	
-void qRender::Subsystems::Init(Globals *globals)
+void qRender::Subsystems::Init(Globals* globals)
 {
 	for(auto &it : subsystems)
 	{
@@ -62,7 +62,7 @@ void qRender::Subsystems::Init(Globals *globals)
 	}
 }
 	
-void qRender::Subsystems::Update(qRender::Globals *globals)
+void qRender::Subsystems::Update(qRender::Globals* globals)
 {
 	for(auto &it : subsystems)
 	{
@@ -70,7 +70,7 @@ void qRender::Subsystems::Update(qRender::Globals *globals)
 	}
 }
 
-void qRender::Subsystems::Encode(const qRender::Globals *globals) const
+void qRender::Subsystems::Encode(const qRender::Globals* globals) const
 {
 	//TODO this needs to be in a better order
 	reflectionProbe->EncodeIndirect(globals);

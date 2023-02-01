@@ -22,7 +22,7 @@ SOFTWARE.
 
 #include "qRenderNoise.h"
 	
-qRender::Noise::Noise(Config *_config)
+qRender::Noise::Noise(Config* _config)
 : config(_config)
 {
 	if (config->mode == eMode_PrebakedCloud)
@@ -31,7 +31,7 @@ qRender::Noise::Noise(Config *_config)
 		return;
 	}
 	
-	Texture::Config *textureConfig = new Texture::Config([NSString stringWithFormat:@"%@ noise texture", config->name]);
+	Texture::Config* textureConfig = new Texture::Config([NSString stringWithFormat:@"%@ noise texture", config->name]);
 	textureConfig->width = config->width;
 	textureConfig->height = config->height;
 	textureConfig->pixelFormat = config->pixelFormat;
@@ -42,7 +42,7 @@ qRender::Noise::Noise(Config *_config)
 	
 	if(config->pixelFormat == Texture::ePixelFormat_RGBA32f)
 	{
-		qRGBA32f *data = new qRGBA32f[dataSize];
+		qRGBA32f* data = new qRGBA32f[dataSize];
 		
 		if (config->mode == eMode_Random)
 		{
@@ -73,7 +73,7 @@ qRender::Noise::Noise(Config *_config)
 			{
 				const int32_t pointCount = pointCounts[channel];
 				
-				qVector2 *points = new qVector2[pointCount];
+				qVector2* points = new qVector2[pointCount];
 				
 				for(int32_t point = 0; point < pointCount; ++point)
 				{
@@ -108,7 +108,7 @@ qRender::Noise::Noise(Config *_config)
 	}
 	else if(config->pixelFormat == Texture::ePixelFormat_RGBA16f)
 	{
-		qRGBA16f *data = new qRGBA16f[dataSize];
+		qRGBA16f* data = new qRGBA16f[dataSize];
 		
 		if (config->mode == eMode_Random)
 		{
@@ -139,7 +139,7 @@ qRender::Noise::Noise(Config *_config)
 			{
 				const int32_t pointCount = pointCounts[channel];
 				
-				qVector2 *points = new qVector2[pointCount];
+				qVector2* points = new qVector2[pointCount];
 				
 				for(int32_t point = 0; point < pointCount; ++point)
 				{
@@ -174,7 +174,7 @@ qRender::Noise::Noise(Config *_config)
 	}
 	else if(config->pixelFormat == Texture::ePixelFormat_R32f)
 	{
-		float *data = new float[dataSize];
+		float* data = new float[dataSize];
 		
 		if (config->mode == eMode_Random)
 		{
@@ -187,7 +187,7 @@ qRender::Noise::Noise(Config *_config)
 		{
 			const int32_t pointCount = 16; //TODO configurable?
 			
-			qVector2 *points = new qVector2[pointCount];
+			qVector2* points = new qVector2[pointCount];
 			
 			for(int32_t point = 0; point < pointCount; ++point)
 			{
@@ -221,7 +221,7 @@ qRender::Noise::Noise(Config *_config)
 	}
 	else if(config->pixelFormat == Texture::ePixelFormat_R16f)
 	{
-		half *data = new half[dataSize];
+		half* data = new half[dataSize];
 		
 		if (config->mode == eMode_Random)
 		{
@@ -234,7 +234,7 @@ qRender::Noise::Noise(Config *_config)
 		{
 			const int32_t pointCount = 16; //TODO configurable?
 			
-			qVector2 *points = new qVector2[pointCount];
+			qVector2* points = new qVector2[pointCount];
 			
 			for(int32_t point = 0; point < pointCount; ++point)
 			{

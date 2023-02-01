@@ -33,8 +33,8 @@ struct Vertex
 
 typedef struct DebugMenuVertexStreamArgumentBuffer
 {
-	device float4 *position		[[ id(DebugMenuVertexStreamArgumentBuffer_Position)	]];
-	device packed_float2 *uv	[[ id(DebugMenuVertexStreamArgumentBuffer_UV)	]];
+	device float4* position		[[ id(DebugMenuVertexStreamArgumentBuffer_Position)	]];
+	device packed_float2* uv	[[ id(DebugMenuVertexStreamArgumentBuffer_UV)	]];
 } DebugMenuVertexStreamArgumentBuffer;
 
 vertex Vertex DebugMenuVertexShader(

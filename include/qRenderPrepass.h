@@ -51,13 +51,13 @@ namespace qRender
 			
 		} Config;
 		
-		Prepass(Config *_config);
+		Prepass(Config* _config);
 	
-		void Init(Globals *globals);
+		void Init(Globals* globals);
 	
-		void Update(Globals *globals);
+		void Update(Globals* globals);
 		
-		void Encode(const Globals *globals) const;
+		void Encode(const Globals* globals) const;
 		
 		inline Texture* GetWorldPosTexture() const
 		{

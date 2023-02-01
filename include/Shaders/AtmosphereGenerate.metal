@@ -38,8 +38,8 @@ struct Vertex
 
 typedef struct AtmosphereVertexStreamArgumentBuffer
 {
-	device float4 *position		[[ id(AtmosphereVertexStreamArgumentBuffer_Position)	]];
-	device packed_float2 *uv	[[ id(AtmosphereVertexStreamArgumentBuffer_UV)			]];
+	device float4* position		[[ id(AtmosphereVertexStreamArgumentBuffer_Position)	]];
+	device packed_float2* uv	[[ id(AtmosphereVertexStreamArgumentBuffer_UV)			]];
 } AtmosphereVertexStreamArgumentBuffer;
 
 vertex Vertex AtmosphereVertexShader(

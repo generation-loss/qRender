@@ -77,15 +77,15 @@ namespace qRender
 			}
 		} Config;
 		
-		ShadowMap(Config *_config);
+		ShadowMap(Config* _config);
 		
-		void Init(Globals *globals);
+		void Init(Globals* globals);
 		
-		void Update(Globals *globals);
-		void Update(Globals *globals, const bool forceAll);
+		void Update(Globals* globals);
+		void Update(Globals* globals, const bool forceAll);
 		
-		void Encode(const Globals *globals) const;
-		void Encode(const Globals *globals, const bool forceAll) const;
+		void Encode(const Globals* globals) const;
+		void Encode(const Globals* globals, const bool forceAll) const;
 		
 		inline Texture* GetTexture() const
 		{

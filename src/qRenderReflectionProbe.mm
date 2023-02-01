@@ -22,13 +22,13 @@ SOFTWARE.
 
 #include "qRenderReflectionProbe.h"
 
-qRender::ReflectionProbe::ReflectionProbe(Config *_config)
+qRender::ReflectionProbe::ReflectionProbe(Config* _config)
 : config(_config)
 , currentSlice(0)
 {
 	//NOTE: neither memoryless nor MSAA is supported on cubemaps
 	
-	RenderTarget::Config *renderTargetConfig = new RenderTarget::Config([NSString stringWithFormat:@"Reflection Probe Face 0"]);
+	RenderTarget::Config* renderTargetConfig = new RenderTarget::Config([NSString stringWithFormat:@"Reflection Probe Face 0"]);
 	
 	renderTargetConfig->colorAttachmentCount = (RenderTarget::eColorAttachment)eGBufferRenderTarget_Count;
 	
@@ -56,12 +56,12 @@ qRender::ReflectionProbe::ReflectionProbe(Config *_config)
 	
 #if USE_DEFERRED_WORLD_POSITION
 	eGBufferRenderTarget depthWorldPositionRenderTarget = eGBufferRenderTarget_WorldPos;
-	NSString *depthWorldPositionName = @"Reflection Probe World Position";
-	NSString *depthWorldPositionIndirectName = @"Indirect Reflection Probe World Position";
+	NSString* depthWorldPositionName = @"Reflection Probe World Position";
+	NSString* depthWorldPositionIndirectName = @"Indirect Reflection Probe World Position";
 #else
 	eGBufferRenderTarget depthWorldPositionRenderTarget = eGBufferRenderTarget_Depth;
-	NSString *depthWorldPositionName = @"Reflection Probe Depth as Texture";
-	NSString *depthWorldPositionIndirectName = @"Indirect Reflection Probe Depth as Texture";
+	NSString* depthWorldPositionName = @"Reflection Probe Depth as Texture";
+	NSString* depthWorldPositionIndirectName = @"Indirect Reflection Probe Depth as Texture";
 #endif
 	
 	renderTargetConfig->colourTextureConfig[depthWorldPositionRenderTarget] = new Texture::Config(depthWorldPositionName);
@@ -110,7 +110,7 @@ qRender::ReflectionProbe::ReflectionProbe(Config *_config)
 	
 	for (uint32_t i = 1; i < 6; ++i)
 	{
-		RenderTarget::Config *sharedFaceRenderTargetConfig = new RenderTarget::Config([NSString stringWithFormat:@"Reflection Probe Face %u", i]);
+		RenderTarget::Config* sharedFaceRenderTargetConfig = new RenderTarget::Config([NSString stringWithFormat:@"Reflection Probe Face %u", i]);
 		
 		sharedFaceRenderTargetConfig->colorAttachmentCount = (RenderTarget::eColorAttachment)eGBufferRenderTarget_Count;
 		
@@ -145,7 +145,7 @@ qRender::ReflectionProbe::ReflectionProbe(Config *_config)
 	
 	const uint32_t INDIRECT_SIZE = 32;
 	
-	RenderTarget::Config *indirectRenderTargetConfig = new RenderTarget::Config(@"Indirect Reflection Probe Face 0");
+	RenderTarget::Config* indirectRenderTargetConfig = new RenderTarget::Config(@"Indirect Reflection Probe Face 0");
 	
 	indirectRenderTargetConfig->colorAttachmentCount = (RenderTarget::eColorAttachment)eGBufferRenderTarget_Count;
 	
@@ -206,7 +206,7 @@ qRender::ReflectionProbe::ReflectionProbe(Config *_config)
 	
 	for (uint32_t i = 1; i < 6; ++i)
 	{
-		RenderTarget::Config *sharedFaceIndirectRenderTargetConfig = new RenderTarget::Config([NSString stringWithFormat:@"Indirect Reflection Probe Face %u", i]);
+		RenderTarget::Config* sharedFaceIndirectRenderTargetConfig = new RenderTarget::Config([NSString stringWithFormat:@"Indirect Reflection Probe Face %u", i]);
 		
 		sharedFaceIndirectRenderTargetConfig->colorAttachmentCount = (RenderTarget::eColorAttachment)eGBufferRenderTarget_Count;
 		
@@ -239,7 +239,7 @@ qRender::ReflectionProbe::ReflectionProbe(Config *_config)
 	
 	for (uint32_t i = 0; i < 6; ++i)
 	{
-		Camera::Config *cameraConfig = new Camera::Config([NSString stringWithFormat:@"Reflection Probe %i", i]);
+		Camera::Config* cameraConfig = new Camera::Config([NSString stringWithFormat:@"Reflection Probe %i", i]);
 		
 		cameraConfig->position = config->position;
 		cameraConfig->lookAt = config->position + kFaceDirection[i];
@@ -258,7 +258,7 @@ qRender::ReflectionProbe::ReflectionProbe(Config *_config)
 	}
 }
 
-void qRender::ReflectionProbe::Init(Globals *globals)
+void qRender::ReflectionProbe::Init(Globals* globals)
 {
 	for(uint32_t i = 0; i < 6; ++i)
 	{
@@ -277,12 +277,12 @@ void qRender::ReflectionProbe::Init(Globals *globals)
 	[blitEncoder endEncoding];
 }
 
-void qRender::ReflectionProbe::Update(Globals *globals)
+void qRender::ReflectionProbe::Update(Globals* globals)
 {
 	currentSlice = (currentSlice + 1) % 6;
 }
 
-void qRender::ReflectionProbe::EncodeIndirect(const Globals *globals) const
+void qRender::ReflectionProbe::EncodeIndirect(const Globals* globals) const
 {
 	qMetal::Device::PushDebugGroup(@"Reflection Probe Indirect");
 	
@@ -322,7 +322,7 @@ void qRender::ReflectionProbe::EncodeIndirect(const Globals *globals) const
 	qMetal::Device::PopDebugGroup();
 }
 
-void qRender::ReflectionProbe::Encode(const Globals *globals) const
+void qRender::ReflectionProbe::Encode(const Globals* globals) const
 {
 	qMetal::Device::PushDebugGroup(@"Reflection Probe Direct");
 	

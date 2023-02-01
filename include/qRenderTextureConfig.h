@@ -31,15 +31,15 @@ namespace qRender
 {
 	typedef struct TextureConfig
 	{
-		Texture *texture;
+		Texture* texture;
 		
 		TextureConfig()
 		: texture(NULL)
 		{}
 		
-		TextureConfig(NSDictionary *jsonConfig, NSString *_path, const SamplerState *samplerState = SamplerState::PredefinedState(eSamplerState_LinearLinearLinear_RepeatRepeat))
+		TextureConfig(NSDictionary* jsonConfig, NSString* _path, const SamplerState* samplerState = SamplerState::PredefinedState(eSamplerState_LinearLinearLinear_RepeatRepeat))
 		{
-			NSString *textureName = [jsonConfig objectForKey:@"texture"];
+			NSString* textureName = [jsonConfig objectForKey:@"texture"];
 			texture = Texture::LoadByName([_path stringByAppendingString:textureName], false, samplerState);
 		}
 		

@@ -52,17 +52,17 @@ namespace qRender
 	class Renderable
 	{
 	public:
-		virtual void InitRender(const Globals *globals) { }
-		virtual void PopulateGlobals(Globals *globals) { }
-		virtual void Update(Globals *globals) = 0;
+		virtual void InitRender(const Globals* globals) { }
+		virtual void PopulateGlobals(Globals* globals) { }
+		virtual void Update(Globals* globals) = 0;
 		
 		//TODO make this more generic to touch events
 		virtual void Drag(qVector2 location, qVector2 velocity) {}
 		
-		virtual void Encode(id<MTLRenderCommandEncoder> encoder, const Camera *camera, const Globals *globals, const int32_t pass) const = 0;
+		virtual void Encode(id<MTLRenderCommandEncoder> encoder, const Camera* camera, const Globals* globals, const int32_t pass) const = 0;
 		
 		//optional compute shader
-		virtual void EncodeCompute(id<MTLComputeCommandEncoder> encoder, const Camera *camera, const Globals *globals, const int32_t pass) const { };
+		virtual void EncodeCompute(id<MTLComputeCommandEncoder> encoder, const Camera* camera, const Globals* globals, const int32_t pass) const { };
 	};
 }
 

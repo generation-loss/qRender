@@ -42,7 +42,7 @@ namespace qRender
 		
 		typedef struct Config
 		{
-			NSString *name;
+			NSString* name;
 			
 			eType type;
 			
@@ -77,7 +77,7 @@ namespace qRender
 			float DEBUG_distanceToCamera;
 		#endif
 			
-			Config(NSString *_name)
+			Config(NSString* _name)
 			: name([_name retain])
 			, type(eType_Perspective)
 			, position(qVector3_One)
@@ -112,7 +112,7 @@ namespace qRender
 			}
 		} Config;
 		
-		Camera( Config *_config)
+		Camera( Config* _config)
 		: config(_config)
 		{
 			UpdateGlobals();

@@ -24,12 +24,12 @@ SOFTWARE.
 
 static bool evenFrame = true;
 
-qRender::ShadowMap::ShadowMap(Config *_config)
+qRender::ShadowMap::ShadowMap(Config* _config)
 : config(_config)
 {
 	// RENDER TARGETS FOR CASCADES
 	
-	RenderTarget::Config *cameraRenderTargetConfig = new RenderTarget::Config(@"Shadow Map 0");
+	RenderTarget::Config* cameraRenderTargetConfig = new RenderTarget::Config(@"Shadow Map 0");
 	cameraRenderTargetConfig->colorAttachmentCount = RenderTarget::eColorAttachment_0;
 	cameraRenderTargetConfig->depthTextureConfig = new Texture::Config(@"Shadow Map 0");
 	cameraRenderTargetConfig->depthTextureConfig->type = Texture::eType_2DArray;
@@ -58,7 +58,7 @@ qRender::ShadowMap::ShadowMap(Config *_config)
 	
 	for(int i = 1; i < SHADOW_CASCADE_COUNT; ++i)
 	{
-		RenderTarget::Config *cameraRenderTargetConfig = new RenderTarget::Config([NSString stringWithFormat:@"Shadow Map %u", i]);
+		RenderTarget::Config* cameraRenderTargetConfig = new RenderTarget::Config([NSString stringWithFormat:@"Shadow Map %u", i]);
 		cameraRenderTargetConfig->colorAttachmentCount = RenderTarget::eColorAttachment_0;
 		cameraRenderTargetConfig->slice = i;
 		cameraRenderTargetConfig->depthTexture = cameraRenderTarget[0]->DepthTexture();
@@ -74,7 +74,7 @@ qRender::ShadowMap::ShadowMap(Config *_config)
 	
 	for(int i = 0; i < SHADOW_CASCADE_COUNT; ++i)
 	{
-		Camera::Config *cameraConfig = new Camera::Config([NSString stringWithFormat:@"Shadow Cascade %i", i]);
+		Camera::Config* cameraConfig = new Camera::Config([NSString stringWithFormat:@"Shadow Cascade %i", i]);
 		cameraConfig->type = Camera::eType_Orthographic;
 		cameraConfig->nearPlane = config->nearPlane;
 		cameraConfig->farPlane = config->farPlane;
@@ -86,18 +86,18 @@ qRender::ShadowMap::ShadowMap(Config *_config)
 	}
 }
 
-void qRender::ShadowMap::Init(Globals *globals)
+void qRender::ShadowMap::Init(Globals* globals)
 {
 }
 
-void qRender::ShadowMap::Update(Globals *globals)
+void qRender::ShadowMap::Update(Globals* globals)
 {
 	Update(globals, false);
 }
 
-void qRender::ShadowMap::Update(Globals *globals, bool forceAll)
+void qRender::ShadowMap::Update(Globals* globals, bool forceAll)
 {
-	Globals *hillsGlobals = static_cast<Globals*>(globals);
+	Globals* hillsGlobals = static_cast<Globals*>(globals);
 
 	qVector3 directionToKeyLight = qVector3::Normalize(qVector3(hillsGlobals->shading.directionToKeyLightClamped.x, hillsGlobals->shading.directionToKeyLightClamped.y, hillsGlobals->shading.directionToKeyLightClamped.z));
 	
@@ -128,12 +128,12 @@ void qRender::ShadowMap::Update(Globals *globals, bool forceAll)
 	}
 }
 
-void qRender::ShadowMap::Encode(const Globals *globals) const
+void qRender::ShadowMap::Encode(const Globals* globals) const
 {
 	Encode(globals, false);
 }
 
-void qRender::ShadowMap::Encode(const Globals *globals, bool forceAll) const
+void qRender::ShadowMap::Encode(const Globals* globals, bool forceAll) const
 {
 	qMetal::Device::PushDebugGroup(@"Shadow Map");
 	

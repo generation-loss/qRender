@@ -22,14 +22,14 @@ SOFTWARE.
 
 #include "qRenderDebugMenu.h"
 
-qRender::DebugMenu *qRender::DebugMenu::instance = NULL;
+qRender::DebugMenu* qRender::DebugMenu::instance = NULL;
 
-void qRender::DebugMenu::Init(Config *_config)
+void qRender::DebugMenu::Init(Config* _config)
 {
 	qRender::DebugMenu::instance = new qRender::DebugMenu(_config);
 }
 
-qRender::DebugMenu::DebugMenu(Config *_config)
+qRender::DebugMenu::DebugMenu(Config* _config)
 : config(_config)
 #if DEBUG
 , rendering(false)
@@ -38,7 +38,7 @@ qRender::DebugMenu::DebugMenu(Config *_config)
 #endif
 {
 #if DEBUG
-	qVector4 *vertices = new qVector4[4]
+	qVector4* vertices = new qVector4[4]
 	{
 		qVector4(0.0f, 0.0f, 0.0f, 1.0f),
 		qVector4(0.0f, 1.0f, 0.0f, 1.0f),
@@ -46,7 +46,7 @@ qRender::DebugMenu::DebugMenu(Config *_config)
 		qVector4(1.0f, 0.0f, 0.0f, 1.0f)
 	};
 	
-	qVector2 *uvs = new qVector2[4]
+	qVector2* uvs = new qVector2[4]
 	{
 		qVector2(0.0f, 0.0f),
 		qVector2(0.0f, 1.0f),
@@ -54,12 +54,12 @@ qRender::DebugMenu::DebugMenu(Config *_config)
 		qVector2(1.0f, 0.0f)
 	};
 	
-	uint16_t *indices = new uint16_t[6]
+	uint16_t* indices = new uint16_t[6]
 	{
 		0, 1, 2, 0, 2, 3
 	};
 	
-	Mesh::Config *meshConfig = new Mesh::Config(@"Debug Menu Mesh");
+	Mesh::Config* meshConfig = new Mesh::Config(@"Debug Menu Mesh");
 	
 	meshConfig->vertexStreamCount = DebugMenuVertexStreamArgumentBuffer_Count;
 	meshConfig->vertexStreamIndex = DebugMenuVertexStream_StreamArgumentBuffer;
@@ -81,7 +81,7 @@ qRender::DebugMenu::DebugMenu(Config *_config)
 #endif
 }
 
-void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char *label, bool &value)
+void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char* label, bool &value)
 {
 #if DEBUG
 	Items* items = CategoryItems(category, subcategory);
@@ -89,7 +89,7 @@ void qRender::DebugMenu::Value(const char* category, const char* subcategory, co
 #endif
 }
 
-void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char *label, NSUInteger &value, NSUInteger increment, NSUInteger minimum, NSUInteger maximum)
+void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char* label, NSUInteger &value, NSUInteger increment, NSUInteger minimum, NSUInteger maximum)
 {
 #if DEBUG
 	Items* items = CategoryItems(category, subcategory);
@@ -97,7 +97,7 @@ void qRender::DebugMenu::Value(const char* category, const char* subcategory, co
 #endif
 }
 
-void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char *label, uint32_t &value, uint32_t increment, uint32_t minimum, uint32_t maximum)
+void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char* label, uint32_t &value, uint32_t increment, uint32_t minimum, uint32_t maximum)
 {
 #if DEBUG
 	Items* items = CategoryItems(category, subcategory);
@@ -105,7 +105,7 @@ void qRender::DebugMenu::Value(const char* category, const char* subcategory, co
 #endif
 }
 
-void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char *label, int &value, int increment, int minimum, int maximum)
+void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char* label, int &value, int increment, int minimum, int maximum)
 {
 #if DEBUG
 	Items* items = CategoryItems(category, subcategory);
@@ -113,7 +113,7 @@ void qRender::DebugMenu::Value(const char* category, const char* subcategory, co
 #endif
 }
 
-void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char *label, half &value, half increment, half minimum, half maximum)
+void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char* label, half &value, half increment, half minimum, half maximum)
 {
 #if DEBUG
 	Items* items = CategoryItems(category, subcategory);
@@ -121,7 +121,7 @@ void qRender::DebugMenu::Value(const char* category, const char* subcategory, co
 #endif
 }
 
-void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char *label, float &value, float increment, float minimum, float maximum)
+void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char* label, float &value, float increment, float minimum, float maximum)
 {
 #if DEBUG
 	Items* items = CategoryItems(category, subcategory);
@@ -129,7 +129,7 @@ void qRender::DebugMenu::Value(const char* category, const char* subcategory, co
 #endif
 }
 
-void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char *label, int &value, int minimum, int maximum, const char** names)
+void qRender::DebugMenu::Value(const char* category, const char* subcategory, const char* label, int &value, int minimum, int maximum, const char** names)
 {
 #if DEBUG
 	Items* items = CategoryItems(category, subcategory);
@@ -158,10 +158,10 @@ void qRender::DebugMenu::Encode(id<MTLRenderCommandEncoder> encoder)
 	
 	for(auto &item : *itemsToEncode)
 	{
-		DebugMenuVertexParams *vertexParams = item->material->CurrentFrameVertexParams();
+		DebugMenuVertexParams* vertexParams = item->material->CurrentFrameVertexParams();
 		memcpy(vertexParams, &(item->vertexParams), sizeof(DebugMenuVertexParams));
 		
-		DebugMenuFragmentParams *fragmentParams = item->material->CurrentFrameFragmentParams();
+		DebugMenuFragmentParams* fragmentParams = item->material->CurrentFrameFragmentParams();
 		memcpy(fragmentParams, &(item->fragmentParams), sizeof(DebugMenuFragmentParams));
 		
 		mesh->Encode(encoder, item->material);
@@ -282,9 +282,9 @@ void qRender::DebugMenu::DragEnded(CGPoint location)
 
 #if DEBUG
 
-qRender::DebugMenu::Items* qRender::DebugMenu::CategoryItems(const char *category, const char* subcategory)
+qRender::DebugMenu::Items* qRender::DebugMenu::CategoryItems(const char* category, const char* subcategory)
 {
-	CategoryItem *categoryItem = NULL;
+	CategoryItem* categoryItem = NULL;
 	for(auto &item : *topLevelItems)
 	{
 		if (item->isCategory() && (strcmp(item->label, category) == 0))
@@ -298,7 +298,7 @@ qRender::DebugMenu::Items* qRender::DebugMenu::CategoryItems(const char *categor
 	{
 		categoryItem = new CategoryItem(category, topLevelItems->size(), config);
 		
-		BackItem *backItem = new BackItem("Back", 0, config);
+		BackItem* backItem = new BackItem("Back", 0, config);
 		backItem->parent = topLevelItems;
 		
 		categoryItem->items->push_back(backItem);
@@ -311,7 +311,7 @@ qRender::DebugMenu::Items* qRender::DebugMenu::CategoryItems(const char *categor
 		return categoryItem->items;
 	}
 	
-	CategoryItem *subcategoryItem = NULL;
+	CategoryItem* subcategoryItem = NULL;
 	for(auto &item : *(categoryItem->items))
 	{
 		if (item->isCategory() && (strcmp(item->label, subcategory) == 0))
@@ -325,7 +325,7 @@ qRender::DebugMenu::Items* qRender::DebugMenu::CategoryItems(const char *categor
 	{
 		subcategoryItem = new CategoryItem(subcategory, categoryItem->items->size(), config);
 		
-		BackItem *backItem = new BackItem("Back", 0, config);
+		BackItem* backItem = new BackItem("Back", 0, config);
 		backItem->parent = categoryItem->items;
 		
 		subcategoryItem->items->push_back(backItem);
@@ -336,7 +336,7 @@ qRender::DebugMenu::Items* qRender::DebugMenu::CategoryItems(const char *categor
 	return subcategoryItem->items;
 }
 
-qRender::DebugMenu::Item::Item(const char* _label, unsigned long itemNumber, Config *_config)
+qRender::DebugMenu::Item::Item(const char* _label, unsigned long itemNumber, Config* _config)
 {
 	qASSERT(strlen(_label) + 1 < LABEL_LENGTH);
 	memcpy(label, _label, strlen(_label) + 1);
@@ -345,7 +345,7 @@ qRender::DebugMenu::Item::Item(const char* _label, unsigned long itemNumber, Con
 	
 	//Create texture
 	
-	Texture::Config *config = new Texture::Config([[NSString alloc] initWithUTF8String:label]);
+	Texture::Config* config = new Texture::Config([[NSString alloc] initWithUTF8String:label]);
 	config->width = ITEM_WIDTH;
 	config->height = ITEM_HEIGHT;
 	config->storage = Texture::eStorage_CPUandGPU;
@@ -354,7 +354,7 @@ qRender::DebugMenu::Item::Item(const char* _label, unsigned long itemNumber, Con
 	
 	//Set texture
 	
-	DebugMaterial::Config *materialConfig = new DebugMaterial::Config(@"Debug Menu Material");
+	DebugMaterial::Config* materialConfig = new DebugMaterial::Config(@"Debug Menu Material");
 	materialConfig->blendStates[RenderTarget::eColorAttachment_0] = BlendState::PredefinedState(eBlendState_Alpha);
 	materialConfig->cullState = CullState::PredefinedState(eCullState_Disable);
 	materialConfig->depthStencilState = DepthStencilState::PredefinedState(eDepthStencilState_TestDisable_WriteDisable_StencilDisable);
@@ -371,7 +371,7 @@ qRender::DebugMenu::Item::Item(const char* _label, unsigned long itemNumber, Con
 	material = new DebugMaterial(materialConfig, Texture::ePixelFormat_BGRA8, Texture::ePixelFormat_Invalid, Texture::ePixelFormat_Invalid, Texture::eMSAA_1);
 }
 
-void qRender::DebugMenu::Item::UpdatePositionSize(unsigned long itemNumber, Config *config)
+void qRender::DebugMenu::Item::UpdatePositionSize(unsigned long itemNumber, Config* config)
 {
 	vertexParams.position.x = (((config->screenWidth - ITEM_WIDTH) / 2.0f) / config->screenWidth) * 2.0f - 1.0f;
 	vertexParams.position.y = ((ITEM_MARGIN + itemNumber * (ITEM_HEIGHT + ITEM_MARGIN)) / config->screenHeight) * 2.0f - 1.0f;
@@ -410,7 +410,7 @@ void qRender::DebugMenu::Item::Tap(CGPoint location, bool fromDrag)
 //	qSPAM("Item Tap %s [%0.2f, %0.2f]", label, location01.x, location01.y);
 }
 
-qRender::DebugMenu::CategoryItem::CategoryItem(const char* _label, unsigned long _itemNumber, Config *_config)
+qRender::DebugMenu::CategoryItem::CategoryItem(const char* _label, unsigned long _itemNumber, Config* _config)
 : Item( _label, _itemNumber, _config )
 {
 	items = new Items();
@@ -427,7 +427,7 @@ void qRender::DebugMenu::CategoryItem::UpdateTexture()
 	fragmentParams.progress = 0.0f;
 }
 
-qRender::DebugMenu::BackItem::BackItem(const char* _label, unsigned long _itemNumber, Config *_config)
+qRender::DebugMenu::BackItem::BackItem(const char* _label, unsigned long _itemNumber, Config* _config)
 : Item( _label, _itemNumber, _config )
 {
 	UpdateTexture();
@@ -443,7 +443,7 @@ void qRender::DebugMenu::BackItem::UpdateTexture()
 	fragmentParams.progress = 0.0f;
 }
 
-qRender::DebugMenu::BoolItem::BoolItem(const char* _label, unsigned long _itemNumber, Config *_config, bool &_value)
+qRender::DebugMenu::BoolItem::BoolItem(const char* _label, unsigned long _itemNumber, Config* _config, bool &_value)
 : Item( _label, _itemNumber, _config )
 , value( _value )
 {
@@ -471,7 +471,7 @@ void qRender::DebugMenu::BoolItem::UpdateTexture()
 }
 
 template<typename T>
-qRender::DebugMenu::ValueItem<T>::ValueItem(const char* _label, unsigned long _itemNumber, Config *_config, T &_value, T _increment, T _minimum, T _maximum)
+qRender::DebugMenu::ValueItem<T>::ValueItem(const char* _label, unsigned long _itemNumber, Config* _config, T &_value, T _increment, T _minimum, T _maximum)
 : Item( _label, _itemNumber, _config )
 , value( _value )
 , increment( _increment )
@@ -541,7 +541,7 @@ void qRender::DebugMenu::ValueItem<float>::UpdateTexture()
 	fragmentParams.progress = float(value - minimum) / float(maximum - minimum);
 }
 
-qRender::DebugMenu::EnumItem::EnumItem(const char* _label, unsigned long _itemNumber, Config *_config, int &_value, int _minimum, int _maximum, const char** _names)
+qRender::DebugMenu::EnumItem::EnumItem(const char* _label, unsigned long _itemNumber, Config* _config, int &_value, int _minimum, int _maximum, const char** _names)
 : Item( _label, _itemNumber, _config )
 , value( _value )
 , minimum( _minimum )
@@ -575,7 +575,7 @@ void qRender::DebugMenu::EnumItem::HandleTap(CGPoint location, bool fromDrag)
 
 void qRender::DebugMenu::FillWithString(Texture* texture, NSString* string)
 {
-	NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string];
+	NSMutableAttributedString* attributedString = [[NSMutableAttributedString alloc] initWithString:string];
 	NSRange stringRange = NSMakeRange(0, [string length]);
 	
 #if TARGET_OS_OSX

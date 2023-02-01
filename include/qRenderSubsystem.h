@@ -35,11 +35,11 @@ namespace qRender
 	{
 	public:
 	
-		virtual void Init(Globals *globals) = 0;
+		virtual void Init(Globals* globals) = 0;
 	
-		virtual void Update(Globals *globals) = 0;
+		virtual void Update(Globals* globals) = 0;
 		
-		virtual void Encode(const Globals *globals) const = 0;
+		virtual void Encode(const Globals* globals) const = 0;
 		
 		void AddRenderable(Renderable* renderable)
 		{

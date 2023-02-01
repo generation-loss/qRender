@@ -45,7 +45,7 @@ namespace qRender
 		ShadingGlobals shading;
 		TimeGlobals timeGlobals;
 		CameraGlobals sceneCameraGlobals;
-		Camera *sceneCamera;
+		Camera* sceneCamera;
 		
 		ShadowMapGlobals shadow;
 		AtmosphereGlobals atmosphere;

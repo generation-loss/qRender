@@ -62,11 +62,11 @@ namespace qRender
 		
 		Subsystems(Config* _config);
 		
-		void Init(Globals *globals);
+		void Init(Globals* globals);
 	
-		void Update(Globals *globals);
+		void Update(Globals* globals);
 		
-		void Encode(const Globals *globals) const;
+		void Encode(const Globals* globals) const;
 		
 		void Drag(qVector2 location, qVector2 velocity);
 		

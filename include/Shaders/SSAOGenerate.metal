@@ -36,8 +36,8 @@ struct Vertex
 
 typedef struct AOVertexStreamArgumentBuffer
 {
-	device float4 *position		[[ id(AOVertexStreamArgumentBuffer_Position)	]];
-	device packed_float2 *uv	[[ id(AOVertexStreamArgumentBuffer_UV)			]];
+	device float4* position		[[ id(AOVertexStreamArgumentBuffer_Position)	]];
+	device packed_float2* uv	[[ id(AOVertexStreamArgumentBuffer_UV)			]];
 } AOVertexStreamArgumentBuffer;
 
 vertex Vertex AOVertexShader(

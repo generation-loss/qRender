@@ -22,10 +22,10 @@ SOFTWARE.
 
 #include "qRenderPrepass.h"
 
-qRender::Prepass::Prepass(Config *_config)
+qRender::Prepass::Prepass(Config* _config)
 : config(_config)
 {
-	RenderTarget::Config *renderTargetConfig = new RenderTarget::Config(@"Depth Normal Prepass");
+	RenderTarget::Config* renderTargetConfig = new RenderTarget::Config(@"Depth Normal Prepass");
 	
 	renderTargetConfig->colorAttachmentCount = RenderTarget::eColorAttachment_2;
 	
@@ -57,15 +57,15 @@ qRender::Prepass::Prepass(Config *_config)
 	renderTarget = new RenderTarget(renderTargetConfig);
 }
 	
-void qRender::Prepass::Init(Globals *globals)
+void qRender::Prepass::Init(Globals* globals)
 {
 }
 
-void qRender::Prepass::Update(Globals *globals)
+void qRender::Prepass::Update(Globals* globals)
 {
 }
 
-void qRender::Prepass::Encode(const Globals *globals) const
+void qRender::Prepass::Encode(const Globals* globals) const
 {
 	qMetal::Device::PushDebugGroup(@"Prepass");
 	

@@ -22,7 +22,7 @@ SOFTWARE.
 
 #include "qRenderAtmosphere.h"
 
-qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config *_config)
+qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config* _config)
 : config(_config)
 , renderAsCompute(true)
 {
@@ -35,11 +35,11 @@ qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config *_config)
 	
 	//COMPUTE
 	
-	ComputeTexture::Config *atmosphereAccumulateTextureConfig = new ComputeTexture::Config(@"Atmosphere Accumulate as Compute", config->width / config->scale, config->height / config->scale, Texture::ePixelFormat_RGBA16f);
+	ComputeTexture::Config* atmosphereAccumulateTextureConfig = new ComputeTexture::Config(@"Atmosphere Accumulate as Compute", config->width / config->scale, config->height / config->scale, Texture::ePixelFormat_RGBA16f);
 	accumulateTexture[0] = new ComputeTexture(atmosphereAccumulateTextureConfig);
 	accumulateTexture[1] = new ComputeTexture(atmosphereAccumulateTextureConfig);
 	
-	AccumulateComputeMaterial::Config *accumulateComputeMaterialConfig 											= new AccumulateComputeMaterial::Config(@"Atmosphere Accumulate Compute Material");
+	AccumulateComputeMaterial::Config* accumulateComputeMaterialConfig 											= new AccumulateComputeMaterial::Config(@"Atmosphere Accumulate Compute Material");
 	accumulateComputeMaterialConfig->computeFunction  															= new Function(@"AtmosphereAccumulateKernel");
 	accumulateComputeMaterialConfig->computeParamsIndex 														= AtmosphereAccumulateComputeStream_Params;
 	accumulateComputeMaterialConfig->computeTextures[AtmosphereAccumulateComputeStream_WorldPosTexture]			= config->prepass->GetWorldPosTexture();
@@ -48,13 +48,13 @@ qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config *_config)
 	accumulateComputeMaterialConfig->computeTextures[AtmosphereAccumulateComputeStream_AtmosphereTexture]		= accumulateTexture[0];
 	accumulateComputeMaterial 																					= new AccumulateComputeMaterial(accumulateComputeMaterialConfig);
 	
-	BlurComputeMaterial::Config *blurMaterialConfig0 															= new BlurComputeMaterial::Config(@"Atmosphere Blur Material 0");
+	BlurComputeMaterial::Config* blurMaterialConfig0 															= new BlurComputeMaterial::Config(@"Atmosphere Blur Material 0");
 	blurMaterialConfig0->computeFunction  																		= new Function(@"AtmosphereBlurHKernel");
 	blurMaterialConfig0->computeTextures[AtmosphereBlurComputeStream_AtmosphereTexture]							= accumulateTexture[0];
 	blurMaterialConfig0->computeTextures[AtmosphereBlurComputeStream_AtmosphereTexture2]						= accumulateTexture[1];
 	blurMaterial[0]	 																							= new BlurComputeMaterial(blurMaterialConfig0);
 	
-	BlurComputeMaterial::Config *blurMaterialConfig1 															= new BlurComputeMaterial::Config(@"Atmosphere Blur Material 1");
+	BlurComputeMaterial::Config* blurMaterialConfig1 															= new BlurComputeMaterial::Config(@"Atmosphere Blur Material 1");
 	blurMaterialConfig1->computeFunction  																		= new Function(@"AtmosphereBlurVKernel");
 	blurMaterialConfig1->computeTextures[AtmosphereBlurComputeStream_AtmosphereTexture]							= accumulateTexture[1];
 	blurMaterialConfig1->computeTextures[AtmosphereBlurComputeStream_AtmosphereTexture2]						= accumulateTexture[0];
@@ -62,7 +62,7 @@ qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config *_config)
 	
 	//RENDER
 	
-	RenderTarget::Config *renderTargetConfig = new RenderTarget::Config(@"Atmosphere Accumulate");
+	RenderTarget::Config* renderTargetConfig = new RenderTarget::Config(@"Atmosphere Accumulate");
 	
 	renderTargetConfig->colorAttachmentCount = RenderTarget::eColorAttachment_1;
 	
@@ -76,7 +76,7 @@ qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config *_config)
 	
 	renderTarget = new RenderTarget(renderTargetConfig);
 	
-	AccumulateRenderMaterial::Config *accumulateRenderMaterialConfig = new AccumulateRenderMaterial::Config(@"Atmosphere Accumulate Render Material");
+	AccumulateRenderMaterial::Config* accumulateRenderMaterialConfig = new AccumulateRenderMaterial::Config(@"Atmosphere Accumulate Render Material");
 	accumulateRenderMaterialConfig->blendStates[RenderTarget::eColorAttachment_0] = BlendState::PredefinedState(eBlendState_Off);
 	accumulateRenderMaterialConfig->cullState = CullState::PredefinedState(eCullState_Disable);
 	accumulateRenderMaterialConfig->depthStencilState = DepthStencilState::PredefinedState(eDepthStencilState_TestDisable_WriteDisable_StencilDisable);
@@ -95,7 +95,7 @@ qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config *_config)
 	
 	//MESH
 	
-	qVector4 *vertices = new qVector4[4]
+	qVector4* vertices = new qVector4[4]
 	{
 		qVector4(-1.0f, -1.0f, 0.0f, 1.0f),
 		qVector4(-1.0f, +1.0f, 0.0f, 1.0f),
@@ -103,7 +103,7 @@ qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config *_config)
 		qVector4(+1.0f, -1.0f, 0.0f, 1.0f)
 	};
 	
-	qVector2 *uvs = new qVector2[4]
+	qVector2* uvs = new qVector2[4]
 	{
 		qVector2(0.0f, 1.0f),
 		qVector2(0.0f, 0.0f),
@@ -111,12 +111,12 @@ qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config *_config)
 		qVector2(1.0f, 1.0f)
 	};
 	
-	uint16_t *indices = new uint16_t[6]
+	uint16_t* indices = new uint16_t[6]
 	{
 		0, 1, 2, 0, 2, 3
 	};
 	
-	Mesh::Config *compositeMeshConfig = new Mesh::Config(@"Atmosphere full screen mesh");
+	Mesh::Config* compositeMeshConfig = new Mesh::Config(@"Atmosphere full screen mesh");
 	
 	compositeMeshConfig->vertexStreamCount = AtmosphereVertexStreamArgumentBuffer_Count;
 	compositeMeshConfig->vertexStreamIndex = AtmosphereVertexStream_StreamArgumentBuffer;
@@ -135,19 +135,19 @@ qRender::Atmosphere::Atmosphere(qRender::Atmosphere::Config *_config)
 	fullScreenMesh = new Mesh(compositeMeshConfig);
 }
 
-void qRender::Atmosphere::Init(Globals *globals)
+void qRender::Atmosphere::Init(Globals* globals)
 {
 }
 
-void qRender::Atmosphere::Update(Globals *globals)
+void qRender::Atmosphere::Update(Globals* globals)
 {
 }
 
-void qRender::Atmosphere::Encode(const Globals *globals) const
+void qRender::Atmosphere::Encode(const Globals* globals) const
 {
 	qMetal::Device::PushDebugGroup(@"Atmosphere");
 	
-	AtmosphereAccumulateComputeParams *params = renderAsCompute ? accumulateComputeMaterial->CurrentFrameComputeParams() : accumulateRenderMaterial->CurrentFrameFragmentParams();
+	AtmosphereAccumulateComputeParams* params = renderAsCompute ? accumulateComputeMaterial->CurrentFrameComputeParams() : accumulateRenderMaterial->CurrentFrameFragmentParams();
 	
 	params->width = (float)(config->width / config->scale);
 	params->height = (float)(config->height /  config->scale);
