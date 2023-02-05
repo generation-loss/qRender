@@ -32,13 +32,14 @@ namespace qRender {
 	class Cluster : public Subsystem
 	{
 	public:
-		
-		typedef struct Config
+	
+		struct Config
 		{
 			Config()
 			: vertexStreamCount(1)
 			, maxVertices(1000)
 			, maxIndices(2000)
+			, maxMeshes(1)
 			{
 			}
 			
@@ -46,10 +47,13 @@ namespace qRender {
 			qMetal::Mesh::eVertexStreamType vertexStreamTypes[qMetal::Mesh::VertexStreamLimit];
 			NSUInteger maxVertices;
 			NSUInteger maxIndices;
+			NSUInteger maxMeshes;
 			
-		} Config;
+		};
 		
 		Cluster(Config* _config);
+		
+		void Finalize();
 		
 		void Init(Globals* globals);
 		
@@ -60,10 +64,31 @@ namespace qRender {
 		void AddClusterableMesh(Mesh::Config* meshConfig, NSUInteger clusterCount);
 		
 	private:
+	
+		struct ClusterableMesh
+		{
+			NSUInteger vertexCount;
+			NSUInteger indexCount;
+			NSUInteger vertexOffset;
+			NSUInteger indexOffset;
+			NSUInteger clusterCount;
+		};
+	
 		Config* config;
+		
+		bool finalized;
+		
+		uint8_t* vertexBuffersRaw[qMetal::Mesh::VertexStreamLimit];
+		uint32_t* indexBufferRaw;
+		
+		ClusterableMesh *clusterableMeshes;
 		
 		id<MTLBuffer> vertexBuffers[qMetal::Mesh::VertexStreamLimit];
 		id<MTLBuffer> indexBuffer;
+		
+		NSUInteger currentClusterableMesh;
+		NSUInteger currentVertexOffset;
+		NSUInteger currentIndexOffset;
 	};
 }
 

@@ -24,18 +24,68 @@ SOFTWARE.
 	
 qRender::Cluster::Cluster(Config* _config)
 : config(_config)
+, currentClusterableMesh(0)
+, currentVertexOffset(0)
+, currentIndexOffset(0)
+, finalized(false)
 {
 	qASSERT(config->vertexStreamCount < qMetal::Mesh::VertexStreamLimit);
+
 	
 	for(NSUInteger i = 0; i < config->vertexStreamCount; ++i)
 	{
-		vertexBuffers[i] = [qMetal::Device::Get() newBufferWithLength:((NSUInteger)config->vertexStreamTypes[i] * config->maxVertices) options:MTLResourceStorageModePrivate];
-		vertexBuffers[i].label = [NSString stringWithFormat:@"Cluster vertex buffer %ul", (unsigned long)i];
+		vertexBuffersRaw[i] = new uint8_t[(NSUInteger)config->vertexStreamTypes[i] * config->maxVertices];
 	}
+	
+	indexBufferRaw = new uint32_t[config->maxIndices];
+	
+	clusterableMeshes = new ClusterableMesh[config->maxMeshes];
 }
 
-void qRender::Cluster::AddClusterableMesh(Mesh::Config* config, NSUInteger clusterCount)
+void qRender::Cluster::AddClusterableMesh(Mesh::Config* meshConfig, NSUInteger clusterCount)
 {
+	qASSERT(!finalized);
+	qASSERTM(meshConfig->vertexStreamCount == config->vertexStreamCount, "Vertex stream mismatch between cluster and mesh");
+	qASSERTM(meshConfig->indices16 == NULL, "Clusters only support 32-bit indices");
+	qASSERTM(meshConfig->indices32 != NULL, "Clusters only support 32-bit indices");
+	qASSERTM(currentIndexOffset + meshConfig->indexCount < config->maxIndices, "Index overflow in cluster. Need %lu, but only %lu left", meshConfig->indexCount, config->maxIndices - currentIndexOffset);
+	qASSERTM(currentVertexOffset + meshConfig->vertexCount < config->maxVertices, "Vertex overflow in cluster. Need %lu, but only %lu left", meshConfig->vertexCount, config->maxVertices - currentVertexOffset);
+	
+	for(NSUInteger i = 0; i < meshConfig->indexCount; ++i)
+	{
+		indexBufferRaw[currentIndexOffset + i] = meshConfig->indices32[i];
+	}
+	
+	for(NSUInteger i = 0; i < config->vertexStreamCount; ++i)
+	{
+		qASSERTM(meshConfig->vertexStreams[i].type == config->vertexStreamTypes[i], "Vertex stream type mismatch between cluster and mesh at stream %lu", i);
+		memcpy(vertexBuffersRaw[i] + ((NSUInteger)config->vertexStreamTypes[i] * currentVertexOffset), meshConfig->vertexStreams[i].data, (NSUInteger)config->vertexStreamTypes[i] * meshConfig->vertexCount);
+	}
+	
+	clusterableMeshes[currentClusterableMesh].vertexCount = meshConfig->vertexCount;
+	clusterableMeshes[currentClusterableMesh].indexCount = meshConfig->indexCount;
+	clusterableMeshes[currentClusterableMesh].vertexOffset = currentVertexOffset;
+	clusterableMeshes[currentClusterableMesh].indexOffset = currentIndexOffset;
+	clusterableMeshes[currentClusterableMesh].clusterCount = clusterCount;
+	
+	currentIndexOffset += meshConfig->indexCount;
+	currentClusterableMesh += 1;
+}
+
+void qRender::Cluster::Finalize()
+{
+	qASSERT(!finalized);
+	
+	for(NSUInteger i = 0; i < config->vertexStreamCount; ++i)
+	{
+		vertexBuffers[i] = [qMetal::Device::Get() newBufferWithBytesNoCopy:vertexBuffers[i] length:((NSUInteger)config->vertexStreamTypes[i] * config->maxVertices) options:MTLResourceStorageModePrivate deallocator:nil];
+		vertexBuffers[i].label = [NSString stringWithFormat:@"Cluster vertex buffer %lu", i];
+	}
+	
+	indexBuffer = [qMetal::Device::Get() newBufferWithBytesNoCopy:indexBufferRaw length:(sizeof(uint32_t) * config->maxIndices) options:MTLResourceStorageModePrivate deallocator:nil];
+	indexBuffer.label = @"Cluster index buffer";
+	
+	finalized = true;
 }
 
 void qRender::Cluster::Init(Globals* globals)
