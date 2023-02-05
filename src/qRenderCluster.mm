@@ -30,11 +30,10 @@ qRender::Cluster::Cluster(Config* _config)
 , finalized(false)
 {
 	qASSERT(config->vertexStreamCount < qMetal::Mesh::VertexStreamLimit);
-
 	
 	for(NSUInteger i = 0; i < config->vertexStreamCount; ++i)
 	{
-		vertexBuffersRaw[i] = new uint8_t[(NSUInteger)config->vertexStreamTypes[i] * config->maxVertices];
+		vertexBuffersRaw[i] = new (std::align_val_t(4096)) uint8_t[(NSUInteger)config->vertexStreamTypes[i] * config->maxVertices];
 	}
 	
 	indexBufferRaw = new uint32_t[config->maxIndices];
@@ -78,11 +77,13 @@ void qRender::Cluster::Finalize()
 	
 	for(NSUInteger i = 0; i < config->vertexStreamCount; ++i)
 	{
-		vertexBuffers[i] = [qMetal::Device::Get() newBufferWithBytesNoCopy:vertexBuffers[i] length:((NSUInteger)config->vertexStreamTypes[i] * config->maxVertices) options:MTLResourceStorageModePrivate deallocator:nil];
+		NSUInteger length = (((NSUInteger)config->vertexStreamTypes[i] * config->maxVertices) / 4096 + 1) * 4096; //4K aligned
+		vertexBuffers[i] = [qMetal::Device::Get() newBufferWithBytesNoCopy:vertexBuffersRaw[i] length:length options:0 deallocator:nil]; //TODO blit to MTLResourceStorageModePrivate
 		vertexBuffers[i].label = [NSString stringWithFormat:@"Cluster vertex buffer %lu", i];
 	}
 	
-	indexBuffer = [qMetal::Device::Get() newBufferWithBytesNoCopy:indexBufferRaw length:(sizeof(uint32_t) * config->maxIndices) options:MTLResourceStorageModePrivate deallocator:nil];
+	NSUInteger length = ((sizeof(uint32_t) * config->maxIndices) / 4096 + 1) * 4096; //4K aligned
+	indexBuffer = [qMetal::Device::Get() newBufferWithBytesNoCopy:indexBufferRaw length:length options:0 deallocator:nil]; //TODO blit to MTLResourceStorageModePrivate
 	indexBuffer.label = @"Cluster index buffer";
 	
 	finalized = true;
