@@ -465,7 +465,7 @@ void qRender::DebugMenu::BoolItem::HandleTap(CGPoint location, bool fromDrag)
 void qRender::DebugMenu::BoolItem::UpdateTexture()
 {
 	char labelWithValue[LABEL_LENGTH];
-	sprintf(labelWithValue, "%s %s", label, value ? "Yes" : "No");
+	snprintf(labelWithValue, LABEL_LENGTH, "%s %s", label, value ? "Yes" : "No");
 	FillWithString(texture, [NSString stringWithUTF8String:labelWithValue]);
 	fragmentParams.progress = value ? 1.0f : 0.0f;
 }
@@ -500,7 +500,7 @@ template<>
 void qRender::DebugMenu::ValueItem<NSUInteger>::UpdateTexture()
 {
 	char labelWithValue[LABEL_LENGTH];
-	sprintf(labelWithValue, "%s %lu", label, value);
+	snprintf(labelWithValue, LABEL_LENGTH, "%s %lu", label, value);
 	FillWithString(texture, [NSString stringWithUTF8String:labelWithValue]);
 	fragmentParams.progress = float(value - minimum) / float(maximum - minimum);
 }
@@ -509,7 +509,7 @@ template<>
 void qRender::DebugMenu::ValueItem<uint32_t>::UpdateTexture()
 {
 	char labelWithValue[LABEL_LENGTH];
-	sprintf(labelWithValue, "%s %u", label, value);
+	snprintf(labelWithValue, LABEL_LENGTH, "%s %u", label, value);
 	FillWithString(texture, [NSString stringWithUTF8String:labelWithValue]);
 	fragmentParams.progress = float(value - minimum) / float(maximum - minimum);
 }
@@ -518,7 +518,7 @@ template<>
 void qRender::DebugMenu::ValueItem<int32_t>::UpdateTexture()
 {
 	char labelWithValue[LABEL_LENGTH];
-	sprintf(labelWithValue, "%s %i", label, value);
+	snprintf(labelWithValue, LABEL_LENGTH, "%s %i", label, value);
 	FillWithString(texture, [NSString stringWithUTF8String:labelWithValue]);
 	fragmentParams.progress = float(value - minimum) / float(maximum - minimum);
 }
@@ -527,7 +527,7 @@ template<>
 void qRender::DebugMenu::ValueItem<half>::UpdateTexture()
 {
 	char labelWithValue[LABEL_LENGTH];
-	sprintf(labelWithValue, "%s %0.4f", label, value);
+	snprintf(labelWithValue, LABEL_LENGTH, "%s %0.4f", label, (float)value);
 	FillWithString(texture, [NSString stringWithUTF8String:labelWithValue]);
 	fragmentParams.progress = float(value - minimum) / float(maximum - minimum);
 }
@@ -536,7 +536,7 @@ template<>
 void qRender::DebugMenu::ValueItem<float>::UpdateTexture()
 {
 	char labelWithValue[LABEL_LENGTH];
-	sprintf(labelWithValue, "%s %0.4f", label, value);
+	snprintf(labelWithValue, LABEL_LENGTH, "%s %0.4f", label, value);
 	FillWithString(texture, [NSString stringWithUTF8String:labelWithValue]);
 	fragmentParams.progress = float(value - minimum) / float(maximum - minimum);
 }
@@ -554,7 +554,7 @@ qRender::DebugMenu::EnumItem::EnumItem(const char* _label, unsigned long _itemNu
 void qRender::DebugMenu::EnumItem::UpdateTexture()
 {
 	char labelWithValue[LABEL_LENGTH];
-	sprintf(labelWithValue, "%s %s", label, names[value]);
+	snprintf(labelWithValue, LABEL_LENGTH, "%s %s", label, names[value]);
 	FillWithString(texture, [NSString stringWithUTF8String:labelWithValue]);
 	fragmentParams.progress = float(value - minimum) / float(maximum - minimum);
 }

@@ -69,7 +69,7 @@ namespace qRender
 					cascadeSize[i] = cascadeSize[i - 1] * 4.0f;
 					update[i] = eUpdate_EveryFrame;
 					char label[64];
-					sprintf(label, "Cascade %i size", i);
+					snprintf(label, 64, "Cascade %i size", i);
 					DebugMenu::Instance()->Value("Lighting", "Shadows", label, cascadeSize[i], 1.0f, 1.0f, 512.0f * i * i * i);
 				}
 				
