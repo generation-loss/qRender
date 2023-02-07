@@ -63,6 +63,9 @@
 		5E4A274C27FBF59C00F6B6CB /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4A266227F80EA500F6B6CB /* AppKit.framework */; };
 		5E4E3BD6298962DD004BDFC7 /* qRenderCluster.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E4E3BD3298962DD004BDFC7 /* qRenderCluster.h */; };
 		5E4E3BD8298962EB004BDFC7 /* qRenderCluster.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E3BD7298962EB004BDFC7 /* qRenderCluster.mm */; };
+		5E4E3BDB2990681C004BDFC7 /* ClusterParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E4E3BDA2990681C004BDFC7 /* ClusterParams.h */; };
+		5E4E3BDD29906C2D004BDFC7 /* Cluster.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E3BDC29906C2C004BDFC7 /* Cluster.metal */; };
+		5E4E3BDE29906C2D004BDFC7 /* Cluster.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E3BDC29906C2C004BDFC7 /* Cluster.metal */; };
 		5E5817E027CDDABD0094D397 /* qRenderReflectionProbe.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */; };
 		5E6D3F4927CF34F500244B48 /* Globals.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D3F4727CF346600244B48 /* Globals.metal */; };
 		5E7055EF27CF3638000BF523 /* Util.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5E7055EE27CF35F1000BF523 /* Util.metal */; };
@@ -182,6 +185,8 @@
 		5E4A270027FBF52300F6B6CB /* libqRender-macos-static.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libqRender-macos-static.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E4E3BD3298962DD004BDFC7 /* qRenderCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = qRenderCluster.h; path = include/qRenderCluster.h; sourceTree = SOURCE_ROOT; };
 		5E4E3BD7298962EB004BDFC7 /* qRenderCluster.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderCluster.mm; path = src/qRenderCluster.mm; sourceTree = SOURCE_ROOT; };
+		5E4E3BDA2990681C004BDFC7 /* ClusterParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClusterParams.h; path = include/Shaders/ClusterParams.h; sourceTree = SOURCE_ROOT; };
+		5E4E3BDC29906C2C004BDFC7 /* Cluster.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = Cluster.metal; path = include/Shaders/Cluster.metal; sourceTree = SOURCE_ROOT; };
 		5E5817DB27CDD9290094D397 /* qRenderReflectionProbe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = qRenderReflectionProbe.h; path = include/qRenderReflectionProbe.h; sourceTree = SOURCE_ROOT; };
 		5E5817DF27CDD9300094D397 /* qRenderReflectionProbe.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = qRenderReflectionProbe.mm; path = src/qRenderReflectionProbe.mm; sourceTree = SOURCE_ROOT; };
 		5E5817E127CDDC120094D397 /* ShadingGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShadingGlobals.h; path = include/Shaders/ShadingGlobals.h; sourceTree = SOURCE_ROOT; };
@@ -266,6 +271,8 @@
 				5E9529F827EADD3C00007DA1 /* AtmosphereGlobals.h */,
 				5E9529E927EADAA700007DA1 /* AtmosphereParams.h */,
 				5E920A6F27B0EA550064302F /* CameraGlobals.h */,
+				5E4E3BDA2990681C004BDFC7 /* ClusterParams.h */,
+				5E4E3BDC29906C2C004BDFC7 /* Cluster.metal */,
 				5E920A7327B0EAF50064302F /* DebugMenu.metal */,
 				5E920A7227B0EAF50064302F /* DebugMenuParams.h */,
 				5E6D3F4827CF346600244B48 /* Globals.h */,
@@ -396,6 +403,7 @@
 				5E4A271727FBF54900F6B6CB /* ShadingGlobals.h in Headers */,
 				5E4A271827FBF54900F6B6CB /* ShadowMap.h in Headers */,
 				5E4A271927FBF54900F6B6CB /* ShadowMapGlobals.h in Headers */,
+				5E4E3BDB2990681C004BDFC7 /* ClusterParams.h in Headers */,
 				5E4A271A27FBF54900F6B6CB /* SSAO.h in Headers */,
 				5E4A271B27FBF54900F6B6CB /* SSAOParams.h in Headers */,
 				5E4A271C27FBF54900F6B6CB /* TimeGlobals.h in Headers */,
@@ -568,6 +576,7 @@
 				5E4A273927FBF55E00F6B6CB /* qRenderNoise.mm in Sources */,
 				5E4A273A27FBF55E00F6B6CB /* qRenderPrepass.mm in Sources */,
 				5E4A273B27FBF55E00F6B6CB /* qRenderReflectionProbe.mm in Sources */,
+				5E4E3BDE29906C2D004BDFC7 /* Cluster.metal in Sources */,
 				5E4A273C27FBF55E00F6B6CB /* qRenderShadowMap.mm in Sources */,
 				5E4A273D27FBF55E00F6B6CB /* qRenderSubsystems.mm in Sources */,
 				5E4A273E27FBF55E00F6B6CB /* qRenderSSAO.mm in Sources */,
@@ -581,6 +590,7 @@
 				5E22867E27D080290064B8F6 /* SSAOGenerate.metal in Sources */,
 				5EC6CC9327B0E92E00E0822D /* qRenderCamera.mm in Sources */,
 				5E920A7727B38C320064302F /* qRenderDebugMenu.mm in Sources */,
+				5E4E3BDD29906C2D004BDFC7 /* Cluster.metal in Sources */,
 				5E1EE18C27CC32340017375F /* qRenderHeightMap.mm in Sources */,
 				5E7055F827D07733000BF523 /* qRenderPrepass.mm in Sources */,
 				5E9529F027EADAB600007DA1 /* qRenderAtmosphere.mm in Sources */,

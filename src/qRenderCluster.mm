@@ -24,7 +24,7 @@ SOFTWARE.
 	
 qRender::Cluster::Cluster(Config* _config)
 : config(_config)
-, currentClusterableMesh(0)
+, clusterableMeshCount(0)
 , currentVertexOffset(0)
 , currentIndexOffset(0)
 , finalized(false)
@@ -39,6 +39,13 @@ qRender::Cluster::Cluster(Config* _config)
 	indexBufferRaw = new uint32_t[config->maxIndices];
 	
 	clusterableMeshes = new ClusterableMesh[config->maxMeshes];
+	
+	ClusterInitMaterial::Config* initMaterialConfig = new ClusterInitMaterial::Config(@"Cluster Init Material");
+	initMaterialConfig->computeFunction = new Function(@"ClusterComputeInitShader");
+	initMaterialConfig->computeParamsIndex = ClusterComputeInitStream_Params;
+	initMaterialConfig->computeStreamsIndex = ClusterComputeInitStream_Streams;
+	initMaterialConfig->computeStreams[ClusterComputeInitStreamArgumentBuffer_Position] = vertexBuffers[0];
+	initMaterial = new ClusterInitMaterial(initMaterialConfig);
 }
 
 void qRender::Cluster::AddClusterableMesh(Mesh::Config* meshConfig, NSUInteger clusterCount)
@@ -61,14 +68,14 @@ void qRender::Cluster::AddClusterableMesh(Mesh::Config* meshConfig, NSUInteger c
 		memcpy(vertexBuffersRaw[i] + ((NSUInteger)config->vertexStreamTypes[i] * currentVertexOffset), meshConfig->vertexStreams[i].data, (NSUInteger)config->vertexStreamTypes[i] * meshConfig->vertexCount);
 	}
 	
-	clusterableMeshes[currentClusterableMesh].vertexCount = meshConfig->vertexCount;
-	clusterableMeshes[currentClusterableMesh].indexCount = meshConfig->indexCount;
-	clusterableMeshes[currentClusterableMesh].vertexOffset = currentVertexOffset;
-	clusterableMeshes[currentClusterableMesh].indexOffset = currentIndexOffset;
-	clusterableMeshes[currentClusterableMesh].clusterCount = clusterCount;
+	clusterableMeshes[clusterableMeshCount].vertexCount = meshConfig->vertexCount;
+	clusterableMeshes[clusterableMeshCount].indexCount = meshConfig->indexCount;
+	clusterableMeshes[clusterableMeshCount].vertexOffset = currentVertexOffset;
+	clusterableMeshes[clusterableMeshCount].indexOffset = currentIndexOffset;
+	clusterableMeshes[clusterableMeshCount].clusterCount = clusterCount;
 	
 	currentIndexOffset += meshConfig->indexCount;
-	currentClusterableMesh += 1;
+	clusterableMeshCount += 1;
 }
 
 void qRender::Cluster::Finalize()
@@ -91,6 +98,16 @@ void qRender::Cluster::Finalize()
 
 void qRender::Cluster::Init(Globals* globals)
 {
+	for(NSUInteger i = 0; i < clusterableMeshCount; ++i)
+	{
+		ClusterComputeInitParams* initParams = initMaterial->CurrentFrameComputeParams();
+		
+		memcpy(&initParams->clusterableMesh, &clusterableMeshes[i], sizeof(ClusterableMesh));
+		
+		initMaterial->EncodeCompute(clusterableMeshes[i].clusterCount, 1, 1);
+	}
+	
+	
 }
 
 void qRender::Cluster::Update(Globals* globals)

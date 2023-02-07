@@ -25,6 +25,7 @@ SOFTWARE.
 
 #include "qMetal.h"
 #include "qRenderSubsystem.h"
+#include "Shaders/ClusterParams.h"
 
 using namespace qMetal;
 
@@ -65,15 +66,6 @@ namespace qRender {
 		
 	private:
 	
-		struct ClusterableMesh
-		{
-			NSUInteger vertexCount;
-			NSUInteger indexCount;
-			NSUInteger vertexOffset;
-			NSUInteger indexOffset;
-			NSUInteger clusterCount;
-		};
-	
 		Config* config;
 		
 		bool finalized;
@@ -86,9 +78,14 @@ namespace qRender {
 		id<MTLBuffer> vertexBuffers[qMetal::Mesh::VertexStreamLimit];
 		id<MTLBuffer> indexBuffer;
 		
-		NSUInteger currentClusterableMesh;
+		NSUInteger clusterableMeshCount;
 		NSUInteger currentVertexOffset;
 		NSUInteger currentIndexOffset;
+		
+		typedef Material<EmptyParams, EmptyParams, ClusterComputeInitParams> ClusterInitMaterial;
+		
+		ClusterInitMaterial 		*initMaterial;
+		
 	};
 }
 
